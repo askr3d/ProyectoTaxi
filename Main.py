@@ -7,8 +7,7 @@ window = MainWindow()
 window.show()
 sys.exit(app.exec_())
 
-
-
+# Hola mundo!
 
 """
 create table conductores(id serial, codigo varchar[6], 
