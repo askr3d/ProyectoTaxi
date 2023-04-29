@@ -18,7 +18,7 @@ class MainWindow(QMainWindow):
             self.conexion = psycopg2.connect(
                 host = 'localhost',
                 user = 'postgres',
-                password = 'asd',
+                password = 'password',
                 database = 'practicaPython'
             )
         except:
