@@ -19,12 +19,19 @@ CREATE TABLE Conductores(
 	primary key(Id)
 );
 
+CREATE TABLE Pagos(
+	ConductorId int references Conductores(Id),
+	FechaPago date,
+	CostoTotal numeric(8, 2),
+	primary key(ConductorId, FechaPago)
+);
+
 CREATE TABLE Autos(
 	ConductorId int references Conductores(Id),
 	Modelo varchar(15),
 	Anio char(5),
 	Placas varchar(15),
-	primary key(ConductorId)
+	primary key(ConductorId, Placas)
 );
 
 CREATE TABLE Partidas(
@@ -41,10 +48,9 @@ CREATE TABLE Empresas(
 	primary key(Id)
 );
 
-CREATE TABLE Rutas(
+CREATE TABLE TipoKilometro(
 	Id serial,
-	Nombre varchar(40),
-	EmpresaId int references Empresas(Id),
+	Nombre varchar(35),
 	primary key(Id)
 );
 
@@ -58,8 +64,21 @@ CREATE TABLE Viajes(
 	Costo numeric(8, 2),
 	ConductorId int references Conductores(Id),
 	PartidaId int references Partidas(Id),
-	RutaId int references Rutas(Id),
+	EmpresaId int references Empresas(Id),
+	TipoKilometroId int references TipoKilometro(Id),
 	primary key(Id)
+);
+
+CREATE TABLE TipoDesvio(
+	Id serial,
+	Nombre varchar(35),
+	primary key(Id)
+);
+
+CREATE TABLE Desvios(
+	ViajeId int references Viajes(Id),
+	TipoDesvioId int references TipoDesvio(Id),
+	primary key(ViajeId)
 );
 
 CREATE TABLE Pasajeros(
