@@ -41,8 +41,9 @@ class MainWindow(QMainWindow):
         # Acceder a las paginas
         self.ui.btn_inicio.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_inicio)])
         self.ui.btn_viajes.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_viaje), self.mostrar_viajes()])
-        self.ui.btn_conductor.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_conductor))
         self.ui.btn_historico.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_historico), self.mostrar_historico_viajes()])
+        self.ui.btn_conductor.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_conductor))
+        self.ui.btn_pagos.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_pagos))
         self.ui.btn_factura.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_factura))
         self.ui.btn_ajustes.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_ajustes))
         
@@ -67,6 +68,8 @@ class MainWindow(QMainWindow):
         # Conductor
         self.ui.btn_guardar_conductor.clicked.connect(self.guardar_conductor)
         self.ui.btn_buscar_conductor.clicked.connect(self.buscar_conductor)
+        # Pagos
+        self.ui.btn_buscar_conductor_pagos.clicked.connect(self.buscar_conductor_pagos)
         # Historico
         self.ui.btn_buscar_historico.clicked.connect(self.buscar_historico)
         # Factura
@@ -79,6 +82,7 @@ class MainWindow(QMainWindow):
         self.ui.tabla_viajes.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.ui.tabla_conductores.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.ui.tabla_historico.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
+        self.ui.tabla_pagos.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
     # Funciones interfaz
     # -----------------------------------------------------------------------------------
     def salir(self):
@@ -249,6 +253,8 @@ class MainWindow(QMainWindow):
     def guardar_conductor(self):
         pass
     def buscar_conductor(self):
+        pass
+    def buscar_conductor_pagos(self):
         pass
     def buscar_historico(self):
         pass
