@@ -12,6 +12,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.actualizar_fecha()
         self.costo_kilometro = 0
+        self.btn_act = QPushButton("Botón", self)
+        
         # self.funcion() ------------------------- BORRAR
         # Objeto conexion con la base de datos
         try:
@@ -65,6 +67,8 @@ class MainWindow(QMainWindow):
         # Viaje
         self.ui.btn_guardar_viaje.clicked.connect(self.guardar_viaje)
         self.ui.btn_buscar_viaje.clicked.connect(self.buscar_viaje)
+        self.btn_act.clicked.connect(self.copiar_viaje)
+        
         # Conductor
         self.ui.btn_guardar_conductor.clicked.connect(self.guardar_conductor)
         self.ui.btn_buscar_conductor.clicked.connect(self.buscar_conductor)
@@ -214,6 +218,8 @@ class MainWindow(QMainWindow):
         self.ui.tabla_viajes.setRowCount(i)
         tablerow = 0
         for row in viajes:
+            self.btn_act.setProperty("row", row[0])
+            
             self.ui.tabla_viajes.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
             self.ui.tabla_viajes.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
             self.ui.tabla_viajes.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
@@ -225,8 +231,22 @@ class MainWindow(QMainWindow):
             self.ui.tabla_viajes.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))
             self.ui.tabla_viajes.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(str(row[9])))
             self.ui.tabla_viajes.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+            # self.ui.tabla_historico.setCellWidget(tablerow, 11, btn_act)
+            self.ui.tabla_viajes.setCellWidget(tablerow, 11, self.btn_act)
+            # self.ui.tabla_historico.setCellWidget(tablerow, 12, btn_act)
+            
             tablerow += 1
-    
+    def copiar_viaje(self):
+        # self.btn_act.property("row")
+        pass
+    """
+    str(self.ui.ledt_viajes_empresa.text()), str(self.ui.ledt_viajes_matricula.text()), str(self.ui.ledt_viajes_tipo.text()), 
+            str(self.ui.ledt_viajes_contacto.text()), str(self.ui.ledt_viajes_municipio.text()), str(self.ui.ledt_viajes_colonia.text()), 
+            str(self.ui.ledt_viajes_calle.text()), str(self.ui.ledt_viajes_cel.text())))
+            
+    """
+        
+        
     def mostrar_historico_viajes(self):
         cursor = self.conexion.cursor()
         cursor.execute("SELECT * FROM viajes")
@@ -234,6 +254,8 @@ class MainWindow(QMainWindow):
         i = len(viajes)
         self.ui.tabla_historico.setRowCount(i)
         tablerow = 0
+        
+            
         for row in viajes:
             self.ui.tabla_historico.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
             self.ui.tabla_historico.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
@@ -246,6 +268,7 @@ class MainWindow(QMainWindow):
             self.ui.tabla_historico.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))
             self.ui.tabla_historico.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(str(row[9])))
             self.ui.tabla_historico.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(str(row[10])))
+            
             tablerow += 1
             
     def buscar_viaje(self):

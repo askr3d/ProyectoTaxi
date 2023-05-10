@@ -786,62 +786,69 @@ class Ui_MainWindow(object):
         self.frame_35.setMaximumSize(QSize(301, 141))
         self.frame_35.setFrameShape(QFrame.StyledPanel)
         self.frame_35.setFrameShadow(QFrame.Raised)
-        self.gridLayout_28 = QGridLayout(self.frame_35)
-        self.gridLayout_28.setObjectName(u"gridLayout_28")
+        self.gridLayout_24 = QGridLayout(self.frame_35)
+        self.gridLayout_24.setObjectName(u"gridLayout_24")
         self.label_76 = QLabel(self.frame_35)
         self.label_76.setObjectName(u"label_76")
         self.label_76.setFont(font3)
 
-        self.gridLayout_28.addWidget(self.label_76, 0, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_76, 0, 0, 1, 1)
 
         self.ledt_viajes_folio = QLineEdit(self.frame_35)
         self.ledt_viajes_folio.setObjectName(u"ledt_viajes_folio")
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_folio, 0, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.ledt_viajes_folio, 0, 1, 1, 1)
 
         self.label_77 = QLabel(self.frame_35)
         self.label_77.setObjectName(u"label_77")
         self.label_77.setFont(font3)
 
-        self.gridLayout_28.addWidget(self.label_77, 1, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_77, 1, 0, 1, 1)
 
         self.ledt_viajes_conductor = QLineEdit(self.frame_35)
         self.ledt_viajes_conductor.setObjectName(u"ledt_viajes_conductor")
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_conductor, 1, 1, 1, 1)
-
-        self.label_78 = QLabel(self.frame_35)
-        self.label_78.setObjectName(u"label_78")
-        self.label_78.setFont(font3)
-
-        self.gridLayout_28.addWidget(self.label_78, 2, 0, 1, 1)
-
-        self.ledt_viajes_empresa = QLineEdit(self.frame_35)
-        self.ledt_viajes_empresa.setObjectName(u"ledt_viajes_empresa")
-
-        self.gridLayout_28.addWidget(self.ledt_viajes_empresa, 2, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.ledt_viajes_conductor, 1, 1, 1, 1)
 
         self.label_79 = QLabel(self.frame_35)
         self.label_79.setObjectName(u"label_79")
         self.label_79.setFont(font3)
 
-        self.gridLayout_28.addWidget(self.label_79, 3, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_79, 2, 0, 1, 1)
 
-        self.ledt_viajes_matricula = QLineEdit(self.frame_35)
-        self.ledt_viajes_matricula.setObjectName(u"ledt_viajes_matricula")
+        self.timeEdit_hora_inicio = QTimeEdit(self.frame_35)
+        self.timeEdit_hora_inicio.setObjectName(u"timeEdit_hora_inicio")
+        self.timeEdit_hora_inicio.setAlignment(Qt.AlignCenter)
+        self.timeEdit_hora_inicio.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.timeEdit_hora_inicio.setCalendarPopup(False)
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_matricula, 3, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.timeEdit_hora_inicio, 2, 1, 1, 1)
 
         self.label_80 = QLabel(self.frame_35)
         self.label_80.setObjectName(u"label_80")
         self.label_80.setFont(font3)
 
-        self.gridLayout_28.addWidget(self.label_80, 4, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_80, 3, 0, 1, 1)
 
-        self.ledt_viajes_tipo = QLineEdit(self.frame_35)
-        self.ledt_viajes_tipo.setObjectName(u"ledt_viajes_tipo")
+        self.timeEdit_hora_fin = QTimeEdit(self.frame_35)
+        self.timeEdit_hora_fin.setObjectName(u"timeEdit_hora_fin")
+        self.timeEdit_hora_fin.setAlignment(Qt.AlignCenter)
+        self.timeEdit_hora_fin.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.timeEdit_hora_fin.setCalendarPopup(False)
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_tipo, 4, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.timeEdit_hora_fin, 3, 1, 1, 1)
+
+        self.label_78 = QLabel(self.frame_35)
+        self.label_78.setObjectName(u"label_78")
+        self.label_78.setFont(font3)
+
+        self.gridLayout_24.addWidget(self.label_78, 4, 0, 1, 1)
+
+        self.abx_viajes_empresa = QComboBox(self.frame_35)
+        self.abx_viajes_empresa.setObjectName(u"abx_viajes_empresa")
+        self.abx_viajes_empresa.setEditable(True)
+
+        self.gridLayout_24.addWidget(self.abx_viajes_empresa, 4, 1, 1, 1)
 
 
         self.gridLayout_27.addWidget(self.frame_35, 0, 0, 1, 1)
@@ -853,15 +860,35 @@ class Ui_MainWindow(object):
         self.frame_33.setObjectName(u"frame_33")
         self.frame_33.setFrameShape(QFrame.StyledPanel)
         self.frame_33.setFrameShadow(QFrame.Raised)
-        self.gridLayout_24 = QGridLayout(self.frame_33)
-        self.gridLayout_24.setObjectName(u"gridLayout_24")
+        self.gridLayout_20 = QGridLayout(self.frame_33)
+        self.gridLayout_20.setObjectName(u"gridLayout_20")
+        self.verticalLayout_30 = QVBoxLayout()
+        self.verticalLayout_30.setObjectName(u"verticalLayout_30")
+        self.label_86 = QLabel(self.frame_33)
+        self.label_86.setObjectName(u"label_86")
+        self.label_86.setFont(font3)
+        self.label_86.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_30.addWidget(self.label_86)
+
+        self.dateEdit_viajes = QDateEdit(self.frame_33)
+        self.dateEdit_viajes.setObjectName(u"dateEdit_viajes")
+        self.dateEdit_viajes.setAlignment(Qt.AlignCenter)
+        self.dateEdit_viajes.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.dateEdit_viajes.setCalendarPopup(True)
+
+        self.verticalLayout_30.addWidget(self.dateEdit_viajes)
+
+
+        self.gridLayout_20.addLayout(self.verticalLayout_30, 0, 0, 1, 3)
+
         self.verticalSpacer_5 = QSpacerItem(20, 100, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.gridLayout_24.addItem(self.verticalSpacer_5, 0, 1, 1, 1)
+        self.gridLayout_20.addItem(self.verticalSpacer_5, 1, 1, 1, 1)
 
         self.horizontalSpacer_32 = QSpacerItem(28, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_24.addItem(self.horizontalSpacer_32, 1, 0, 1, 1)
+        self.gridLayout_20.addItem(self.horizontalSpacer_32, 2, 0, 1, 1)
 
         self.btn_guardar_viaje = QPushButton(self.frame_33)
         self.btn_guardar_viaje.setObjectName(u"btn_guardar_viaje")
@@ -877,11 +904,11 @@ class Ui_MainWindow(object):
 "	background-color: rgb(0, 85, 120);\n"
 "}")
 
-        self.gridLayout_24.addWidget(self.btn_guardar_viaje, 1, 1, 1, 1)
+        self.gridLayout_20.addWidget(self.btn_guardar_viaje, 2, 1, 1, 1)
 
         self.horizontalSpacer_33 = QSpacerItem(28, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_24.addItem(self.horizontalSpacer_33, 1, 2, 1, 1)
+        self.gridLayout_20.addItem(self.horizontalSpacer_33, 2, 2, 1, 1)
 
 
         self.horizontalLayout_15.addWidget(self.frame_33)
@@ -898,62 +925,68 @@ class Ui_MainWindow(object):
         self.frame_37.setMaximumSize(QSize(301, 141))
         self.frame_37.setFrameShape(QFrame.StyledPanel)
         self.frame_37.setFrameShadow(QFrame.Raised)
-        self.gridLayout_30 = QGridLayout(self.frame_37)
-        self.gridLayout_30.setObjectName(u"gridLayout_30")
+        self.gridLayout_28 = QGridLayout(self.frame_37)
+        self.gridLayout_28.setObjectName(u"gridLayout_28")
         self.label_81 = QLabel(self.frame_37)
         self.label_81.setObjectName(u"label_81")
         self.label_81.setFont(font3)
 
-        self.gridLayout_30.addWidget(self.label_81, 0, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.label_81, 0, 0, 1, 1)
 
-        self.ledt_viajes_contacto = QLineEdit(self.frame_37)
-        self.ledt_viajes_contacto.setObjectName(u"ledt_viajes_contacto")
+        self.cbx_viajes_tipo_servicio = QComboBox(self.frame_37)
+        self.cbx_viajes_tipo_servicio.addItem("")
+        self.cbx_viajes_tipo_servicio.addItem("")
+        self.cbx_viajes_tipo_servicio.setObjectName(u"cbx_viajes_tipo_servicio")
 
-        self.gridLayout_30.addWidget(self.ledt_viajes_contacto, 0, 1, 1, 1)
-
-        self.label_82 = QLabel(self.frame_37)
-        self.label_82.setObjectName(u"label_82")
-        self.label_82.setFont(font3)
-
-        self.gridLayout_30.addWidget(self.label_82, 1, 0, 1, 1)
-
-        self.ledt_viajes_municipio = QLineEdit(self.frame_37)
-        self.ledt_viajes_municipio.setObjectName(u"ledt_viajes_municipio")
-
-        self.gridLayout_30.addWidget(self.ledt_viajes_municipio, 1, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.cbx_viajes_tipo_servicio, 0, 1, 1, 1)
 
         self.label_83 = QLabel(self.frame_37)
         self.label_83.setObjectName(u"label_83")
         self.label_83.setFont(font3)
 
-        self.gridLayout_30.addWidget(self.label_83, 2, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.label_83, 1, 0, 1, 1)
 
-        self.ledt_viajes_colonia = QLineEdit(self.frame_37)
-        self.ledt_viajes_colonia.setObjectName(u"ledt_viajes_colonia")
+        self.cbx_viajes_tipo_km = QComboBox(self.frame_37)
+        self.cbx_viajes_tipo_km.addItem("")
+        self.cbx_viajes_tipo_km.addItem("")
+        self.cbx_viajes_tipo_km.setObjectName(u"cbx_viajes_tipo_km")
 
-        self.gridLayout_30.addWidget(self.ledt_viajes_colonia, 2, 1, 1, 1)
-
-        self.label_84 = QLabel(self.frame_37)
-        self.label_84.setObjectName(u"label_84")
-        self.label_84.setFont(font3)
-
-        self.gridLayout_30.addWidget(self.label_84, 3, 0, 1, 1)
-
-        self.ledt_viajes_calle = QLineEdit(self.frame_37)
-        self.ledt_viajes_calle.setObjectName(u"ledt_viajes_calle")
-
-        self.gridLayout_30.addWidget(self.ledt_viajes_calle, 3, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.cbx_viajes_tipo_km, 1, 1, 1, 1)
 
         self.label_85 = QLabel(self.frame_37)
         self.label_85.setObjectName(u"label_85")
         self.label_85.setFont(font3)
 
-        self.gridLayout_30.addWidget(self.label_85, 4, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.label_85, 2, 0, 1, 1)
 
-        self.ledt_viajes_cel = QLineEdit(self.frame_37)
-        self.ledt_viajes_cel.setObjectName(u"ledt_viajes_cel")
+        self.cbx_viajes_tipo_desvio = QComboBox(self.frame_37)
+        self.cbx_viajes_tipo_desvio.addItem("")
+        self.cbx_viajes_tipo_desvio.addItem("")
+        self.cbx_viajes_tipo_desvio.setObjectName(u"cbx_viajes_tipo_desvio")
 
-        self.gridLayout_30.addWidget(self.ledt_viajes_cel, 4, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.cbx_viajes_tipo_desvio, 2, 1, 1, 1)
+
+        self.label_84 = QLabel(self.frame_37)
+        self.label_84.setObjectName(u"label_84")
+        self.label_84.setFont(font3)
+
+        self.gridLayout_28.addWidget(self.label_84, 3, 0, 1, 1)
+
+        self.ledt_viajes_calle = QLineEdit(self.frame_37)
+        self.ledt_viajes_calle.setObjectName(u"ledt_viajes_calle")
+
+        self.gridLayout_28.addWidget(self.ledt_viajes_calle, 3, 1, 1, 1)
+
+        self.label_82 = QLabel(self.frame_37)
+        self.label_82.setObjectName(u"label_82")
+        self.label_82.setFont(font3)
+
+        self.gridLayout_28.addWidget(self.label_82, 4, 0, 1, 1)
+
+        self.ledt_viajes_municipio = QLineEdit(self.frame_37)
+        self.ledt_viajes_municipio.setObjectName(u"ledt_viajes_municipio")
+
+        self.gridLayout_28.addWidget(self.ledt_viajes_municipio, 4, 1, 1, 1)
 
 
         self.gridLayout_29.addWidget(self.frame_37, 0, 0, 1, 1)
@@ -992,8 +1025,8 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QGridLayout(self.frame_6)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.tabla_viajes = QTableWidget(self.frame_6)
-        if (self.tabla_viajes.columnCount() < 13):
-            self.tabla_viajes.setColumnCount(13)
+        if (self.tabla_viajes.columnCount() < 14):
+            self.tabla_viajes.setColumnCount(14)
         __qtablewidgetitem = QTableWidgetItem()
         self.tabla_viajes.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
@@ -1020,6 +1053,8 @@ class Ui_MainWindow(object):
         self.tabla_viajes.setHorizontalHeaderItem(11, __qtablewidgetitem11)
         __qtablewidgetitem12 = QTableWidgetItem()
         self.tabla_viajes.setHorizontalHeaderItem(12, __qtablewidgetitem12)
+        __qtablewidgetitem13 = QTableWidgetItem()
+        self.tabla_viajes.setHorizontalHeaderItem(13, __qtablewidgetitem13)
         self.tabla_viajes.setObjectName(u"tabla_viajes")
         self.tabla_viajes.setMinimumSize(QSize(0, 239))
         self.tabla_viajes.setStyleSheet(u"QTableWidget{\n"
@@ -1051,11 +1086,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.addWidget(self.label_14)
 
         self.cbx_buscar_viaje = QComboBox(self.groupBox_4)
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.addItem("")
         self.cbx_buscar_viaje.addItem("")
         self.cbx_buscar_viaje.addItem("")
         self.cbx_buscar_viaje.addItem("")
@@ -1239,28 +1269,28 @@ class Ui_MainWindow(object):
         self.tabla_historico = QTableWidget(self.frame_28)
         if (self.tabla_historico.columnCount() < 11):
             self.tabla_historico.setColumnCount(11)
-        __qtablewidgetitem13 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(0, __qtablewidgetitem13)
         __qtablewidgetitem14 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(1, __qtablewidgetitem14)
+        self.tabla_historico.setHorizontalHeaderItem(0, __qtablewidgetitem14)
         __qtablewidgetitem15 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(2, __qtablewidgetitem15)
+        self.tabla_historico.setHorizontalHeaderItem(1, __qtablewidgetitem15)
         __qtablewidgetitem16 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(3, __qtablewidgetitem16)
+        self.tabla_historico.setHorizontalHeaderItem(2, __qtablewidgetitem16)
         __qtablewidgetitem17 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(4, __qtablewidgetitem17)
+        self.tabla_historico.setHorizontalHeaderItem(3, __qtablewidgetitem17)
         __qtablewidgetitem18 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(5, __qtablewidgetitem18)
+        self.tabla_historico.setHorizontalHeaderItem(4, __qtablewidgetitem18)
         __qtablewidgetitem19 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(6, __qtablewidgetitem19)
+        self.tabla_historico.setHorizontalHeaderItem(5, __qtablewidgetitem19)
         __qtablewidgetitem20 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(7, __qtablewidgetitem20)
+        self.tabla_historico.setHorizontalHeaderItem(6, __qtablewidgetitem20)
         __qtablewidgetitem21 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(8, __qtablewidgetitem21)
+        self.tabla_historico.setHorizontalHeaderItem(7, __qtablewidgetitem21)
         __qtablewidgetitem22 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(9, __qtablewidgetitem22)
+        self.tabla_historico.setHorizontalHeaderItem(8, __qtablewidgetitem22)
         __qtablewidgetitem23 = QTableWidgetItem()
-        self.tabla_historico.setHorizontalHeaderItem(10, __qtablewidgetitem23)
+        self.tabla_historico.setHorizontalHeaderItem(9, __qtablewidgetitem23)
+        __qtablewidgetitem24 = QTableWidgetItem()
+        self.tabla_historico.setHorizontalHeaderItem(10, __qtablewidgetitem24)
         self.tabla_historico.setObjectName(u"tabla_historico")
         self.tabla_historico.setStyleSheet(u"QTableWidget{\n"
 "	background-color: rgb(255, 255, 255);\n"
@@ -1291,6 +1321,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.addWidget(self.label_38)
 
         self.cbx_buscar_historico = QComboBox(self.groupBox_12)
+        self.cbx_buscar_historico.addItem("")
+        self.cbx_buscar_historico.addItem("")
+        self.cbx_buscar_historico.addItem("")
         self.cbx_buscar_historico.addItem("")
         self.cbx_buscar_historico.addItem("")
         self.cbx_buscar_historico.setObjectName(u"cbx_buscar_historico")
@@ -1463,72 +1496,6 @@ class Ui_MainWindow(object):
         self.gridLayout_12.setSpacing(0)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.gridLayout_12.setContentsMargins(0, 0, 0, 0)
-        self.frame_24 = QFrame(self.frame_8)
-        self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setMinimumSize(QSize(315, 141))
-        self.frame_24.setMaximumSize(QSize(301, 141))
-        self.frame_24.setFrameShape(QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Raised)
-        self.gridLayout_15 = QGridLayout(self.frame_24)
-        self.gridLayout_15.setObjectName(u"gridLayout_15")
-        self.label_29 = QLabel(self.frame_24)
-        self.label_29.setObjectName(u"label_29")
-        self.label_29.setFont(font3)
-
-        self.gridLayout_15.addWidget(self.label_29, 0, 0, 1, 1)
-
-        self.ledt_conductor_nombre = QLineEdit(self.frame_24)
-        self.ledt_conductor_nombre.setObjectName(u"ledt_conductor_nombre")
-
-        self.gridLayout_15.addWidget(self.ledt_conductor_nombre, 0, 1, 1, 1)
-
-        self.label_31 = QLabel(self.frame_24)
-        self.label_31.setObjectName(u"label_31")
-        self.label_31.setFont(font3)
-
-        self.gridLayout_15.addWidget(self.label_31, 1, 0, 1, 1)
-
-        self.ledt_conductor_numero = QLineEdit(self.frame_24)
-        self.ledt_conductor_numero.setObjectName(u"ledt_conductor_numero")
-
-        self.gridLayout_15.addWidget(self.ledt_conductor_numero, 1, 1, 1, 1)
-
-        self.label_30 = QLabel(self.frame_24)
-        self.label_30.setObjectName(u"label_30")
-        self.label_30.setFont(font3)
-
-        self.gridLayout_15.addWidget(self.label_30, 2, 0, 1, 1)
-
-        self.ledt_conductor_folio = QLineEdit(self.frame_24)
-        self.ledt_conductor_folio.setObjectName(u"ledt_conductor_folio")
-
-        self.gridLayout_15.addWidget(self.ledt_conductor_folio, 2, 1, 1, 1)
-
-        self.label_27 = QLabel(self.frame_24)
-        self.label_27.setObjectName(u"label_27")
-        self.label_27.setFont(font3)
-
-        self.gridLayout_15.addWidget(self.label_27, 3, 0, 1, 1)
-
-        self.ledt_conductor_matricula = QLineEdit(self.frame_24)
-        self.ledt_conductor_matricula.setObjectName(u"ledt_conductor_matricula")
-
-        self.gridLayout_15.addWidget(self.ledt_conductor_matricula, 3, 1, 1, 1)
-
-        self.label_28 = QLabel(self.frame_24)
-        self.label_28.setObjectName(u"label_28")
-        self.label_28.setFont(font3)
-
-        self.gridLayout_15.addWidget(self.label_28, 4, 0, 1, 1)
-
-        self.ledt_conductor_fecha = QLineEdit(self.frame_24)
-        self.ledt_conductor_fecha.setObjectName(u"ledt_conductor_fecha")
-
-        self.gridLayout_15.addWidget(self.ledt_conductor_fecha, 4, 1, 1, 1)
-
-
-        self.gridLayout_12.addWidget(self.frame_24, 0, 0, 1, 1)
-
 
         self.horizontalLayout_9.addWidget(self.frame_8)
 
@@ -1536,15 +1503,87 @@ class Ui_MainWindow(object):
         self.frame_27.setObjectName(u"frame_27")
         self.frame_27.setFrameShape(QFrame.StyledPanel)
         self.frame_27.setFrameShadow(QFrame.Raised)
-        self.gridLayout_13 = QGridLayout(self.frame_27)
-        self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.verticalSpacer_2 = QSpacerItem(20, 100, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalLayout_31 = QVBoxLayout(self.frame_27)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.horizontalLayout_18 = QHBoxLayout()
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.label_29 = QLabel(self.frame_27)
+        self.label_29.setObjectName(u"label_29")
+        self.label_29.setMinimumSize(QSize(60, 0))
+        self.label_29.setMaximumSize(QSize(60, 16777215))
+        self.label_29.setFont(font3)
 
-        self.gridLayout_13.addItem(self.verticalSpacer_2, 0, 1, 1, 1)
+        self.horizontalLayout_18.addWidget(self.label_29)
 
-        self.horizontalSpacer_11 = QSpacerItem(25, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.ledt_conductor_nombre = QLineEdit(self.frame_27)
+        self.ledt_conductor_nombre.setObjectName(u"ledt_conductor_nombre")
+        self.ledt_conductor_nombre.setMinimumSize(QSize(184, 0))
+        self.ledt_conductor_nombre.setMaximumSize(QSize(10000000, 16777215))
 
-        self.gridLayout_13.addItem(self.horizontalSpacer_11, 1, 0, 1, 1)
+        self.horizontalLayout_18.addWidget(self.ledt_conductor_nombre)
+
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_18)
+
+        self.horizontalLayout_25 = QHBoxLayout()
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.label_31 = QLabel(self.frame_27)
+        self.label_31.setObjectName(u"label_31")
+        self.label_31.setMinimumSize(QSize(60, 0))
+        self.label_31.setMaximumSize(QSize(60, 16777215))
+        self.label_31.setFont(font3)
+
+        self.horizontalLayout_25.addWidget(self.label_31)
+
+        self.ledt_conductor_numero = QLineEdit(self.frame_27)
+        self.ledt_conductor_numero.setObjectName(u"ledt_conductor_numero")
+        self.ledt_conductor_numero.setMinimumSize(QSize(184, 0))
+        self.ledt_conductor_numero.setMaximumSize(QSize(10000000, 16777215))
+
+        self.horizontalLayout_25.addWidget(self.ledt_conductor_numero)
+
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_25)
+
+        self.horizontalLayout_26 = QHBoxLayout()
+        self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.label_30 = QLabel(self.frame_27)
+        self.label_30.setObjectName(u"label_30")
+        self.label_30.setMinimumSize(QSize(60, 0))
+        self.label_30.setMaximumSize(QSize(60, 16777215))
+        self.label_30.setFont(font3)
+
+        self.horizontalLayout_26.addWidget(self.label_30)
+
+        self.ledt_conductor_unidad = QLineEdit(self.frame_27)
+        self.ledt_conductor_unidad.setObjectName(u"ledt_conductor_unidad")
+        self.ledt_conductor_unidad.setMinimumSize(QSize(184, 0))
+        self.ledt_conductor_unidad.setMaximumSize(QSize(10000000, 16777215))
+
+        self.horizontalLayout_26.addWidget(self.ledt_conductor_unidad)
+
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_26)
+
+        self.horizontalLayout_27 = QHBoxLayout()
+        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
+        self.label_27 = QLabel(self.frame_27)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setMinimumSize(QSize(60, 0))
+        self.label_27.setMaximumSize(QSize(60, 16777215))
+        self.label_27.setFont(font3)
+
+        self.horizontalLayout_27.addWidget(self.label_27)
+
+        self.ledt_conductor_matricula = QLineEdit(self.frame_27)
+        self.ledt_conductor_matricula.setObjectName(u"ledt_conductor_matricula")
+        self.ledt_conductor_matricula.setMinimumSize(QSize(184, 0))
+        self.ledt_conductor_matricula.setMaximumSize(QSize(10000000, 16777215))
+
+        self.horizontalLayout_27.addWidget(self.ledt_conductor_matricula)
+
+
+        self.verticalLayout_31.addLayout(self.horizontalLayout_27)
 
         self.btn_guardar_conductor = QPushButton(self.frame_27)
         self.btn_guardar_conductor.setObjectName(u"btn_guardar_conductor")
@@ -1560,67 +1599,10 @@ class Ui_MainWindow(object):
 "	background-color: rgb(0, 85, 120);\n"
 "}")
 
-        self.gridLayout_13.addWidget(self.btn_guardar_conductor, 1, 1, 1, 1)
-
-        self.horizontalSpacer_10 = QSpacerItem(25, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_13.addItem(self.horizontalSpacer_10, 1, 2, 1, 1)
+        self.verticalLayout_31.addWidget(self.btn_guardar_conductor)
 
 
         self.horizontalLayout_9.addWidget(self.frame_27)
-
-        self.frame_9 = QFrame(self.groupBox_8)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setFrameShape(QFrame.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.gridLayout_11 = QGridLayout(self.frame_9)
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.frame_26 = QFrame(self.frame_9)
-        self.frame_26.setObjectName(u"frame_26")
-        self.frame_26.setMinimumSize(QSize(315, 141))
-        self.frame_26.setMaximumSize(QSize(301, 141))
-        self.frame_26.setFrameShape(QFrame.StyledPanel)
-        self.frame_26.setFrameShadow(QFrame.Raised)
-        self.gridLayout_14 = QGridLayout(self.frame_26)
-        self.gridLayout_14.setObjectName(u"gridLayout_14")
-        self.label_36 = QLabel(self.frame_26)
-        self.label_36.setObjectName(u"label_36")
-        self.label_36.setFont(font3)
-
-        self.gridLayout_14.addWidget(self.label_36, 0, 0, 1, 1)
-
-        self.ledt_conductor_calle = QLineEdit(self.frame_26)
-        self.ledt_conductor_calle.setObjectName(u"ledt_conductor_calle")
-
-        self.gridLayout_14.addWidget(self.ledt_conductor_calle, 2, 1, 1, 1)
-
-        self.ledt_conductor_municipio = QLineEdit(self.frame_26)
-        self.ledt_conductor_municipio.setObjectName(u"ledt_conductor_municipio")
-
-        self.gridLayout_14.addWidget(self.ledt_conductor_municipio, 0, 1, 1, 1)
-
-        self.label_32 = QLabel(self.frame_26)
-        self.label_32.setObjectName(u"label_32")
-        self.label_32.setFont(font3)
-
-        self.gridLayout_14.addWidget(self.label_32, 2, 0, 1, 1)
-
-        self.ledt_conductor_colonia = QLineEdit(self.frame_26)
-        self.ledt_conductor_colonia.setObjectName(u"ledt_conductor_colonia")
-
-        self.gridLayout_14.addWidget(self.ledt_conductor_colonia, 1, 1, 1, 1)
-
-        self.label_35 = QLabel(self.frame_26)
-        self.label_35.setObjectName(u"label_35")
-        self.label_35.setFont(font3)
-
-        self.gridLayout_14.addWidget(self.label_35, 1, 0, 1, 1)
-
-
-        self.gridLayout_11.addWidget(self.frame_26, 0, 0, 1, 1)
-
-
-        self.horizontalLayout_9.addWidget(self.frame_9)
 
         self.horizontalSpacer_25 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1656,26 +1638,22 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(9, 9, 9, 9)
         self.tabla_conductores = QTableWidget(self.frame_11)
-        if (self.tabla_conductores.columnCount() < 9):
-            self.tabla_conductores.setColumnCount(9)
-        __qtablewidgetitem24 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(0, __qtablewidgetitem24)
+        if (self.tabla_conductores.columnCount() < 7):
+            self.tabla_conductores.setColumnCount(7)
         __qtablewidgetitem25 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(1, __qtablewidgetitem25)
+        self.tabla_conductores.setHorizontalHeaderItem(0, __qtablewidgetitem25)
         __qtablewidgetitem26 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(2, __qtablewidgetitem26)
+        self.tabla_conductores.setHorizontalHeaderItem(1, __qtablewidgetitem26)
         __qtablewidgetitem27 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(3, __qtablewidgetitem27)
+        self.tabla_conductores.setHorizontalHeaderItem(2, __qtablewidgetitem27)
         __qtablewidgetitem28 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(4, __qtablewidgetitem28)
+        self.tabla_conductores.setHorizontalHeaderItem(3, __qtablewidgetitem28)
         __qtablewidgetitem29 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(5, __qtablewidgetitem29)
+        self.tabla_conductores.setHorizontalHeaderItem(4, __qtablewidgetitem29)
         __qtablewidgetitem30 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(6, __qtablewidgetitem30)
+        self.tabla_conductores.setHorizontalHeaderItem(5, __qtablewidgetitem30)
         __qtablewidgetitem31 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(7, __qtablewidgetitem31)
-        __qtablewidgetitem32 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(8, __qtablewidgetitem32)
+        self.tabla_conductores.setHorizontalHeaderItem(6, __qtablewidgetitem31)
         self.tabla_conductores.setObjectName(u"tabla_conductores")
         self.tabla_conductores.setMinimumSize(QSize(0, 239))
         self.tabla_conductores.setStyleSheet(u"QTableWidget{\n"
@@ -1853,26 +1831,22 @@ class Ui_MainWindow(object):
         self.gridLayout_56.setObjectName(u"gridLayout_56")
         self.gridLayout_56.setContentsMargins(9, 9, 9, 9)
         self.tabla_pagos = QTableWidget(self.frame_76)
-        if (self.tabla_pagos.columnCount() < 9):
-            self.tabla_pagos.setColumnCount(9)
+        if (self.tabla_pagos.columnCount() < 7):
+            self.tabla_pagos.setColumnCount(7)
+        __qtablewidgetitem32 = QTableWidgetItem()
+        self.tabla_pagos.setHorizontalHeaderItem(0, __qtablewidgetitem32)
         __qtablewidgetitem33 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(0, __qtablewidgetitem33)
+        self.tabla_pagos.setHorizontalHeaderItem(1, __qtablewidgetitem33)
         __qtablewidgetitem34 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(1, __qtablewidgetitem34)
+        self.tabla_pagos.setHorizontalHeaderItem(2, __qtablewidgetitem34)
         __qtablewidgetitem35 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(2, __qtablewidgetitem35)
+        self.tabla_pagos.setHorizontalHeaderItem(3, __qtablewidgetitem35)
         __qtablewidgetitem36 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(3, __qtablewidgetitem36)
+        self.tabla_pagos.setHorizontalHeaderItem(4, __qtablewidgetitem36)
         __qtablewidgetitem37 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(4, __qtablewidgetitem37)
+        self.tabla_pagos.setHorizontalHeaderItem(5, __qtablewidgetitem37)
         __qtablewidgetitem38 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(5, __qtablewidgetitem38)
-        __qtablewidgetitem39 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(6, __qtablewidgetitem39)
-        __qtablewidgetitem40 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(7, __qtablewidgetitem40)
-        __qtablewidgetitem41 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(8, __qtablewidgetitem41)
+        self.tabla_pagos.setHorizontalHeaderItem(6, __qtablewidgetitem38)
         self.tabla_pagos.setObjectName(u"tabla_pagos")
         self.tabla_pagos.setMinimumSize(QSize(0, 239))
         self.tabla_pagos.setStyleSheet(u"QTableWidget{\n"
@@ -2657,52 +2631,59 @@ class Ui_MainWindow(object):
         self.groupBox_6.setTitle(QCoreApplication.translate("MainWindow", u"Registro", None))
         self.label_76.setText(QCoreApplication.translate("MainWindow", u"Folio:", None))
         self.label_77.setText(QCoreApplication.translate("MainWindow", u"Conductor:", None))
+        self.label_79.setText(QCoreApplication.translate("MainWindow", u"Hora inicio:", None))
+        self.label_80.setText(QCoreApplication.translate("MainWindow", u"Hora fin:", None))
         self.label_78.setText(QCoreApplication.translate("MainWindow", u"Empresa:", None))
-        self.label_79.setText(QCoreApplication.translate("MainWindow", u"Matr\u00edcula:", None))
-        self.label_80.setText(QCoreApplication.translate("MainWindow", u"Tipo servicio:", None))
+        self.label_86.setText(QCoreApplication.translate("MainWindow", u"Fecha", None))
         self.btn_guardar_viaje.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.label_81.setText(QCoreApplication.translate("MainWindow", u"Contacto:", None))
-        self.label_82.setText(QCoreApplication.translate("MainWindow", u"Municipio:", None))
-        self.label_83.setText(QCoreApplication.translate("MainWindow", u"Colonia:", None))
-        self.label_84.setText(QCoreApplication.translate("MainWindow", u"Calle:", None))
-        self.label_85.setText(QCoreApplication.translate("MainWindow", u"Cel. Contacto", None))
+        self.label_81.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None))
+        self.cbx_viajes_tipo_servicio.setItemText(0, QCoreApplication.translate("MainWindow", u"Entrada", None))
+        self.cbx_viajes_tipo_servicio.setItemText(1, QCoreApplication.translate("MainWindow", u"Salida", None))
+
+        self.label_83.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None))
+        self.cbx_viajes_tipo_km.setItemText(0, QCoreApplication.translate("MainWindow", u"Diurno", None))
+        self.cbx_viajes_tipo_km.setItemText(1, QCoreApplication.translate("MainWindow", u"Nocturno", None))
+
+        self.label_85.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None))
+        self.cbx_viajes_tipo_desvio.setItemText(0, QCoreApplication.translate("MainWindow", u"Diurno", None))
+        self.cbx_viajes_tipo_desvio.setItemText(1, QCoreApplication.translate("MainWindow", u"Nocturno", None))
+
+        self.label_84.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None))
+        self.label_82.setText(QCoreApplication.translate("MainWindow", u"Costo", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
         ___qtablewidgetitem = self.tabla_viajes.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Folio", None));
         ___qtablewidgetitem1 = self.tabla_viajes.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Fecha", None));
         ___qtablewidgetitem2 = self.tabla_viajes.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("MainWindow", u"Hora inicio", None));
         ___qtablewidgetitem3 = self.tabla_viajes.horizontalHeaderItem(3)
-        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Hora fin", None));
         ___qtablewidgetitem4 = self.tabla_viajes.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Matricula", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
         ___qtablewidgetitem5 = self.tabla_viajes.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
         ___qtablewidgetitem6 = self.tabla_viajes.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Contacto", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
         ___qtablewidgetitem7 = self.tabla_viajes.horizontalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Municipio", None));
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None));
         ___qtablewidgetitem8 = self.tabla_viajes.horizontalHeaderItem(8)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Colonia", None));
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None));
         ___qtablewidgetitem9 = self.tabla_viajes.horizontalHeaderItem(9)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Calle", None));
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Tipo Desvio", None));
         ___qtablewidgetitem10 = self.tabla_viajes.horizontalHeaderItem(10)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Cel. Contacto", None));
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         ___qtablewidgetitem11 = self.tabla_viajes.horizontalHeaderItem(11)
-        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Modificar", None));
+        ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Pasajeros", None));
         ___qtablewidgetitem12 = self.tabla_viajes.horizontalHeaderItem(12)
-        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
+        ___qtablewidgetitem12.setText(QCoreApplication.translate("MainWindow", u"Modificar", None));
+        ___qtablewidgetitem13 = self.tabla_viajes.horizontalHeaderItem(13)
+        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
         self.groupBox_4.setTitle("")
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
         self.cbx_buscar_viaje.setItemText(0, QCoreApplication.translate("MainWindow", u"Folio", None))
         self.cbx_buscar_viaje.setItemText(1, QCoreApplication.translate("MainWindow", u"Conductor", None))
         self.cbx_buscar_viaje.setItemText(2, QCoreApplication.translate("MainWindow", u"Empresa", None))
-        self.cbx_buscar_viaje.setItemText(3, QCoreApplication.translate("MainWindow", u"Matricula", None))
-        self.cbx_buscar_viaje.setItemText(4, QCoreApplication.translate("MainWindow", u"Tipo de servicio", None))
-        self.cbx_buscar_viaje.setItemText(5, QCoreApplication.translate("MainWindow", u"Municipio", None))
-        self.cbx_buscar_viaje.setItemText(6, QCoreApplication.translate("MainWindow", u"Colonia", None))
-        self.cbx_buscar_viaje.setItemText(7, QCoreApplication.translate("MainWindow", u"Contacto", None))
 
         self.ledt_buscar_viaje.setPlaceholderText(QCoreApplication.translate("MainWindow", u"000000000", None))
         self.btn_buscar_viaje.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
@@ -2713,32 +2694,35 @@ class Ui_MainWindow(object):
         self.groupBox_24.setTitle("")
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">En esta secci\u00f3n, usted puede revisar el registro hist\u00f3rico de viajes.<br/>Se pueden buscar viajes espec\u00edficos en el apartado &quot;Buscar por&quot;.<br/>En este apartado solo se puede visualizar la informaci\u00f3n.</p></body></html>", None))
         self.groupBox_11.setTitle("")
-        ___qtablewidgetitem13 = self.tabla_historico.horizontalHeaderItem(0)
-        ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Folio", None));
-        ___qtablewidgetitem14 = self.tabla_historico.horizontalHeaderItem(1)
-        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"Fecha", None));
-        ___qtablewidgetitem15 = self.tabla_historico.horizontalHeaderItem(2)
-        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
-        ___qtablewidgetitem16 = self.tabla_historico.horizontalHeaderItem(3)
-        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
-        ___qtablewidgetitem17 = self.tabla_historico.horizontalHeaderItem(4)
-        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"Matricula", None));
-        ___qtablewidgetitem18 = self.tabla_historico.horizontalHeaderItem(5)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
-        ___qtablewidgetitem19 = self.tabla_historico.horizontalHeaderItem(6)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"Contacto", None));
-        ___qtablewidgetitem20 = self.tabla_historico.horizontalHeaderItem(7)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"Municipio", None));
-        ___qtablewidgetitem21 = self.tabla_historico.horizontalHeaderItem(8)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Colonia", None));
-        ___qtablewidgetitem22 = self.tabla_historico.horizontalHeaderItem(9)
-        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Calle", None));
-        ___qtablewidgetitem23 = self.tabla_historico.horizontalHeaderItem(10)
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Cel. Contacto", None));
+        ___qtablewidgetitem14 = self.tabla_historico.horizontalHeaderItem(0)
+        ___qtablewidgetitem14.setText(QCoreApplication.translate("MainWindow", u"Folio", None));
+        ___qtablewidgetitem15 = self.tabla_historico.horizontalHeaderItem(1)
+        ___qtablewidgetitem15.setText(QCoreApplication.translate("MainWindow", u"Fecha", None));
+        ___qtablewidgetitem16 = self.tabla_historico.horizontalHeaderItem(2)
+        ___qtablewidgetitem16.setText(QCoreApplication.translate("MainWindow", u"Hora inicio", None));
+        ___qtablewidgetitem17 = self.tabla_historico.horizontalHeaderItem(3)
+        ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"Hora fin", None));
+        ___qtablewidgetitem18 = self.tabla_historico.horizontalHeaderItem(4)
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
+        ___qtablewidgetitem19 = self.tabla_historico.horizontalHeaderItem(5)
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
+        ___qtablewidgetitem20 = self.tabla_historico.horizontalHeaderItem(6)
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None));
+        ___qtablewidgetitem21 = self.tabla_historico.horizontalHeaderItem(7)
+        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None));
+        ___qtablewidgetitem22 = self.tabla_historico.horizontalHeaderItem(8)
+        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
+        ___qtablewidgetitem23 = self.tabla_historico.horizontalHeaderItem(9)
+        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None));
+        ___qtablewidgetitem24 = self.tabla_historico.horizontalHeaderItem(10)
+        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         self.groupBox_12.setTitle("")
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
-        self.cbx_buscar_historico.setItemText(0, QCoreApplication.translate("MainWindow", u"Fecha", None))
-        self.cbx_buscar_historico.setItemText(1, QCoreApplication.translate("MainWindow", u"No. Semana", None))
+        self.cbx_buscar_historico.setItemText(0, QCoreApplication.translate("MainWindow", u"Folio", None))
+        self.cbx_buscar_historico.setItemText(1, QCoreApplication.translate("MainWindow", u"Fecha", None))
+        self.cbx_buscar_historico.setItemText(2, QCoreApplication.translate("MainWindow", u"No. Semana", None))
+        self.cbx_buscar_historico.setItemText(3, QCoreApplication.translate("MainWindow", u"Conductor", None))
+        self.cbx_buscar_historico.setItemText(4, QCoreApplication.translate("MainWindow", u"Empresa", None))
 
         self.ledt_buscar_historico.setPlaceholderText(QCoreApplication.translate("MainWindow", u"00/00/0000", None))
         self.btn_buscar_historico.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
@@ -2751,32 +2735,24 @@ class Ui_MainWindow(object):
         self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"Registro", None))
         self.label_29.setText(QCoreApplication.translate("MainWindow", u"Nombre:", None))
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"N\u00famero:", None))
-        self.label_30.setText(QCoreApplication.translate("MainWindow", u"Folio identificaci\u00f3n:", None))
+        self.label_30.setText(QCoreApplication.translate("MainWindow", u"Unidad:", None))
         self.label_27.setText(QCoreApplication.translate("MainWindow", u"Matr\u00edcula:", None))
-        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Fecha de contrataci\u00f3n:", None))
         self.btn_guardar_conductor.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Municipio:", None))
-        self.label_32.setText(QCoreApplication.translate("MainWindow", u"Calle:", None))
-        self.label_35.setText(QCoreApplication.translate("MainWindow", u"Colonia:", None))
         self.groupBox_9.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
-        ___qtablewidgetitem24 = self.tabla_conductores.horizontalHeaderItem(0)
-        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"No.", None));
-        ___qtablewidgetitem25 = self.tabla_conductores.horizontalHeaderItem(1)
-        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"Nombre", None));
-        ___qtablewidgetitem26 = self.tabla_conductores.horizontalHeaderItem(2)
-        ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"Numero", None));
-        ___qtablewidgetitem27 = self.tabla_conductores.horizontalHeaderItem(3)
-        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"Folio", None));
-        ___qtablewidgetitem28 = self.tabla_conductores.horizontalHeaderItem(4)
-        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"Matricula", None));
-        ___qtablewidgetitem29 = self.tabla_conductores.horizontalHeaderItem(5)
-        ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"Fecha", None));
-        ___qtablewidgetitem30 = self.tabla_conductores.horizontalHeaderItem(6)
-        ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"Municipio", None));
-        ___qtablewidgetitem31 = self.tabla_conductores.horizontalHeaderItem(7)
-        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"Colonia", None));
-        ___qtablewidgetitem32 = self.tabla_conductores.horizontalHeaderItem(8)
-        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"Calle", None));
+        ___qtablewidgetitem25 = self.tabla_conductores.horizontalHeaderItem(0)
+        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"No.", None));
+        ___qtablewidgetitem26 = self.tabla_conductores.horizontalHeaderItem(1)
+        ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"Nombre", None));
+        ___qtablewidgetitem27 = self.tabla_conductores.horizontalHeaderItem(2)
+        ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"Numero", None));
+        ___qtablewidgetitem28 = self.tabla_conductores.horizontalHeaderItem(3)
+        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
+        ___qtablewidgetitem29 = self.tabla_conductores.horizontalHeaderItem(4)
+        ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"Matricula", None));
+        ___qtablewidgetitem30 = self.tabla_conductores.horizontalHeaderItem(5)
+        ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"Modificar", None));
+        ___qtablewidgetitem31 = self.tabla_conductores.horizontalHeaderItem(6)
+        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
         self.groupBox_10.setTitle("")
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
         self.cbx_buscar_conductor.setItemText(0, QCoreApplication.translate("MainWindow", u"Unidad", None))
@@ -2791,24 +2767,20 @@ class Ui_MainWindow(object):
         self.label_111.setText("")
         self.label_112.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Consulta a todos los conductores asi como todos los viajes que han realizado y el dinero que han generado.</p></body></html>", None))
         self.groupBox_47.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
-        ___qtablewidgetitem33 = self.tabla_pagos.horizontalHeaderItem(0)
-        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"ID", None));
-        ___qtablewidgetitem34 = self.tabla_pagos.horizontalHeaderItem(1)
-        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
-        ___qtablewidgetitem35 = self.tabla_pagos.horizontalHeaderItem(2)
-        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"KM diurno", None));
-        ___qtablewidgetitem36 = self.tabla_pagos.horizontalHeaderItem(3)
-        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"KM nocturno", None));
-        ___qtablewidgetitem37 = self.tabla_pagos.horizontalHeaderItem(4)
-        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"Desvio diurno", None));
-        ___qtablewidgetitem38 = self.tabla_pagos.horizontalHeaderItem(5)
-        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Desvio nocturno", None));
-        ___qtablewidgetitem39 = self.tabla_pagos.horizontalHeaderItem(6)
-        ___qtablewidgetitem39.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
-        ___qtablewidgetitem40 = self.tabla_pagos.horizontalHeaderItem(7)
-        ___qtablewidgetitem40.setText(QCoreApplication.translate("MainWindow", u"Colonia", None));
-        ___qtablewidgetitem41 = self.tabla_pagos.horizontalHeaderItem(8)
-        ___qtablewidgetitem41.setText(QCoreApplication.translate("MainWindow", u"Calle", None));
+        ___qtablewidgetitem32 = self.tabla_pagos.horizontalHeaderItem(0)
+        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"ID", None));
+        ___qtablewidgetitem33 = self.tabla_pagos.horizontalHeaderItem(1)
+        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
+        ___qtablewidgetitem34 = self.tabla_pagos.horizontalHeaderItem(2)
+        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"KM diurno", None));
+        ___qtablewidgetitem35 = self.tabla_pagos.horizontalHeaderItem(3)
+        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"KM nocturno", None));
+        ___qtablewidgetitem36 = self.tabla_pagos.horizontalHeaderItem(4)
+        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"Desvio diurno", None));
+        ___qtablewidgetitem37 = self.tabla_pagos.horizontalHeaderItem(5)
+        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"Desvio nocturno", None));
+        ___qtablewidgetitem38 = self.tabla_pagos.horizontalHeaderItem(6)
+        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         self.groupBox_48.setTitle("")
         self.label_121.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
         self.cbx_buscar_conductor_pagos.setItemText(0, QCoreApplication.translate("MainWindow", u"Unidad", None))

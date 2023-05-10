@@ -16,8 +16,12 @@ CREATE TABLE Conductores(
 	Id serial,
 	Unidad varchar(15) not null,
 	Nombre varchar(35) not null,
+	celular varchar(11) not null,
 	primary key(Id)
 );
+"""
+0 		TB18		Juanito Perez		33333333
+"""
 
 CREATE TABLE Pagos(
 	ConductorId int references Conductores(Id),
