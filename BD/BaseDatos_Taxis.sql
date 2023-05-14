@@ -40,7 +40,7 @@ BEGIN
 END;
 $$
 
-DROP PROCEDURE mostrarPagos
+-- DROP PROCEDURE mostrarPagos
 
 CREATE OR REPLACE PROCEDURE mostrarPagos()
 LANGUAGE plpgsql
@@ -152,8 +152,8 @@ END;
 $$
 LANGUAGE plpgsql;
 
-drop view detalles_viajes;
-drop table autos, conductores, desvios, empresas, pagos, partidas, pasajeros, tipodesvio, tipokilometro, viajes;
+-- drop view detalles_viajes;
+-- drop table autos, conductores, desvios, empresas, pagos, partidas, pasajeros, tipodesvio, tipokilometro, viajes;
 
 CREATE TABLE Conductores(
 	Id varchar(15) not null,
@@ -205,6 +205,7 @@ CREATE TABLE Viajes(
 	HoraFin time,
 	Kilometros float,
 	Costo numeric(8, 2),
+	Status int,
 	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
 	PartidaId int references Partidas(Id) ON UPDATE cascade,
 	EmpresaId int references Empresas(Id) ON UPDATE cascade ON DELETE no action,

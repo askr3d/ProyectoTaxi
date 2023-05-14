@@ -56,8 +56,45 @@ class OperacionesDB():
         conductores = cursor.fetchall()
         cursor.close()
         return conductores
+    
+    def ingresar_pasajero(self, viajeId, nombre, destino):
+        cursor = self.conexion.cursor()
+        query = '''
+                INSERT INTO Pasajeros(viajeId, nombre, destino) VALUES('{}', '{}', '{}')
+                '''.format(viajeId, nombre, destino)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
 
-    def ingresar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo):
+    def mostrar_pasejeros_por_viaje(self, viajeId):
+        cursor = self.conexion.cursor()
+        query = '''
+                SELECT * Pasejeros WHERE viajeId = '{}'
+                '''.format(viajeId)
+        cursor.execute(query)
+        pasajeros = cursor.fetchall()
+        cursor.close()
+        return pasajeros
+    
+    def modificar_pasajero(self, id, nombre, destino):
+        cursor = self.conexion.cursor()
+        query = '''
+                UPDATE Pasajeros
+                SET nombre = '{}', destino = '{}'
+                WHERE id = '{}'
+                '''.format(nombre, destino, id)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    def eliminar_pasajero(self, id):
+        cursor = self.conexion.cursor()
+        query = '''DELETE Pasajeros WHERE Id = '{}' '''.format(id)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    def ingresar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
         cursor = self.conexion.cursor()
         query = '''INSERT INTO Viajes(folio, fecha, horaInicio, horaFin, kilometros, costo, conductorId, partidaId, empresaId, tipoKilometroId)
                     VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
@@ -66,15 +103,15 @@ class OperacionesDB():
         if(desvioId != 1 and desvioId < 4):
             desvioId = desvioId - 1
             query = '''
-                    INSERT INTO Desvios(ViajeId, TipoDesvioId)
-                    VALUES('{}', '{}')
-                    '''.format(folio, desvioId)
+                    INSERT INTO Desvios(ViajeId, TipoDesvioId, Kilometros)
+                    VALUES('{}', '{}', '{}')
+                    '''.format(folio, desvioId, kilometrosDesvio)
             cursor.execute(query)
         
         self.conexion.commit()
         cursor.close()
 
-    def modificar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo):
+    def modificar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
         cursor = self.conexion.cursor()
         query = '''
                 UPDATE Viajes
@@ -92,9 +129,9 @@ class OperacionesDB():
                 desvioId = desvioId - 1
                 query = '''
                         UPDATE desvios
-                        SET viajeId = '{}', tipoDesvioId = '{}'
+                        SET viajeId = '{}', tipoDesvioId = '{}', kilometros = '{}'
                         WHERE viajeId = '{}'
-                        '''.format(folio, desvioId, folio)
+                        '''.format(folio, desvioId, kilometrosDesvio, folio)
             else:
                 query = '''DELETE FROM desvios WHERE viajeId = '{}' '''.format(folio)
             cursor.execute(query)
@@ -102,15 +139,13 @@ class OperacionesDB():
             if(desvioId != 1 and desvioId < 4):
                 desvioId = desvioId - 1
                 query = '''
-                        INSERT INTO Desvios(ViajeId, TipoDesvioId)
-                        VALUES('{}', '{}')
-                        '''.format(folio, desvioId)
+                        INSERT INTO Desvios(ViajeId, TipoDesvioId, kilometros)
+                        VALUES('{}', '{}', '{}')
+                        '''.format(folio, desvioId, kilometrosDesvio)
                 cursor.execute(query)
 
         self.conexion.commit()
         cursor.close()
-        
-
 
     def eliminar_viaje(self, folio):
         cursor = self.conexion.cursor()
@@ -120,7 +155,7 @@ class OperacionesDB():
 
     def mostrar_viajes(self):
         cursor = self.conexion.cursor()
-        query = "SELECT * FROM detalles_viajes"
+        query = "SELECT * FROM detalles_viajes WHERE status = 0"
         cursor.execute(query)
         viajes = cursor.fetchall()
         cursor.close()
@@ -144,8 +179,32 @@ class OperacionesDB():
     
     def mostrar_historico(self):
         cursor = self.conexion.cursor()
-        query = "SELECT * FROM viajes"
+        query = "SELECT * FROM detalles_viajes WHERE status = 1"
         cursor.execute(query)
         pagos = cursor.fetchall()
         cursor.close()
         return pagos
+    
+    def obtener_costosViajes_por_conductor(self, conductorId):
+        cursor = self.conexion.cursor()
+        query = '''SELECT SUM(costo) FROM viajes WHERE conductorId = '{}', status = 0 '''.format(conductorId)
+        cursor.execute(query)
+        viajes = cursor.fetchone()
+        cursor.close()
+        return viajes
+    
+    def ingresarPago(self, kmDiurno, kmNocturno, desvioDiurno, desvioNocturno):
+        cursor = self.conexion.cursor()
+        queryInsertar = '''
+                        INSERT INTO Pagos(conductorId, fechaPago, costoTotal)
+                            VALUES('{}', CURRENT_DATE, '{}')
+                        '''
+        conductores = self.mostrar_conductores
+        for conductor in conductores:
+            costo = self.obtener_costosViajes_por_conductor(conductor[0]) * 0.8
+            if(costo > 0):
+                cursor.execute(queryInsertar.format(conductor[0], costo))
+        
+        self.conexion.commit()
+        cursor.close()
+        
