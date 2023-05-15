@@ -1,7 +1,7 @@
 import psycopg2
 
 class OperacionesDB():
-    def init(self):
+    def __init__(self):
         try:
             self.conexion = psycopg2.connect(
                 host = 'localhost',
