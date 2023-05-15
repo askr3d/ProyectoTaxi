@@ -4,6 +4,7 @@ import psycopg2
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPropertyAnimation
 
+from OperacionesDB import OperacionesDB
 import datetime
 
 class MainWindow(QMainWindow):
@@ -13,10 +14,12 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.actualizar_fecha()
         self.costo_kilometro = 0
+        
+        self.db = OperacionesDB()
         # Botones_tablas
-        self.btn_act = QPushButton("row", self)
-        self.btn_pasajeros = QPushButton("row", self)
-        # self.btn_eliminar = QPushButton("row", self)
+        # self.ui.btn_act = QPushButton("Actualizar", self)
+        # self.btn_pasajeros = QPushButton("Pasajeros", self)
+        # self.btn_eliminar = QPushButton("Eliminar", self)
         
         # Crear una instancia de la subventana
         self.subventana = QDialog(self)
@@ -26,6 +29,7 @@ class MainWindow(QMainWindow):
         self.subventana.setWindowOpacity(1)        
         
         # Objeto conexion con la base de datos
+        """
         try:
             self.conexion = psycopg2.connect(
                 host = 'localhost',
@@ -36,6 +40,7 @@ class MainWindow(QMainWindow):
         except:
             print("Error al conectar la base de datos")
             exit()
+        """
         # Eventos ----------------------------------------------------------------
         
         # Eliminar barra de titulo
@@ -78,8 +83,10 @@ class MainWindow(QMainWindow):
         # Viaje
         self.ui.btn_guardar_viaje.clicked.connect(self.guardar_viaje)
         self.ui.btn_buscar_viaje.clicked.connect(self.buscar_viaje)
-        self.btn_act.clicked.connect(self.copiar_viaje)
-        self.btn_pasajeros.clicked.connect(self.abrir_subventana)
+        
+        # self.ui.btn_act.clicked.connect(self.copiar_viaje)
+        # self.btn_pasajeros.clicked.connect(self.abrir_subventana)
+        # self.btn_eliminar.clicked.connect(self.eliminar_viaje)
         
         # Conductor
         self.ui.btn_guardar_conductor.clicked.connect(self.guardar_conductor)
@@ -102,7 +109,7 @@ class MainWindow(QMainWindow):
     # Funciones interfaz
     # -----------------------------------------------------------------------------------
     def salir(self):
-        self.conexion.close()
+        self.db.conexion.close()
         self.close()
     def minimizar(self):
         self.showMinimized()
@@ -209,30 +216,28 @@ class MainWindow(QMainWindow):
         selected_date_time = self.ui.dateTimeEdit.dateTime()
         timestamp = selected_date_time.toSecsSinceEpoch()
         fecha_hora = datetime.datetime.fromtimestamp(timestamp)
-        cursor = self.conexion.cursor()
-        cursor.execute(
-            """INSERT INTO viajes (fecha, conductor, empresa, matricula, tipo, contacto, municipio, colonia, calle, cel) 
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""", (str(fecha_hora), str(self.ui.ledt_viajes_conductor.text()), 
-            str(self.ui.ledt_viajes_empresa.text()), str(self.ui.ledt_viajes_matricula.text()), str(self.ui.ledt_viajes_tipo.text()), 
-            str(self.ui.ledt_viajes_contacto.text()), str(self.ui.ledt_viajes_municipio.text()), str(self.ui.ledt_viajes_colonia.text()), 
-            str(self.ui.ledt_viajes_calle.text()), str(self.ui.ledt_viajes_cel.text())))
-        self.conexion.commit()
-        cursor.close()
+        
+        self.db.ingresar_viaje()
         
     def mostrar_viajes(self):
-        self.abrir_subventana()
+        # self.abrir_subventana()
         selected_date = self.ui.dateTimeEdit.date()
         fecha = str(selected_date.toPython().strftime('%Y-%m-%d'))
         cursor = self.conexion.cursor()
         cursor.execute(
-            f"select * from viajes WHERE fecha BETWEEN date_trunc('week', '{fecha}'::date) AND date_trunc('week', '{fecha}'::date + INTERVAL '1 week' - INTERVAL '1 day');")
+            f"select * from Viajes WHERE Fecha BETWEEN date_trunc('week', '{fecha}'::date) AND date_trunc('week', '{fecha}'::date + INTERVAL '1 week' - INTERVAL '1 day');")
         viajes = cursor.fetchall()
         i = len(viajes)
         self.ui.tabla_viajes.setRowCount(i)
         tablerow = 0
+        self.ui.btn_act = QPushButton("Actualizar", self)
+        self.ui.btn_act.clicked.connect(self.copiar_viaje)
         for row in viajes:
-            self.btn_act.setProperty("row", row[0])
-            self.btn_pasajeros.setProperty("row", row[11])
+            # self.btn_pasajeros.setProperty("id", row[0])
+
+            self.ui.btn_act.setProperty("id", row[0])
+            
+            # self.btn_eliminar.setProperty("id", row[0])
             
             self.ui.tabla_viajes.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
             self.ui.tabla_viajes.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
@@ -244,10 +249,13 @@ class MainWindow(QMainWindow):
             self.ui.tabla_viajes.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[7])))
             self.ui.tabla_viajes.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))
             self.ui.tabla_viajes.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-            self.ui.tabla_viajes.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(str(row[10])))
-            # self.ui.tabla_historico.setCellWidget(tablerow, 11, btn_act)
-            self.ui.tabla_viajes.setCellWidget(tablerow, 11, self.btn_act)
-            # self.ui.tabla_historico.setCellWidget(tablerow, 12, btn_act)
+            
+            # self.ui.tabla_viajes.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(str(row[10]))) TIPO DESVIO
+            
+            # Botones
+            # self.ui.tabla_viajes.setCellWidget(tablerow, 11, self.btn_pasajeros)
+            # self.ui.tabla_viajes.setCellWidget(tablerow, 12, self.btn_act)
+            # self.ui.tabla_viajes.setCellWidget(tablerow, 13, self.btn_eliminar)
             
             tablerow += 1
     def copiar_viaje(self):
@@ -259,8 +267,7 @@ class MainWindow(QMainWindow):
             str(self.ui.ledt_viajes_calle.text()), str(self.ui.ledt_viajes_cel.text())))
             
     """
-        
-        
+
     def mostrar_historico_viajes(self):
         cursor = self.conexion.cursor()
         cursor.execute("SELECT * FROM viajes")
@@ -287,6 +294,9 @@ class MainWindow(QMainWindow):
             
     def buscar_viaje(self):
         pass
+    def eliminar_viaje(self):
+        pass 
+        # Preguntar primero
     def guardar_conductor(self):
         pass
     def buscar_conductor(self):

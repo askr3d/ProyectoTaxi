@@ -788,47 +788,34 @@ class Ui_MainWindow(object):
         self.frame_35.setFrameShadow(QFrame.Raised)
         self.gridLayout_24 = QGridLayout(self.frame_35)
         self.gridLayout_24.setObjectName(u"gridLayout_24")
-        self.label_76 = QLabel(self.frame_35)
-        self.label_76.setObjectName(u"label_76")
-        self.label_76.setFont(font3)
-
-        self.gridLayout_24.addWidget(self.label_76, 0, 0, 1, 1)
-
-        self.ledt_viajes_folio = QLineEdit(self.frame_35)
-        self.ledt_viajes_folio.setObjectName(u"ledt_viajes_folio")
-
-        self.gridLayout_24.addWidget(self.ledt_viajes_folio, 0, 1, 1, 1)
-
         self.label_77 = QLabel(self.frame_35)
         self.label_77.setObjectName(u"label_77")
         self.label_77.setFont(font3)
 
-        self.gridLayout_24.addWidget(self.label_77, 1, 0, 1, 1)
-
-        self.ledt_viajes_conductor = QLineEdit(self.frame_35)
-        self.ledt_viajes_conductor.setObjectName(u"ledt_viajes_conductor")
-
-        self.gridLayout_24.addWidget(self.ledt_viajes_conductor, 1, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.label_77, 0, 0, 1, 1)
 
         self.label_79 = QLabel(self.frame_35)
         self.label_79.setObjectName(u"label_79")
         self.label_79.setFont(font3)
 
-        self.gridLayout_24.addWidget(self.label_79, 2, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_79, 1, 0, 1, 1)
 
-        self.timeEdit_hora_inicio = QTimeEdit(self.frame_35)
-        self.timeEdit_hora_inicio.setObjectName(u"timeEdit_hora_inicio")
-        self.timeEdit_hora_inicio.setAlignment(Qt.AlignCenter)
-        self.timeEdit_hora_inicio.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.timeEdit_hora_inicio.setCalendarPopup(False)
+        self.ledt_viajes_conductor = QLineEdit(self.frame_35)
+        self.ledt_viajes_conductor.setObjectName(u"ledt_viajes_conductor")
 
-        self.gridLayout_24.addWidget(self.timeEdit_hora_inicio, 2, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.ledt_viajes_conductor, 0, 1, 1, 1)
 
         self.label_80 = QLabel(self.frame_35)
         self.label_80.setObjectName(u"label_80")
         self.label_80.setFont(font3)
 
-        self.gridLayout_24.addWidget(self.label_80, 3, 0, 1, 1)
+        self.gridLayout_24.addWidget(self.label_80, 2, 0, 1, 1)
+
+        self.abx_viajes_empresa = QComboBox(self.frame_35)
+        self.abx_viajes_empresa.setObjectName(u"abx_viajes_empresa")
+        self.abx_viajes_empresa.setEditable(True)
+
+        self.gridLayout_24.addWidget(self.abx_viajes_empresa, 3, 1, 1, 1)
 
         self.timeEdit_hora_fin = QTimeEdit(self.frame_35)
         self.timeEdit_hora_fin.setObjectName(u"timeEdit_hora_fin")
@@ -836,19 +823,21 @@ class Ui_MainWindow(object):
         self.timeEdit_hora_fin.setButtonSymbols(QAbstractSpinBox.NoButtons)
         self.timeEdit_hora_fin.setCalendarPopup(False)
 
-        self.gridLayout_24.addWidget(self.timeEdit_hora_fin, 3, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.timeEdit_hora_fin, 2, 1, 1, 1)
+
+        self.timeEdit_hora_inicio = QTimeEdit(self.frame_35)
+        self.timeEdit_hora_inicio.setObjectName(u"timeEdit_hora_inicio")
+        self.timeEdit_hora_inicio.setAlignment(Qt.AlignCenter)
+        self.timeEdit_hora_inicio.setButtonSymbols(QAbstractSpinBox.NoButtons)
+        self.timeEdit_hora_inicio.setCalendarPopup(False)
+
+        self.gridLayout_24.addWidget(self.timeEdit_hora_inicio, 1, 1, 1, 1)
 
         self.label_78 = QLabel(self.frame_35)
         self.label_78.setObjectName(u"label_78")
         self.label_78.setFont(font3)
 
-        self.gridLayout_24.addWidget(self.label_78, 4, 0, 1, 1)
-
-        self.abx_viajes_empresa = QComboBox(self.frame_35)
-        self.abx_viajes_empresa.setObjectName(u"abx_viajes_empresa")
-        self.abx_viajes_empresa.setEditable(True)
-
-        self.gridLayout_24.addWidget(self.abx_viajes_empresa, 4, 1, 1, 1)
+        self.gridLayout_24.addWidget(self.label_78, 3, 0, 1, 1)
 
 
         self.gridLayout_27.addWidget(self.frame_35, 0, 0, 1, 1)
@@ -2627,7 +2616,6 @@ class Ui_MainWindow(object):
         self.groupBox_21.setTitle("")
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Registra un nuevo viaje en el apartado &quot;Registro&quot; y presiona guardar para crear un nuevo registro.<br/>Dirigete al apartado &quot;Consulta&quot; para verificar los viajes de esta semana, puedes buscar un viaje<br/>espec\u00edfico en el apartado &quot;Buscar por&quot;.<br/>Para modificar o eliminar un registro, presiona dicho bot\u00f3n en el el registro espec\u00edfico.</p></body></html>", None))
         self.groupBox_6.setTitle(QCoreApplication.translate("MainWindow", u"Registro", None))
-        self.label_76.setText(QCoreApplication.translate("MainWindow", u"Folio:", None))
         self.label_77.setText(QCoreApplication.translate("MainWindow", u"Conductor:", None))
         self.label_79.setText(QCoreApplication.translate("MainWindow", u"Hora inicio:", None))
         self.label_80.setText(QCoreApplication.translate("MainWindow", u"Hora fin:", None))
