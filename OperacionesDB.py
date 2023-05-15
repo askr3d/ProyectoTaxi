@@ -1,13 +1,17 @@
 import psycopg2
 
 class OperacionesDB():
-    def __init__(self):
-        self.conexion = psycopg2.connect(
-            host = 'localhost',
-            user = 'postgres',
-            password = '0123',
-            database = 'proyectoTaxi'
-        )
+    def init(self):
+        try:
+            self.conexion = psycopg2.connect(
+                host = 'localhost',
+                user = 'postgres',
+                password = 'password',
+                database = 'ProyectoTaxis'
+            )
+        except:
+            print("Error de conexion: ")
+            exit()
 
     def ingresar_conductor(self, nombre, unidad, numero, placa):
         cursor = self.conexion.cursor()
