@@ -94,13 +94,14 @@ class OperacionesDB():
         self.conexion.commit()
         cursor.close()
 
-    def ingresar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
+    def ingresar_viaje(self, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
         cursor = self.conexion.cursor()
-        query = '''INSERT INTO Viajes(folio, fecha, horaInicio, horaFin, kilometros, costo, conductorId, partidaId, empresaId, tipoKilometroId)
-                    VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')
-                '''.format(folio, fecha, horaInicio, horaFin, kilometros, costo, unidadId, tipoServicioId, empresaId, tipoKmId)
+        query = '''INSERT INTO Viajes(fecha, horaInicio, horaFin, kilometros, costo, conductorId, partidaId, empresaId, tipoKilometroId)
+                    VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}') RETURNING folio
+                '''.format(fecha, horaInicio, horaFin, kilometros, costo, unidadId, tipoServicioId, empresaId, tipoKmId)
         cursor.execute(query)
         if(desvioId != 1 and desvioId < 4):
+            folio = cursor.fetchone()[0]
             desvioId = desvioId - 1
             query = '''
                     INSERT INTO Desvios(ViajeId, TipoDesvioId, Kilometros)
