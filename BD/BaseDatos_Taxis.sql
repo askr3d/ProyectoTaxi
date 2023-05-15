@@ -12,6 +12,114 @@ CREATE DATABASE "ProyectoTaxis"
     CONNECTION LIMIT = -1
     IS_TEMPLATE = False;
 	
+
+
+drop view detalles_viajes, detalle_pagos;
+drop table autos, conductores, desvios, empresas, pagos, partidas, pasajeros, tipodesvio, tipokilometro, viajes;
+
+CREATE TABLE Conductores(
+	Id varchar(15) not null,
+	Nombre varchar(35) not null,
+	Numero varchar(15) not null,
+	Activo int default 1,
+	primary key(Id)
+);
+
+CREATE TABLE Pagos(
+	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
+	FechaPago date,
+	CostoTotal numeric(8, 2),
+	primary key(ConductorId, FechaPago)
+);
+
+CREATE TABLE Autos(
+	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
+	Placas varchar(15),
+	primary key(ConductorId, Placas)
+);
+
+
+
+CREATE TABLE Partidas(
+	Id serial,
+	Nombre varchar(25) not null,
+	primary key(Id)
+);
+
+CREATE TABLE Empresas(
+	Id serial,
+	Nombre varchar(35) not null,
+	Domicilio varchar(35) not null,
+	Telefono varchar(15),
+	primary key(Id)
+);
+
+CREATE TABLE TipoKilometro(
+	Id serial,
+	Nombre varchar(35),
+	primary key(Id)
+);
+
+CREATE TABLE Viajes(
+	Folio varchar(15),
+	Fecha date,
+	HoraInicio time,
+	HoraFin time,
+	Kilometros float,
+	Costo numeric(8, 2),
+	Status int default 0,
+	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
+	PartidaId int references Partidas(Id) ON UPDATE cascade,
+	EmpresaId int references Empresas(Id) ON UPDATE cascade ON DELETE no action,
+	TipoKilometroId int references TipoKilometro(Id) ON UPDATE cascade,
+	primary key(Folio)
+);
+
+
+CREATE TABLE TipoDesvio(
+	Id serial,
+	Nombre varchar(35),
+	primary key(Id)
+);
+
+CREATE TABLE Desvios(
+	Id serial,
+	ViajeId varchar(15) references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
+	Kilometros float,
+	TipoDesvioId int references TipoDesvio(Id),
+	primary key(Id, ViajeId)
+);
+
+CREATE TABLE Pasajeros(
+	Id serial,
+	ViajeId varchar(15) references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
+	Nombre varchar(50),
+	Destino varchar(50),
+	primary key(Id, ViajeId)
+);
+
+--SELECT * FROM detalles_viajes WHERE status = 0;
+
+CREATE OR REPLACE VIEW detalles_viajes AS
+SELECT folio, fecha, horaInicio, horaFin, viajes.kilometros, viajes.costo
+		, conductorId, partidas.Id - 1 as tipoServicioId, partidas.Nombre as tipoServicio,
+		empresas.Id - 1 as empresaId, empresas.Nombre as empresa,
+		tipoKilometro.Id - 1 as tipoKilometroId, tipoKilometro.Nombre as tipoKilometro,
+		tipoDesvio.Id - 1 as tipoDesvioId, tipoDesvio.Nombre as tipoDesvio,
+		desvios.kilometros as kilometrosDesvio,
+		viajes.status
+FROM viajes
+INNER JOIN partidas
+ON viajes.partidaId = partidas.Id
+INNER JOIN empresas
+ON empresas.Id = viajes.empresaId
+INNER JOIN tipoKilometro
+ON tipoKilometro.Id = viajes.tipoKilometroId
+INNER JOIN desvios
+ON viajes.folio = desvios.viajeId
+INNER JOIN tipoDesvio
+ON desvios.tipoDesvioId = tipoDesvio.Id;
+
 CREATE OR REPLACE PROCEDURE ingresarConductor(nombreConductor varchar(35), unidadNumero int, numero varchar(15), placa varchar(15))
 LANGUAGE plpgsql
 AS $$
@@ -152,104 +260,4 @@ END;
 $$
 LANGUAGE plpgsql;
 
--- drop view detalles_viajes;
--- drop table autos, conductores, desvios, empresas, pagos, partidas, pasajeros, tipodesvio, tipokilometro, viajes;
-
-CREATE TABLE Conductores(
-	Id varchar(15) not null,
-	Nombre varchar(35) not null,
-	Numero varchar(15) not null,
-	Activo int default 1,
-	primary key(Id)
-);
-
-CREATE TABLE Pagos(
-	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
-	FechaPago date,
-	CostoTotal numeric(8, 2),
-	primary key(ConductorId, FechaPago)
-);
-
-CREATE TABLE Autos(
-	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
-	Placas varchar(15),
-	primary key(ConductorId, Placas)
-);
-
-
-
-CREATE TABLE Partidas(
-	Id serial,
-	Nombre varchar(25) not null,
-	primary key(Id)
-);
-
-CREATE TABLE Empresas(
-	Id serial,
-	Nombre varchar(35) not null,
-	Domicilio varchar(35) not null,
-	Telefono varchar(15),
-	primary key(Id)
-);
-
-CREATE TABLE TipoKilometro(
-	Id serial,
-	Nombre varchar(35),
-	primary key(Id)
-);
-
-CREATE TABLE Viajes(
-	Folio varchar(15),
-	Fecha date,
-	HoraInicio time,
-	HoraFin time,
-	Kilometros float,
-	Costo numeric(8, 2),
-	Status int,
-	ConductorId varchar(15) references Conductores(Id) ON UPDATE cascade ON DELETE no action,
-	PartidaId int references Partidas(Id) ON UPDATE cascade,
-	EmpresaId int references Empresas(Id) ON UPDATE cascade ON DELETE no action,
-	TipoKilometroId int references TipoKilometro(Id) ON UPDATE cascade,
-	primary key(Folio)
-);
-
-
-CREATE TABLE TipoDesvio(
-	Id serial,
-	Nombre varchar(35),
-	primary key(Id)
-);
-
-CREATE TABLE Desvios(
-	ViajeId varchar(15) references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
-	Kilometros float,
-	TipoDesvioId int references TipoDesvio(Id),
-	primary key(ViajeId)
-);
-
-CREATE TABLE Pasajeros(
-	ViajeId varchar(15) references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
-	Nombre varchar(50),
-	Destino varchar(50),
-	primary key(ViajeId)
-);
-
-CREATE VIEW detalles_viajes AS
-SELECT folio, fecha, horaInicio, horaFin, kilometros, costo
-		, conductorId, partidas.Id - 1 as tipoServicioId, partidas.Nombre as tipoServicio,
-		empresas.Id - 1 as empresaId, empresas.Nombre as empresa,
-		tipoKilometro.Id - 1 as tipoKilometroId, tipoKilometro.Nombre as tipoKilometro,
-		tipoDesvio.Id - 1 as tipoDesvioId, tipoDesvio.Nombre as tipoDesvio
-FROM viajes
-INNER JOIN partidas
-ON viajes.partidaId = partidas.Id
-INNER JOIN empresas
-ON empresas.Id = viajes.empresaId
-INNER JOIN tipoKilometro
-ON tipoKilometro.Id = viajes.tipoKilometroId
-INNER JOIN desvios
-ON viajes.folio = desvios.viajeId
-INNER JOIN tipoDesvio
-ON desvios.tipoDesvioId = tipoDesvio.Id;
-
-SELECT * FROM detalles_viajes;
+--SELECT * FROM detalles_viajes;
