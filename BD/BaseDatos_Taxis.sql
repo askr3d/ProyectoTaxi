@@ -61,7 +61,7 @@ CREATE TABLE TipoKilometro(
 );
 
 CREATE TABLE Viajes(
-	Folio varchar(15),
+	Folio serial,
 	Fecha date,
 	HoraInicio time,
 	HoraFin time,
@@ -84,7 +84,7 @@ CREATE TABLE TipoDesvio(
 
 CREATE TABLE Desvios(
 	Id serial,
-	ViajeId varchar(15) references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
+	ViajeId int references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
 	Kilometros float,
 	TipoDesvioId int references TipoDesvio(Id),
 	primary key(Id, ViajeId)
@@ -92,7 +92,7 @@ CREATE TABLE Desvios(
 
 CREATE TABLE Pasajeros(
 	Id serial,
-	ViajeId varchar(15) references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
+	ViajeId int references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
 	Nombre varchar(50),
 	Destino varchar(50),
 	primary key(Id, ViajeId)
@@ -133,7 +133,7 @@ BEGIN
 END;
 $$
 
-CREATE OR REPLACE PROCEDURE eliminarViajes(folioId varchar(15))
+CREATE OR REPLACE PROCEDURE eliminarViajes(folioId int)
 LANGUAGE plpgsql
 AS $$
 BEGIN
@@ -152,7 +152,9 @@ $$
 
 CREATE OR REPLACE PROCEDURE mostrarPagos()
 LANGUAGE plpgsql
-AS$$
+AS $$
+DECLARE
+	resultado
 BEGIN
 	SELECT pagos.Unidad, pagos.FechaPago, funcionKmDiurno(conductores.Id, pagos.FechaPago),
 	funcionKmNocturno(conductores.Id, pagos.fechaPago), 
