@@ -2297,12 +2297,17 @@ QHeaderView::section{
                          </column>
                          <column>
                           <property name="text">
-                           <string>Conductor</string>
+                           <string>Kilometros</string>
                           </property>
                          </column>
                          <column>
                           <property name="text">
-                           <string>Empresa</string>
+                           <string>Costo</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>Conductor</string>
                           </property>
                          </column>
                          <column>
@@ -2312,22 +2317,17 @@ QHeaderView::section{
                          </column>
                          <column>
                           <property name="text">
+                           <string>Empresa</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
                            <string>Tipo Km</string>
                           </property>
                          </column>
                          <column>
                           <property name="text">
-                           <string>Kilometros</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
                            <string>Tipo Desvio</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>Costo</string>
                           </property>
                          </column>
                          <column>
@@ -3731,7 +3731,7 @@ QHeaderView::section{
                          </property>
                          <column>
                           <property name="text">
-                           <string>No.</string>
+                           <string>Unidad</string>
                           </property>
                          </column>
                          <column>
@@ -3742,11 +3742,6 @@ QHeaderView::section{
                          <column>
                           <property name="text">
                            <string>Numero</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>Unidad</string>
                           </property>
                          </column>
                          <column>

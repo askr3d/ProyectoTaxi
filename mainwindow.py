@@ -1,4 +1,5 @@
 from ui_mainwindow import *
+from ui_subwindow import Ui_Form
 import psycopg2
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPropertyAnimation
@@ -12,16 +13,25 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.actualizar_fecha()
         self.costo_kilometro = 0
-        self.btn_act = QPushButton("Botón", self)
+        # Botones_tablas
+        self.btn_act = QPushButton("row", self)
+        self.btn_pasajeros = QPushButton("row", self)
+        # self.btn_eliminar = QPushButton("row", self)
         
-        # self.funcion() ------------------------- BORRAR
+        # Crear una instancia de la subventana
+        self.subventana = QDialog(self)
+        self.subventana_ui = Ui_Form()
+        self.subventana_ui.setupUi(self.subventana)
+        self.subventana.setWindowFlag(Qt.FramelessWindowHint)
+        self.subventana.setWindowOpacity(1)        
+        
         # Objeto conexion con la base de datos
         try:
             self.conexion = psycopg2.connect(
                 host = 'localhost',
                 user = 'postgres',
                 password = 'password',
-                database = 'practicaPython'
+                database = 'ProyectoTaxis'
             )
         except:
             print("Error al conectar la base de datos")
@@ -31,6 +41,7 @@ class MainWindow(QMainWindow):
         # Eliminar barra de titulo
         self.setWindowFlag(Qt.FramelessWindowHint)
         self.setWindowOpacity(1)
+        
 
         # Sizerip
         self.gripSize = 10
@@ -68,6 +79,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_guardar_viaje.clicked.connect(self.guardar_viaje)
         self.ui.btn_buscar_viaje.clicked.connect(self.buscar_viaje)
         self.btn_act.clicked.connect(self.copiar_viaje)
+        self.btn_pasajeros.clicked.connect(self.abrir_subventana)
         
         # Conductor
         self.ui.btn_guardar_conductor.clicked.connect(self.guardar_conductor)
@@ -208,6 +220,7 @@ class MainWindow(QMainWindow):
         cursor.close()
         
     def mostrar_viajes(self):
+        self.abrir_subventana()
         selected_date = self.ui.dateTimeEdit.date()
         fecha = str(selected_date.toPython().strftime('%Y-%m-%d'))
         cursor = self.conexion.cursor()
@@ -219,6 +232,7 @@ class MainWindow(QMainWindow):
         tablerow = 0
         for row in viajes:
             self.btn_act.setProperty("row", row[0])
+            self.btn_pasajeros.setProperty("row", row[11])
             
             self.ui.tabla_viajes.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
             self.ui.tabla_viajes.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
@@ -283,3 +297,5 @@ class MainWindow(QMainWindow):
         pass
     def generar_factura(self):
         pass
+    def abrir_subventana(self):
+        self.subventana.exec_()

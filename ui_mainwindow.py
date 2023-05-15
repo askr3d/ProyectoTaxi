@@ -1638,8 +1638,8 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.gridLayout_5.setContentsMargins(9, 9, 9, 9)
         self.tabla_conductores = QTableWidget(self.frame_11)
-        if (self.tabla_conductores.columnCount() < 7):
-            self.tabla_conductores.setColumnCount(7)
+        if (self.tabla_conductores.columnCount() < 6):
+            self.tabla_conductores.setColumnCount(6)
         __qtablewidgetitem25 = QTableWidgetItem()
         self.tabla_conductores.setHorizontalHeaderItem(0, __qtablewidgetitem25)
         __qtablewidgetitem26 = QTableWidgetItem()
@@ -1652,8 +1652,6 @@ class Ui_MainWindow(object):
         self.tabla_conductores.setHorizontalHeaderItem(4, __qtablewidgetitem29)
         __qtablewidgetitem30 = QTableWidgetItem()
         self.tabla_conductores.setHorizontalHeaderItem(5, __qtablewidgetitem30)
-        __qtablewidgetitem31 = QTableWidgetItem()
-        self.tabla_conductores.setHorizontalHeaderItem(6, __qtablewidgetitem31)
         self.tabla_conductores.setObjectName(u"tabla_conductores")
         self.tabla_conductores.setMinimumSize(QSize(0, 239))
         self.tabla_conductores.setStyleSheet(u"QTableWidget{\n"
@@ -1833,20 +1831,20 @@ class Ui_MainWindow(object):
         self.tabla_pagos = QTableWidget(self.frame_76)
         if (self.tabla_pagos.columnCount() < 7):
             self.tabla_pagos.setColumnCount(7)
+        __qtablewidgetitem31 = QTableWidgetItem()
+        self.tabla_pagos.setHorizontalHeaderItem(0, __qtablewidgetitem31)
         __qtablewidgetitem32 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(0, __qtablewidgetitem32)
+        self.tabla_pagos.setHorizontalHeaderItem(1, __qtablewidgetitem32)
         __qtablewidgetitem33 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(1, __qtablewidgetitem33)
+        self.tabla_pagos.setHorizontalHeaderItem(2, __qtablewidgetitem33)
         __qtablewidgetitem34 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(2, __qtablewidgetitem34)
+        self.tabla_pagos.setHorizontalHeaderItem(3, __qtablewidgetitem34)
         __qtablewidgetitem35 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(3, __qtablewidgetitem35)
+        self.tabla_pagos.setHorizontalHeaderItem(4, __qtablewidgetitem35)
         __qtablewidgetitem36 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(4, __qtablewidgetitem36)
+        self.tabla_pagos.setHorizontalHeaderItem(5, __qtablewidgetitem36)
         __qtablewidgetitem37 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(5, __qtablewidgetitem37)
-        __qtablewidgetitem38 = QTableWidgetItem()
-        self.tabla_pagos.setHorizontalHeaderItem(6, __qtablewidgetitem38)
+        self.tabla_pagos.setHorizontalHeaderItem(6, __qtablewidgetitem37)
         self.tabla_pagos.setObjectName(u"tabla_pagos")
         self.tabla_pagos.setMinimumSize(QSize(0, 239))
         self.tabla_pagos.setStyleSheet(u"QTableWidget{\n"
@@ -2574,7 +2572,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.btn_inicio.setDefault(False)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.btn_actualizar_fecha.setDefault(False)
         self.btn_actualizar_costo.setDefault(False)
         self.btn_actualizar_costo_km_diurno.setDefault(False)
@@ -2660,19 +2658,19 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem3 = self.tabla_viajes.horizontalHeaderItem(3)
         ___qtablewidgetitem3.setText(QCoreApplication.translate("MainWindow", u"Hora fin", None));
         ___qtablewidgetitem4 = self.tabla_viajes.horizontalHeaderItem(4)
-        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
+        ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None));
         ___qtablewidgetitem5 = self.tabla_viajes.horizontalHeaderItem(5)
-        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
+        ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         ___qtablewidgetitem6 = self.tabla_viajes.horizontalHeaderItem(6)
-        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
+        ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
         ___qtablewidgetitem7 = self.tabla_viajes.horizontalHeaderItem(7)
-        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None));
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
         ___qtablewidgetitem8 = self.tabla_viajes.horizontalHeaderItem(8)
-        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None));
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
         ___qtablewidgetitem9 = self.tabla_viajes.horizontalHeaderItem(9)
-        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Tipo Desvio", None));
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None));
         ___qtablewidgetitem10 = self.tabla_viajes.horizontalHeaderItem(10)
-        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Tipo Desvio", None));
         ___qtablewidgetitem11 = self.tabla_viajes.horizontalHeaderItem(11)
         ___qtablewidgetitem11.setText(QCoreApplication.translate("MainWindow", u"Pasajeros", None));
         ___qtablewidgetitem12 = self.tabla_viajes.horizontalHeaderItem(12)
@@ -2740,19 +2738,17 @@ class Ui_MainWindow(object):
         self.btn_guardar_conductor.setText(QCoreApplication.translate("MainWindow", u"Guardar", None))
         self.groupBox_9.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
         ___qtablewidgetitem25 = self.tabla_conductores.horizontalHeaderItem(0)
-        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"No.", None));
+        ___qtablewidgetitem25.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
         ___qtablewidgetitem26 = self.tabla_conductores.horizontalHeaderItem(1)
         ___qtablewidgetitem26.setText(QCoreApplication.translate("MainWindow", u"Nombre", None));
         ___qtablewidgetitem27 = self.tabla_conductores.horizontalHeaderItem(2)
         ___qtablewidgetitem27.setText(QCoreApplication.translate("MainWindow", u"Numero", None));
         ___qtablewidgetitem28 = self.tabla_conductores.horizontalHeaderItem(3)
-        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
+        ___qtablewidgetitem28.setText(QCoreApplication.translate("MainWindow", u"Matricula", None));
         ___qtablewidgetitem29 = self.tabla_conductores.horizontalHeaderItem(4)
-        ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"Matricula", None));
+        ___qtablewidgetitem29.setText(QCoreApplication.translate("MainWindow", u"Modificar", None));
         ___qtablewidgetitem30 = self.tabla_conductores.horizontalHeaderItem(5)
-        ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"Modificar", None));
-        ___qtablewidgetitem31 = self.tabla_conductores.horizontalHeaderItem(6)
-        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
+        ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
         self.groupBox_10.setTitle("")
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
         self.cbx_buscar_conductor.setItemText(0, QCoreApplication.translate("MainWindow", u"Unidad", None))
@@ -2767,20 +2763,20 @@ class Ui_MainWindow(object):
         self.label_111.setText("")
         self.label_112.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Consulta a todos los conductores asi como todos los viajes que han realizado y el dinero que han generado.</p></body></html>", None))
         self.groupBox_47.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
-        ___qtablewidgetitem32 = self.tabla_pagos.horizontalHeaderItem(0)
-        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"ID", None));
-        ___qtablewidgetitem33 = self.tabla_pagos.horizontalHeaderItem(1)
-        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
-        ___qtablewidgetitem34 = self.tabla_pagos.horizontalHeaderItem(2)
-        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"KM diurno", None));
-        ___qtablewidgetitem35 = self.tabla_pagos.horizontalHeaderItem(3)
-        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"KM nocturno", None));
-        ___qtablewidgetitem36 = self.tabla_pagos.horizontalHeaderItem(4)
-        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"Desvio diurno", None));
-        ___qtablewidgetitem37 = self.tabla_pagos.horizontalHeaderItem(5)
-        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"Desvio nocturno", None));
-        ___qtablewidgetitem38 = self.tabla_pagos.horizontalHeaderItem(6)
-        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
+        ___qtablewidgetitem31 = self.tabla_pagos.horizontalHeaderItem(0)
+        ___qtablewidgetitem31.setText(QCoreApplication.translate("MainWindow", u"ID", None));
+        ___qtablewidgetitem32 = self.tabla_pagos.horizontalHeaderItem(1)
+        ___qtablewidgetitem32.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
+        ___qtablewidgetitem33 = self.tabla_pagos.horizontalHeaderItem(2)
+        ___qtablewidgetitem33.setText(QCoreApplication.translate("MainWindow", u"KM diurno", None));
+        ___qtablewidgetitem34 = self.tabla_pagos.horizontalHeaderItem(3)
+        ___qtablewidgetitem34.setText(QCoreApplication.translate("MainWindow", u"KM nocturno", None));
+        ___qtablewidgetitem35 = self.tabla_pagos.horizontalHeaderItem(4)
+        ___qtablewidgetitem35.setText(QCoreApplication.translate("MainWindow", u"Desvio diurno", None));
+        ___qtablewidgetitem36 = self.tabla_pagos.horizontalHeaderItem(5)
+        ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"Desvio nocturno", None));
+        ___qtablewidgetitem37 = self.tabla_pagos.horizontalHeaderItem(6)
+        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         self.groupBox_48.setTitle("")
         self.label_121.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
         self.cbx_buscar_conductor_pagos.setItemText(0, QCoreApplication.translate("MainWindow", u"Unidad", None))
