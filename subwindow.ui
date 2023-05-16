@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGroupBox" name="groupBox_3">
@@ -304,6 +307,43 @@ QPushButton:hover{
                         </layout>
                        </item>
                        <item>
+                        <widget class="QLineEdit" name="ledt_pasajeros_id">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>10</pointsize>
+                           <kerning>false</kerning>
+                          </font>
+                         </property>
+                         <property name="mouseTracking">
+                          <bool>false</bool>
+                         </property>
+                         <property name="acceptDrops">
+                          <bool>false</bool>
+                         </property>
+                         <property name="toolTip">
+                          <string notr="true"/>
+                         </property>
+                         <property name="accessibleDescription">
+                          <string notr="true"/>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
+                         </property>
+                         <property name="readOnly">
+                          <bool>false</bool>
+                         </property>
+                         <property name="placeholderText">
+                          <string notr="true"/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
                         <layout class="QHBoxLayout" name="horizontalLayout">
                          <item>
                           <spacer name="horizontalSpacer_27">
@@ -534,6 +574,43 @@ QPushButton:hover{
                           </spacer>
                          </item>
                         </layout>
+                       </item>
+                       <item>
+                        <widget class="QLineEdit" name="lineEdit_2">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <pointsize>10</pointsize>
+                           <kerning>false</kerning>
+                          </font>
+                         </property>
+                         <property name="mouseTracking">
+                          <bool>false</bool>
+                         </property>
+                         <property name="acceptDrops">
+                          <bool>false</bool>
+                         </property>
+                         <property name="toolTip">
+                          <string notr="true"/>
+                         </property>
+                         <property name="whatsThis">
+                          <string notr="true"/>
+                         </property>
+                         <property name="accessibleDescription">
+                          <string notr="true"/>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
+                         </property>
+                         <property name="placeholderText">
+                          <string/>
+                         </property>
+                        </widget>
                        </item>
                        <item>
                         <layout class="QHBoxLayout" name="horizontalLayout_30">

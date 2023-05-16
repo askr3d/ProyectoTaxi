@@ -18,6 +18,7 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(814, 605)
+        Form.setStyleSheet(u"background-color: rgb(255, 255, 255);")
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.groupBox_3 = QGroupBox(Form)
@@ -136,6 +137,28 @@ class Ui_Form(object):
 
         self.verticalLayout_41.addLayout(self.horizontalLayout_31)
 
+        self.ledt_pasajeros_id = QLineEdit(self.groupBox_32)
+        self.ledt_pasajeros_id.setObjectName(u"ledt_pasajeros_id")
+        self.ledt_pasajeros_id.setEnabled(False)
+        font1 = QFont()
+        font1.setPointSize(10)
+        font1.setKerning(False)
+        self.ledt_pasajeros_id.setFont(font1)
+        self.ledt_pasajeros_id.setMouseTracking(False)
+        self.ledt_pasajeros_id.setAcceptDrops(False)
+#if QT_CONFIG(tooltip)
+        self.ledt_pasajeros_id.setToolTip(u"")
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(accessibility)
+        self.ledt_pasajeros_id.setAccessibleDescription(u"")
+#endif // QT_CONFIG(accessibility)
+        self.ledt_pasajeros_id.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.ledt_pasajeros_id.setFrame(False)
+        self.ledt_pasajeros_id.setReadOnly(False)
+        self.ledt_pasajeros_id.setPlaceholderText(u"")
+
+        self.verticalLayout_41.addWidget(self.ledt_pasajeros_id)
+
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.horizontalSpacer_27 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
@@ -253,6 +276,26 @@ class Ui_Form(object):
 
 
         self.verticalLayout_42.addLayout(self.horizontalLayout_32)
+
+        self.lineEdit_2 = QLineEdit(self.groupBox_33)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setEnabled(False)
+        self.lineEdit_2.setFont(font1)
+        self.lineEdit_2.setMouseTracking(False)
+        self.lineEdit_2.setAcceptDrops(False)
+#if QT_CONFIG(tooltip)
+        self.lineEdit_2.setToolTip(u"")
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(whatsthis)
+        self.lineEdit_2.setWhatsThis(u"")
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(accessibility)
+        self.lineEdit_2.setAccessibleDescription(u"")
+#endif // QT_CONFIG(accessibility)
+        self.lineEdit_2.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.lineEdit_2.setFrame(False)
+
+        self.verticalLayout_42.addWidget(self.lineEdit_2)
 
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
@@ -386,6 +429,7 @@ class Ui_Form(object):
         self.btn_agregar_pasajero.setText(QCoreApplication.translate("Form", u"Agregar", None))
         self.groupBox_33.setTitle("")
         self.label_32.setText("")
+        self.lineEdit_2.setPlaceholderText("")
         self.label_97.setText(QCoreApplication.translate("Form", u"Destino:  ", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("Form", u"Consulta", None))
         ___qtablewidgetitem = self.tabla_pasajeros.horizontalHeaderItem(0)

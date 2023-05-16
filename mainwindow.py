@@ -81,6 +81,8 @@ class MainWindow(QMainWindow):
         self.ui.btn_guardar_viaje.clicked.connect(self.guardar_viaje)
         self.ui.btn_buscar_viaje.clicked.connect(self.buscar_viaje)
         self.ui.btn_finalizar_viajes.clicked.connect(self.finalizar_viajes)
+        # Pasajero
+        self.subventana_ui.btn_agregar_pasajero.clicked.connect(self.guardar_pasajeros)
         
         # Empresa
         self.ui.btn_guardar_empresa.clicked.connect(self.guardar_empresa)
@@ -287,13 +289,14 @@ class MainWindow(QMainWindow):
             self.ui.tabla_viajes.setCellWidget(tablerow, 13, btn_eliminar)
             
             tablerow += 1
-    def abrir_subventana(self):
-        self.subventana.exec_()
+            
+    def mostrar_pasajeros(self):
         id_boton = self.sender().property("id")
         pasajeros = self.db.mostrar_pasejeros_por_viaje(id_boton)
         i = len(pasajeros)
         
         self.subventana_ui.tabla_pasajeros.setRowCount(i)
+        
         tablerow = 0
         
         for row in pasajeros:
@@ -313,23 +316,54 @@ class MainWindow(QMainWindow):
             
             tablerow += 1
             
+    def abrir_subventana(self):
+        self.subventana.exec_()
+        self.mostrar_pasajeros()
+        
+    def guardar_pasajeros(self):
+        id = self.subventana_ui.ledt_pasajeros_id.text()
+        nombre = self.subventana_ui.ledt_pasajeros_nombre.text()
+        destino = self.subventana_ui.ledt_pasajeros_destino.text()
+
+        if id == "":
+            self.db.ingresar_pasajero(id, nombre, destino)
+        else:
+            self.db.modificar_pasajero(id, nombre, destino)
+        self.mostrar_pasajeros()
+        
+             
     def copiar_pasajero(self):
-        pass
+        id_boton = self.sender().property("id")
+        pasajero = self.db.mostrar_pasejeros_por_viaje(id_boton)
+    
+        self.subventana_ui.ledt_pasajeros_id.setText(str(pasajero[0]))
+        self.subventana_ui.ledt_pasajeros_nombre.setText(str(pasajero[1]))
+        self.subventana_ui.ledt_pasajeros_destino.setText(str(pasajero[2]))
+        
     def eliminar_pasajero(self):
-        pass
+        respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de eliminar el registro?")
+        if respuesta == QMessageBox.Yes:
+            id_boton = self.sender().property("id")
+            self.db.eliminar_pasajero(id_boton)
+            self.mostrar_pasajeros()  
+            
     def eliminar_viaje(self):
-        pass
+        respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de eliminar el registro?")
+        if respuesta == QMessageBox.Yes:
+            id_boton = self.sender().property("id")
+            self.db.eliminar_viaje(id_boton)
+            self.mostrar_viajes()  
     
     def copiar_viaje(self):
         id_boton = self.sender().property("id")
         viaje = self.db.buscar_viaje_por_id(id_boton)
-        
-        num_unidad = str(conductor[0]).split("-")[-1]
-        self.ui.ledt_conductor_id.setText(str(conductor[0]))
-        self.ui.ledt_conductor_nombre.setText(str(conductor[1]))
-        self.ui.ledt_conductor_unidad.setText(num_unidad)
-        self.ui.ledt_conductor_numero.setText(str(conductor[2]))
-        self.ui.ledt_conductor_matricula.setText(str(conductor[4]))  
+        # Copiar todos los campos a la interfaz de vuelta
+        # num_unidad = str(conductor[0]).split("-")[-1]
+        # self.ui.ledt_conductor_id.setText(str(conductor[0]))
+        # self.ui.ledt_conductor_nombre.setText(str(conductor[1]))
+        # self.ui.ledt_conductor_unidad.setText(num_unidad)
+        # self.ui.ledt_conductor_numero.setText(str(conductor[2]))
+        # self.ui.ledt_conductor_matricula.setText(str(conductor[4]))  
         
     def guardar_conductor(self):
         id = self.ui.ledt_conductor_id.text()
@@ -450,10 +484,6 @@ class MainWindow(QMainWindow):
             self.ui.tabla_empresa.setCellWidget(tablerow, 5, btn_eliminar)
             
             tablerow += 1
-
-    def copiar_viaje(self):
-        boton = self.sender().property("id")
-        print("El boton es: ", boton)
 
     def mostrar_historico_viajes(self):
         viajes = self.db.mostrar_historico()
