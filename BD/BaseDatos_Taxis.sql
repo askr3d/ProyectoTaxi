@@ -21,11 +21,10 @@ CREATE TABLE valoresGlobales(
 	kmDiurno float,
 	kmNocturno float,
 	desvioDiurno float,
-	desvioNocturno float,
-	porcentaje float
+	desvioNocturno float
 );
 
-INSERT INTO valoresGlobales VALUES(10, 10, 10, 10, 0.8);
+INSERT INTO valoresGlobales VALUES(10, 10, 10, 10);
 
 CREATE TABLE Conductores(
 	Id varchar(15) not null,
@@ -57,7 +56,7 @@ CREATE TABLE Partidas(
 );
 
 INSERT INTO Partidas(Nombre)
-VALUES ('Entrada'), ('Salida')
+VALUES ('Entrada'), ('Salida');
 
 CREATE TABLE Empresas(
 	Id serial,
@@ -83,7 +82,7 @@ CREATE TABLE TipoKilometro(
 );
 
 INSERT INTO TipoKilometro(Nombre) VALUES
-('Diurno'), ('Nocturno')
+('Diurno'), ('Nocturno');
 
 CREATE TABLE Viajes(
 	Folio serial,
@@ -108,7 +107,7 @@ CREATE TABLE TipoDesvio(
 );
 
 INSERT INTO TipoDesvio(Nombre) VALUES
-('Diurno'), ('Nocturno')
+('Diurno'), ('Nocturno');
 
 CREATE TABLE Desvios(
 	Id serial,
@@ -213,6 +212,8 @@ BEGIN
 	
 END;
 $$
+
+SELECT * FROM detalle_Pagos
 
 CREATE OR REPLACE VIEW detalle_Pagos AS
 SELECT pagos.ConductorId, pagos.FechaPago, funcionKmDiurno(pagos.ConductorId, pagos.FechaPago) AS kmDiurno,
