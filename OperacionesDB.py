@@ -259,6 +259,7 @@ class OperacionesDB():
     
     
     def ingresarPago(self):
+        porcentaje = float(str(self.mostrar_globales()[4]))
         cursor = self.conexion.cursor()
         queryStatus = "UPDATE viajes SET Status = 1 WHERE Status = 0"
         queryInsertar = '''
@@ -271,10 +272,51 @@ class OperacionesDB():
             costo = self.obtener_costosViajes_por_conductor(conductor[0])[0]
             
             if(costo is not None and float(str(costo)) > 0):
-                costo = float(str(costo)) * 0.8
+                costo = float(str(costo)) * porcentaje
                 cursor.execute(queryInsertar.format(conductor[0], costo))
         
         cursor.execute(queryStatus)
         self.conexion.commit()
         cursor.close()
-        
+
+    def mostrar_globales(self):
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT * FROM valoresGlobales")
+        datos = cursor.fetchone()
+        cursor.close()
+        return datos
+    
+    def actualizar_kmDiurno(self, valor: float):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE valoresGlobales SET kmDiurno =  '{}' '''.format(valor)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+    
+    def actualizar_kmNocturno(self, valor: float):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE valoresGlobales SET kmNocturno =  '{}' '''.format(valor)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    def actualizar_desvioDiurno(self, valor: float):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE valoresGlobales SET desvioDiurno =  '{}' '''.format(valor)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+    
+    def actualizar_desvioNocturno(self, valor: float):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE valoresGlobales SET desvioNocturno =  '{}' '''.format(valor)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    def actualizar_porcentaje(self, valor: float):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE valoresGlobales SET porcentaje =  '{}' '''.format(valor)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()

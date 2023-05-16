@@ -17,6 +17,16 @@ CREATE DATABASE "ProyectoTaxis"
 drop view detalles_viajes, detalle_pagos;
 drop table autos, conductores, desvios, empresas, pagos, partidas, pasajeros, tipodesvio, tipokilometro, viajes;
 
+CREATE TABLE valoresGlobales(
+	kmDiurno float,
+	kmNocturno float,
+	desvioDiurno float,
+	desvioNocturno float,
+	porcentaje float
+);
+
+INSERT INTO valoresGlobales VALUES(10, 10, 10, 10);
+
 CREATE TABLE Conductores(
 	Id varchar(15) not null,
 	Nombre varchar(35) not null,
