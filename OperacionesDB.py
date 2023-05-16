@@ -122,6 +122,14 @@ class OperacionesDB():
         cursor.close()
         return pasajeros
     
+    def buscar_pasajero_por_id(self, id):
+        cursor = self.conexion.cursor()
+        query = '''SELECT * FROM Pasajeros WHERE id = '{}' '''.format(id)
+        cursor.execute(query)
+        pasajero = cursor.fetchone()
+        cursor.close()
+        return pasajero
+    
     def modificar_pasajero(self, id, nombre, destino):
         cursor = self.conexion.cursor()
         query = '''
