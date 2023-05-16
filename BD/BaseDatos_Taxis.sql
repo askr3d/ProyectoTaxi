@@ -153,7 +153,7 @@ CREATE OR REPLACE PROCEDURE modificarConductor(idConductor varchar(15), nombreCo
 LANGUAGE plpgsql
 AS $$
 DECLARE
-	Unidad varchar(15) := 'TB';
+	Unidad varchar(15) := 'TB-';
 BEGIN
 	Unidad := CONCAT(Unidad, unidadNumero);
 	UPDATE Autos
@@ -161,7 +161,7 @@ BEGIN
 	WHERE conductorId = idConductor;
 	
 	UPDATE Conductores
-	SET Nombe = nombreConductor, numero = numeroConductor, id = Unidad
+	SET Nombre = nombreConductor, numero = numeroConductor, id = Unidad
 	WHERE id = idConductor;
 	
 END;
