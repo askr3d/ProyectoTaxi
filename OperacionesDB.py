@@ -141,7 +141,7 @@ class OperacionesDB():
         cursor.close()
 
     #Viajes
-    def ingresar_viaje(self, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
+    def ingresar_viaje(self, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo):
         cursor = self.conexion.cursor()
         query = '''INSERT INTO Viajes(fecha, horaInicio, horaFin, kilometros, costo, conductorId, partidaId, empresaId, tipoKilometroId)
                     VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}') RETURNING folio
@@ -151,15 +151,15 @@ class OperacionesDB():
             folio = cursor.fetchone()[0]
             desvioId = desvioId - 1
             query = '''
-                    INSERT INTO Desvios(ViajeId, TipoDesvioId, Kilometros)
-                    VALUES('{}', '{}', '{}')
-                    '''.format(folio, desvioId, kilometrosDesvio)
+                    INSERT INTO Desvios(ViajeId, TipoDesvioId)
+                    VALUES('{}', '{}')
+                    '''.format(folio, desvioId)
             cursor.execute(query)
         
         self.conexion.commit()
         cursor.close()
 
-    def modificar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
+    def modificar_viaje(self, folio, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo):
         cursor = self.conexion.cursor()
         query = '''
                 UPDATE Viajes
@@ -177,9 +177,9 @@ class OperacionesDB():
                 desvioId = desvioId - 1
                 query = '''
                         UPDATE desvios
-                        SET viajeId = '{}', tipoDesvioId = '{}', kilometros = '{}'
+                        SET viajeId = '{}', tipoDesvioId = '{}'
                         WHERE viajeId = '{}'
-                        '''.format(folio, desvioId, kilometrosDesvio, folio)
+                        '''.format(folio, desvioId, folio)
             else:
                 query = '''DELETE FROM desvios WHERE viajeId = '{}' '''.format(folio)
             cursor.execute(query)
@@ -187,9 +187,9 @@ class OperacionesDB():
             if(desvioId != 1 and desvioId < 4):
                 desvioId = desvioId - 1
                 query = '''
-                        INSERT INTO Desvios(ViajeId, TipoDesvioId, kilometros)
-                        VALUES('{}', '{}', '{}')
-                        '''.format(folio, desvioId, kilometrosDesvio)
+                        INSERT INTO Desvios(ViajeId, TipoDesvioId)
+                        VALUES('{}', '{}')
+                        '''.format(folio, desvioId)
                 cursor.execute(query)
 
         self.conexion.commit()
