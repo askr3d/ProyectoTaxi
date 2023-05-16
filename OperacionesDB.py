@@ -13,6 +13,42 @@ class OperacionesDB():
             print("Error de conexion: ")
             exit()
 
+    #Empresas
+    def ingresar_empresa(self, nombre, domicilio, telefono):
+        cursor = self.conexion.cursor()
+        query = '''
+                INSERT INTO Empresas(nombre, domicilio, telefono) VALUES ('{}', '{}', '{}')
+                '''.format(nombre, domicilio, telefono)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    def mostrar_empresas(self):
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT * FROM Empresas ORDER BY Id")
+        empresas = cursor.fetchall()
+        cursor.close()
+        return empresas
+    
+    def modificar_empresa(self, id, nombre, domicilio, telefono):
+        cursor = self.conexion.cursor()
+        query = '''
+                UPDATE Empresas
+                SET Nombre = '{}', Domicilio = '{}', Telefono = '{}'
+                WHERE Id = '{}'
+                '''.format(nombre, domicilio, telefono, id)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    def eliminar_empresa(self, id):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE Empresas SET Status = 0 WHERE Id = '{}' '''.format(id)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+
+    #Conductores
     def ingresar_conductor(self, nombre, unidad, numero, placa):
         cursor = self.conexion.cursor()
         cursor.execute("CALL ingresarConductor(%s, %s, %s, %s)", (nombre, unidad, numero, placa))
@@ -37,7 +73,7 @@ class OperacionesDB():
         query = '''
                 UPDATE conductores
                 SET nombre = '{}', unidad = '{}', numero = '{}'
-                WHERE unidad = '{}';
+                WHERE Id = '{}';
 
                 UPDATE autos
                 SET placa = '{}'
@@ -61,6 +97,14 @@ class OperacionesDB():
         cursor.close()
         return conductores
     
+    def eliminar_conductor(self, id):
+        cursor = self.conexion.cursor()
+        query = '''UPDATE Conductores SET Activo = 0 WHERE id = '{}' '''.format(id)
+        cursor.execute(query)
+        self.conexion.commit()
+        cursor.close()
+    
+    #Pasajeros
     def ingresar_pasajero(self, viajeId, nombre, destino):
         cursor = self.conexion.cursor()
         query = '''
@@ -93,11 +137,12 @@ class OperacionesDB():
 
     def eliminar_pasajero(self, id):
         cursor = self.conexion.cursor()
-        query = '''DELETE Pasajeros WHERE Id = '{}' '''.format(id)
+        query = '''DELETE FROM Pasajeros WHERE Id = '{}' '''.format(id)
         cursor.execute(query)
         self.conexion.commit()
         cursor.close()
 
+    #Viajes
     def ingresar_viaje(self, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo, kilometrosDesvio):
         cursor = self.conexion.cursor()
         query = '''INSERT INTO Viajes(fecha, horaInicio, horaFin, kilometros, costo, conductorId, partidaId, empresaId, tipoKilometroId)
@@ -173,18 +218,19 @@ class OperacionesDB():
         viaje = cursor.fetchone()
         cursor.close()
         return viaje
-
-    def mostrar_pagos(self):
+    
+    def mostrar_historico(self):
         cursor = self.conexion.cursor()
-        query = "SELECT * FROM detalle_pagos"
+        query = "SELECT * FROM detalles_viajes WHERE status = 1"
         cursor.execute(query)
         pagos = cursor.fetchall()
         cursor.close()
         return pagos
     
-    def mostrar_historico(self):
+    #Pagos
+    def mostrar_pagos(self):
         cursor = self.conexion.cursor()
-        query = "SELECT * FROM detalles_viajes WHERE status = 1"
+        query = "SELECT * FROM detalle_pagos"
         cursor.execute(query)
         pagos = cursor.fetchall()
         cursor.close()
@@ -197,6 +243,7 @@ class OperacionesDB():
         viajes = cursor.fetchone()
         cursor.close()
         return viajes
+    
     
     def ingresarPago(self, kmDiurno, kmNocturno, desvioDiurno, desvioNocturno):
         cursor = self.conexion.cursor()

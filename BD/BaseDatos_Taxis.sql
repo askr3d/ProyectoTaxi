@@ -21,7 +21,7 @@ CREATE TABLE Conductores(
 	Id varchar(15) not null,
 	Nombre varchar(35) not null,
 	Numero varchar(15) not null,
-	Activo int default 1,
+	Activo int default 1 not null,
 	primary key(Id)
 );
 
@@ -46,19 +46,34 @@ CREATE TABLE Partidas(
 	primary key(Id)
 );
 
+INSERT INTO Partidas(Nombre)
+VALUES ('Entrada'), ('Salida')
+
 CREATE TABLE Empresas(
 	Id serial,
 	Nombre varchar(35) not null,
 	Domicilio varchar(35) not null,
 	Telefono varchar(15),
+	Status int default 1,
 	primary key(Id)
 );
+
+/*
+INSERT INTO Empresas(Nombre, Domicilio, Telefono)
+VALUES('Mercado Libre', 'El Salto', '332921292'),
+('Flex Norte', 'EL Salto', '33391912'),
+('Flex Sur', 'El Salto', '331313112')
+*/
+
 
 CREATE TABLE TipoKilometro(
 	Id serial,
 	Nombre varchar(35),
 	primary key(Id)
 );
+
+INSERT INTO TipoKilometro(Nombre) VALUES
+('Diurno'), ('Nocturno')
 
 CREATE TABLE Viajes(
 	Folio serial,
@@ -82,10 +97,12 @@ CREATE TABLE TipoDesvio(
 	primary key(Id)
 );
 
+INSERT INTO TipoDesvio(Nombre) VALUES
+('Diurno'), ('Nocturno')
+
 CREATE TABLE Desvios(
 	Id serial,
 	ViajeId int references Viajes(Folio) ON UPDATE cascade ON DELETE cascade,
-	Kilometros float,
 	TipoDesvioId int references TipoDesvio(Id),
 	primary key(Id, ViajeId)
 );
@@ -106,7 +123,6 @@ SELECT folio, fecha, horaInicio, horaFin, viajes.kilometros, viajes.costo
 		empresas.Id - 1 as empresaId, empresas.Nombre as empresa,
 		tipoKilometro.Id - 1 as tipoKilometroId, tipoKilometro.Nombre as tipoKilometro,
 		tipoDesvio.Id - 1 as tipoDesvioId, tipoDesvio.Nombre as tipoDesvio,
-		desvios.kilometros as kilometrosDesvio,
 		viajes.status
 FROM viajes
 INNER JOIN partidas
@@ -157,9 +173,7 @@ DECLARE
 	resultado
 BEGIN
 	SELECT pagos.Unidad, pagos.FechaPago, funcionKmDiurno(conductores.Id, pagos.FechaPago),
-	funcionKmNocturno(conductores.Id, pagos.fechaPago), 
-	funcionDesvioDiurno(conductores.Id, pagos.FechaPago), 
-	funcionDesvioNocturno(conductores.Id, pagos.FechaPago),
+	funcionKmNocturno(conductores.Id, pagos.fechaPago),
 	pagos.Costo
 	INTO resultado
 	FROM viajes
@@ -229,7 +243,7 @@ DECLARE
 BEGIN
 	
 	
-	SELECT SUM(desvios.kilometros) INTO desvioDiurno
+	SELECT COUNT(*) INTO desvioDiurno
 	FROM viajes
 	INNER JOIN desvios
 	ON viajes.folio = desvios.viajeId
@@ -250,7 +264,7 @@ DECLARE
 BEGIN
 	
 	
-	SELECT SUM(desvios.kilometros) INTO desvioNocturno
+	SELECT COUNT(*) INTO desvioNocturno
 	FROM viajes
 	INNER JOIN desvios
 	ON viajes.folio = desvios.viajeId
