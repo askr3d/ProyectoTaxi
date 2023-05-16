@@ -25,7 +25,7 @@ class OperacionesDB():
 
     def mostrar_empresas(self):
         cursor = self.conexion.cursor()
-        cursor.execute("SELECT * FROM Empresas ORDER BY Id")
+        cursor.execute("SELECT * FROM Empresas WHERE Status = 1 ORDER BY Id")
         empresas = cursor.fetchall()
         cursor.close()
         return empresas
