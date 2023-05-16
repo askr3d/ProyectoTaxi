@@ -131,9 +131,9 @@ INNER JOIN empresas
 ON empresas.Id = viajes.empresaId
 INNER JOIN tipoKilometro
 ON tipoKilometro.Id = viajes.tipoKilometroId
-INNER JOIN desvios
+LEFT JOIN desvios
 ON viajes.folio = desvios.viajeId
-INNER JOIN tipoDesvio
+LEFT JOIN tipoDesvio
 ON desvios.tipoDesvioId = tipoDesvio.Id;
 
 CREATE OR REPLACE PROCEDURE ingresarConductor(nombreConductor varchar(35), unidadNumero int, numeroConductor varchar(15), placa varchar(15))
