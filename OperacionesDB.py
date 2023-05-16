@@ -271,7 +271,7 @@ class OperacionesDB():
             costo = self.obtener_costosViajes_por_conductor(conductor[0])[0]
             
             if(costo > 0 and costo is not None):
-                costo = costo * 0.8
+                costo = float(str(costo)) * 0.8
                 cursor.execute(queryInsertar.format(conductor[0], costo))
         
         cursor.execute(queryStatus)
