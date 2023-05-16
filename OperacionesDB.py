@@ -279,6 +279,32 @@ class OperacionesDB():
         self.conexion.commit()
         cursor.close()
 
+    def costo_viajes_por_semana(self, numeroSemana):
+        cursor = self.conexion.cursor()
+        query = '''
+                SELECT SUM(costo), fecha FROM viajes
+                WHERE EXTRACT(WEEK from fecha) = '{}' and status = 1
+                GROUP BY fecha
+                '''.format(numeroSemana)
+        cursor.execute(query)
+        costoViajes = cursor.fetchone()
+        cursor.close()
+        return costoViajes
+    
+    def costo_pagos_por_semana(self, numeroSemana):
+        cursor = self.conexion.cursor()
+        query = '''
+                SELECT SUM(costoTotal), fechaPago FROM pagos
+                WHERE EXTRACT(WEEK from fechaPago) = '{}'
+                GROUP BY fechaPago
+                '''.format(numeroSemana)
+        cursor.execute(query)
+        costoPagos = cursor.fetchone()
+        cursor.close()
+        return costoPagos
+
+    #globales
+
     def mostrar_globales(self):
         cursor = self.conexion.cursor()
         cursor.execute("SELECT * FROM valoresGlobales")
