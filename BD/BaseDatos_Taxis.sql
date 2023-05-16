@@ -136,15 +136,33 @@ ON viajes.folio = desvios.viajeId
 INNER JOIN tipoDesvio
 ON desvios.tipoDesvioId = tipoDesvio.Id;
 
-CREATE OR REPLACE PROCEDURE ingresarConductor(nombreConductor varchar(35), unidadNumero int, numero varchar(15), placa varchar(15))
+CREATE OR REPLACE PROCEDURE ingresarConductor(nombreConductor varchar(35), unidadNumero int, numeroConductor varchar(15), placa varchar(15))
 LANGUAGE plpgsql
 AS $$
 DECLARE
 	Unidad varchar(15) := 'TB';
 BEGIN
 	Unidad := CONCAT(Unidad, unidadNumero);
-	INSERT INTO Conductores(id, nombre, numero, activo) VALUES(Unidad, nombreConductor, numero, default);
+	INSERT INTO Conductores(id, nombre, numero, activo) VALUES(Unidad, nombreConductor, numeroConductor, default);
 	INSERT INTO Autos VALUES(Unidad, placa);
+	
+END;
+$$
+
+CREATE OR REPLACE PROCEDURE modificarConductor(idConductor varchar(15), nombreConductor varchar(35), unidadNumero int, numeroConductor varchar(15), placaConductor varchar(15))
+LANGUAGE plpgsql
+AS $$
+DECLARE
+	Unidad varchar(15) := 'TB';
+BEGIN
+	Unidad := CONCAT(Unidad, unidadNumero);
+	UPDATE Autos
+	SET Placas = placaConductor
+	WHERE conductorId = idConductor;
+	
+	UPDATE Conductores
+	SET Nombe = nombreConductor, numero = numeroConductor, id = Unidad
+	WHERE id = idConductor;
 	
 END;
 $$

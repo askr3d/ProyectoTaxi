@@ -75,18 +75,9 @@ class OperacionesDB():
         cursor.close()
         return conductor
 
-    def modificar_conductor(self, nombre, unidad, numero, placa):
+    def modificar_conductor(self, id, nombre, unidad, numero, placa):
         cursor = self.conexion.cursor()
-        query = '''
-                UPDATE conductores
-                SET nombre = '{}', unidad = '{}', numero = '{}'
-                WHERE Id = '{}';
-
-                UPDATE autos
-                SET placa = '{}'
-                WHERE conductorId = '{}'
-                '''.format(nombre, unidad, numero, unidad, placa, unidad)
-        cursor.execute(query)
+        cursor.execute("CALL modificarConductor(%s, %s, %s, %s, %s)", (id, nombre, unidad, numero, placa))
         self.conexion.commit()
         cursor.close()
         
