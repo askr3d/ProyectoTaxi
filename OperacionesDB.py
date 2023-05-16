@@ -258,8 +258,9 @@ class OperacionesDB():
         return viajes
     
     
-    def ingresarPago(self, kmDiurno, kmNocturno, desvioDiurno, desvioNocturno):
+    def ingresarPago(self):
         cursor = self.conexion.cursor()
+        queryStatus = "UPDATE viajes SET Status = 1 WHERE Status = 0"
         queryInsertar = '''
                         INSERT INTO Pagos(conductorId, fechaPago, costoTotal)
                             VALUES('{}', CURRENT_DATE, '{}')
@@ -270,6 +271,7 @@ class OperacionesDB():
             if(costo > 0):
                 cursor.execute(queryInsertar.format(conductor[0], costo))
         
+        cursor.execute(queryStatus)
         self.conexion.commit()
         cursor.close()
         
