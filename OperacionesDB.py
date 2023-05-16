@@ -206,7 +206,13 @@ class OperacionesDB():
 
     def eliminar_viaje(self, folio):
         cursor = self.conexion.cursor()
-        cursor.execute("CALL eliminarViajes(%s)", (folio))
+        query = '''
+                DELETE FROM Pasajeros WEHRE viajeId = '{}';
+                DELETE FROM Desvios WHERE viajeId = '{}';
+                DELETE FROM Viajes WHERE folio = '{}';
+                '''.format(folio, folio, folio)
+        
+        cursor.execute(query)
         self.conexion.commit()
         cursor.close()
 
