@@ -951,6 +951,7 @@ class Ui_MainWindow(object):
         self.cbx_viajes_tipo_desvio = QComboBox(self.frame_37)
         self.cbx_viajes_tipo_desvio.addItem("")
         self.cbx_viajes_tipo_desvio.addItem("")
+        self.cbx_viajes_tipo_desvio.addItem("")
         self.cbx_viajes_tipo_desvio.setObjectName(u"cbx_viajes_tipo_desvio")
 
         self.gridLayout_28.addWidget(self.cbx_viajes_tipo_desvio, 2, 1, 1, 1)
@@ -961,10 +962,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_28.addWidget(self.label_84, 3, 0, 1, 1)
 
-        self.ledt_viajes_calle = QLineEdit(self.frame_37)
-        self.ledt_viajes_calle.setObjectName(u"ledt_viajes_calle")
+        self.ledt_viajes_kilometros = QLineEdit(self.frame_37)
+        self.ledt_viajes_kilometros.setObjectName(u"ledt_viajes_kilometros")
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_calle, 3, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.ledt_viajes_kilometros, 3, 1, 1, 1)
 
         self.label_82 = QLabel(self.frame_37)
         self.label_82.setObjectName(u"label_82")
@@ -972,10 +973,10 @@ class Ui_MainWindow(object):
 
         self.gridLayout_28.addWidget(self.label_82, 4, 0, 1, 1)
 
-        self.ledt_viajes_municipio = QLineEdit(self.frame_37)
-        self.ledt_viajes_municipio.setObjectName(u"ledt_viajes_municipio")
+        self.ledt_viajes_costo = QLineEdit(self.frame_37)
+        self.ledt_viajes_costo.setObjectName(u"ledt_viajes_costo")
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_municipio, 4, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.ledt_viajes_costo, 4, 1, 1, 1)
 
 
         self.gridLayout_29.addWidget(self.frame_37, 0, 0, 1, 1)
@@ -2631,8 +2632,9 @@ class Ui_MainWindow(object):
         self.cbx_viajes_tipo_km.setItemText(1, QCoreApplication.translate("MainWindow", u"Nocturno", None))
 
         self.label_85.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None))
-        self.cbx_viajes_tipo_desvio.setItemText(0, QCoreApplication.translate("MainWindow", u"Diurno", None))
-        self.cbx_viajes_tipo_desvio.setItemText(1, QCoreApplication.translate("MainWindow", u"Nocturno", None))
+        self.cbx_viajes_tipo_desvio.setItemText(0, QCoreApplication.translate("MainWindow", u"N/A", None))
+        self.cbx_viajes_tipo_desvio.setItemText(1, QCoreApplication.translate("MainWindow", u"Diurno", None))
+        self.cbx_viajes_tipo_desvio.setItemText(2, QCoreApplication.translate("MainWindow", u"Nocturno", None))
 
         self.label_84.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None))
         self.label_82.setText(QCoreApplication.translate("MainWindow", u"Costo", None))
