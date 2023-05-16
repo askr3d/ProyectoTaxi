@@ -15,13 +15,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.actualizar_fecha()
         self.costo_kilometro = 0
-        
         self.db = OperacionesDB()
-        # Botones_tablas
-        # self.ui.btn_act = QPushButton("Actualizar", self)
-        # self.btn_pasajeros = QPushButton("Pasajeros", self)
-        # self.btn_eliminar = QPushButton("Eliminar", self)
-        
+
         # Crear una instancia de la subventana
         self.subventana = QDialog(self)
         self.subventana_ui = Ui_Form()
@@ -59,13 +54,13 @@ class MainWindow(QMainWindow):
         
         # Acceder a las paginas
         self.ui.btn_inicio.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_inicio)])
-        self.ui.btn_viajes.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_viaje), self.mostrar_viajes()])
+        self.ui.btn_viajes.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_viaje), self.mostrar_viajes(), self.llenar_datos_viajes()])
         self.ui.btn_historico.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_historico), self.mostrar_historico_viajes()])
-        self.ui.btn_conductor.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_conductor))
+        self.ui.btn_conductor.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_conductor),self.mostrar_conductores()])
         self.ui.btn_pagos.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_pagos))
         self.ui.btn_factura.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_factura))
         self.ui.btn_ajustes.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_ajustes))
-        self.ui.btn_empresa.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_empresa))
+        self.ui.btn_empresa.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_empresa), self.mostrar_empresas()])
         
         # Control de barra de titulos
         self.ui.btn_minimizar.clicked.connect(self.minimizar)
@@ -87,13 +82,12 @@ class MainWindow(QMainWindow):
         self.ui.btn_buscar_viaje.clicked.connect(self.buscar_viaje)
         self.ui.btn_finalizar_viajes.clicked.connect(self.finalizar_viajes)
         
-        # self.ui.btn_act.clicked.connect(self.copiar_viaje)
-        # self.btn_pasajeros.clicked.connect(self.abrir_subventana)
-        # self.btn_eliminar.clicked.connect(self.eliminar_viaje)
-        
+        # Empresa
+        self.ui.btn_guardar_empresa.clicked.connect(self.guardar_empresa)
+        # self.ui.btn_buscar_empresa.clicked.connect(self.buscar_empresa)
         # Conductor
         self.ui.btn_guardar_conductor.clicked.connect(self.guardar_conductor)
-        self.ui.btn_buscar_conductor.clicked.connect(self.buscar_conductor)
+        # self.ui.btn_buscar_conductor.clicked.connect(self.buscar_conductor)
         # Pagos
         self.ui.btn_buscar_conductor_pagos.clicked.connect(self.buscar_conductor_pagos)
         # Historico
@@ -110,6 +104,7 @@ class MainWindow(QMainWindow):
         self.ui.tabla_historico.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.ui.tabla_pagos.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.ui.tabla_empresa.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.subventana_ui.tabla_pasajeros.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         
     # Funciones interfaz
     # -----------------------------------------------------------------------------------
@@ -227,51 +222,53 @@ class MainWindow(QMainWindow):
         fecha = date_time.date()
         hora_inicio = self.ui.timeEdit_hora_inicio.time().toString("HH:mm")
         hora_fin = self.ui.timeEdit_hora_fin.time().toString("HH:mm")
-        conductor = self.ui.ledt_viajes_conductor.text()
-        empresa = self.ui.abx_viajes_empresa.currentIndex()
-        tipo_servicio = self.ui.cbx_viajes_tipo_servicio.currentIndex()
-        tipo_km = self.ui.cbx_viajes_tipo_km.currentIndex()
-        tipo_desvio = self.ui.cbx_viajes_tipo_desvio.currentIndex()
+        conductor = self.ui.cbx_viajes_conductor.currentText()
+        empresa = self.ui.cbx_viajes_empresa.currentIndex() + 1
+        tipo_servicio = self.ui.cbx_viajes_tipo_servicio.currentIndex() + 1
+        tipo_km = self.ui.cbx_viajes_tipo_km.currentIndex() +1 
+        tipo_desvio = self.ui.cbx_viajes_tipo_desvio.currentIndex() + 1
         kilometros = self.ui.ledt_viajes_kilometros.text()
         costo = self.ui.ledt_viajes_costo.text()
-        
+        print("Partida ", tipo_servicio, " tipo km: ", tipo_km, " Tipo desvio: ", tipo_desvio, " empresa: ", empresa)
         self.db.ingresar_viaje(fecha, conductor, hora_inicio, hora_fin, empresa, tipo_servicio, tipo_km, tipo_desvio, kilometros, costo)
+        self.ui.ledt_viajes_kilometros.clear()
+        self.ui.ledt_viajes_costo.clear()
+        self.llenar_datos_viajes()
         
-    def guardar_viaje(self):
-        # Convertir fecha de la interfaz a formato de postgre
-        selected_date_time = self.ui.dateTimeEdit.dateTime()
-        timestamp = selected_date_time.toSecsSinceEpoch()
-        date_time = datetime.datetime.fromtimestamp(timestamp)
-        fecha = date_time.date()
-        hora_inicio = self.ui.timeEdit_hora_inicio.time().toString("HH:mm")
-        hora_fin = self.ui.timeEdit_hora_fin.time().toString("HH:mm")
-        conductor = self.ui.ledt_viajes_conductor.text()
-        empresa = self.ui.abx_viajes_empresa.currentIndex()
-        tipo_servicio = self.ui.cbx_viajes_tipo_servicio.currentIndex()
-        tipo_km = self.ui.cbx_viajes_tipo_km.currentIndex()
-        tipo_desvio = self.ui.cbx_viajes_tipo_desvio.currentIndex()
-        kilometros = self.ui.ledt_viajes_kilometros.text()
-        costo = self.ui.ledt_viajes_costo.text()
         
-        self.db.ingresar_viaje(fecha, conductor, hora_inicio, hora_fin, empresa, tipo_servicio, tipo_km, tipo_desvio, kilometros, costo)
+    def llenar_datos_viajes(self):
+        conductores = self.db.mostrar_conductores()
+        empresas = self.db.mostrar_empresas()
+        self.ui.cbx_viajes_conductor.clear()
+        self.ui.cbx_viajes_empresa.clear()
+        self.ui.dateEdit_viajes.setDate(QDate.currentDate())
+        self.ui.timeEdit_hora_inicio.setTime(QTime.currentTime())
+        self.ui.timeEdit_hora_fin.setTime(QTime.currentTime())
+        for conductor in conductores:
+            self.ui.cbx_viajes_conductor.addItem(conductor[0])
+        
+        for empresa in empresas:
+            self.ui.cbx_viajes_empresa.addItem(empresa[1])
+    
         
     def mostrar_viajes(self):
-        # self.abrir_subventana()
-        selected_date = self.ui.dateTimeEdit.date()
         viajes = self.db.mostrar_viajes()
-
         i = len(viajes)
+        
         self.ui.tabla_viajes.setRowCount(i)
         tablerow = 0
-        self.ui.btn_act = QPushButton("Actualizar", self)
-        self.ui.btn_act.clicked.connect(self.copiar_viaje)
         
         for row in viajes:
-            # self.btn_pasajeros.setProperty("id", row[0])
-
-            self.ui.btn_act.setProperty("id", row[0])
+            btn_actualizar = QPushButton("Actualizar")
+            btn_eliminar = QPushButton("Eliminar")
+            btn_pasajeros = QPushButton("Pasajeros")
+            btn_actualizar.setProperty("id", row[0])
+            btn_eliminar.setProperty("id", row[0])
+            btn_pasajeros.setProperty("id", row[0])
             
-            # self.btn_eliminar.setProperty("id", row[0])
+            btn_actualizar.clicked.connect(self.copiar_viaje)
+            btn_eliminar.clicked.connect(self.eliminar_viaje)
+            btn_pasajeros.clicked.connect(self.abrir_subventana)
             
             self.ui.tabla_viajes.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
             self.ui.tabla_viajes.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
@@ -280,27 +277,183 @@ class MainWindow(QMainWindow):
             self.ui.tabla_viajes.setItem(tablerow, 4, QtWidgets.QTableWidgetItem(str(row[4])))
             self.ui.tabla_viajes.setItem(tablerow, 5, QtWidgets.QTableWidgetItem(str(row[5])))
             self.ui.tabla_viajes.setItem(tablerow, 6, QtWidgets.QTableWidgetItem(str(row[6])))
-            self.ui.tabla_viajes.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[7])))
-            self.ui.tabla_viajes.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[8])))
-            self.ui.tabla_viajes.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(str(row[9])))
-            
-            # self.ui.tabla_viajes.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(str(row[10]))) TIPO DESVIO
-            
-            # Botones
-            # self.ui.tabla_viajes.setCellWidget(tablerow, 11, self.btn_pasajeros)
-            # self.ui.tabla_viajes.setCellWidget(tablerow, 12, self.btn_act)
-            # self.ui.tabla_viajes.setCellWidget(tablerow, 13, self.btn_eliminar)
+            self.ui.tabla_viajes.setItem(tablerow, 7, QtWidgets.QTableWidgetItem(str(row[8])))
+            self.ui.tabla_viajes.setItem(tablerow, 8, QtWidgets.QTableWidgetItem(str(row[10])))
+            self.ui.tabla_viajes.setItem(tablerow, 9, QtWidgets.QTableWidgetItem(str(row[12])))
+            self.ui.tabla_viajes.setItem(tablerow, 10, QtWidgets.QTableWidgetItem(str(row[14])))
+
+            self.ui.tabla_viajes.setCellWidget(tablerow, 11, btn_pasajeros)
+            self.ui.tabla_viajes.setCellWidget(tablerow, 12, btn_actualizar)
+            self.ui.tabla_viajes.setCellWidget(tablerow, 13, btn_eliminar)
             
             tablerow += 1
-    def copiar_viaje(self):
-        # self.btn_act.property("row")
-        pass
-    """
-    str(self.ui.ledt_viajes_empresa.text()), str(self.ui.ledt_viajes_matricula.text()), str(self.ui.ledt_viajes_tipo.text()), 
-            str(self.ui.ledt_viajes_contacto.text()), str(self.ui.ledt_viajes_municipio.text()), str(self.ui.ledt_viajes_colonia.text()), 
-            str(self.ui.ledt_viajes_calle.text()), str(self.ui.ledt_viajes_cel.text())))
+    def abrir_subventana(self):
+        self.subventana.exec_()
+        id_boton = self.sender().property("id")
+        pasajeros = self.db.mostrar_pasejeros_por_viaje(id_boton)
+        i = len(pasajeros)
+        
+        self.subventana_ui.tabla_pasajeros.setRowCount(i)
+        tablerow = 0
+        
+        for row in pasajeros:
+            btn_actualizar = QPushButton("Actualizar")
+            btn_eliminar = QPushButton("Eliminar")
+            btn_actualizar.setProperty("id", row[0])
+            btn_eliminar.setProperty("id", row[0])
             
-    """
+            btn_actualizar.clicked.connect(self.copiar_pasajero)
+            btn_eliminar.clicked.connect(self.eliminar_pasajero)
+            
+            self.ui.tabla_viajes.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+            self.ui.tabla_viajes.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
+            
+            self.ui.tabla_viajes.setCellWidget(tablerow, 2, btn_actualizar)
+            self.ui.tabla_viajes.setCellWidget(tablerow, 3, btn_eliminar)
+            
+            tablerow += 1
+            
+    def copiar_pasajero(self):
+        pass
+    def eliminar_pasajero(self):
+        pass
+    def eliminar_viaje(self):
+        pass
+    
+    def copiar_viaje(self):
+        id_boton = self.sender().property("id")
+        viaje = self.db.buscar_viaje_por_id(id_boton)
+        
+        num_unidad = str(conductor[0]).split("-")[-1]
+        self.ui.ledt_conductor_id.setText(str(conductor[0]))
+        self.ui.ledt_conductor_nombre.setText(str(conductor[1]))
+        self.ui.ledt_conductor_unidad.setText(num_unidad)
+        self.ui.ledt_conductor_numero.setText(str(conductor[2]))
+        self.ui.ledt_conductor_matricula.setText(str(conductor[4]))  
+        
+    def guardar_conductor(self):
+        id = self.ui.ledt_conductor_id.text()
+        nombre = self.ui.ledt_conductor_nombre.text()
+        unidad = self.ui.ledt_conductor_unidad.text()
+        numero = self.ui.ledt_conductor_numero.text()
+        placa = self.ui.ledt_conductor_matricula.text()
+        
+        if id == "":
+            self.db.ingresar_conductor(nombre, unidad, numero, placa)
+        else:
+            self.db.modificar_conductor(id, nombre, unidad, numero, placa)
+        self.mostrar_conductores()
+        self.ui.ledt_conductor_id.clear()
+        self.ui.ledt_conductor_nombre.clear()
+        self.ui.ledt_conductor_unidad.clear()
+        self.ui.ledt_conductor_numero.clear()
+        self.ui.ledt_conductor_matricula.clear()
+        
+        
+    def mostrar_conductores(self):
+        conductores = self.db.mostrar_conductores()
+        i = len(conductores)
+        
+        self.ui.tabla_conductores.setRowCount(i)
+        tablerow = 0
+        
+        for row in conductores:
+            btn_actualizar = QPushButton("Actualizar")
+            btn_eliminar = QPushButton("Eliminar")
+            btn_actualizar.setProperty("id", row[0])
+            btn_eliminar.setProperty("id", row[0])
+            
+            btn_actualizar.clicked.connect(self.copiar_conductor)
+            btn_eliminar.clicked.connect(self.eliminar_conductor)
+            
+            self.ui.tabla_conductores.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+            self.ui.tabla_conductores.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
+            self.ui.tabla_conductores.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+            self.ui.tabla_conductores.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row[4])))
+            
+            self.ui.tabla_conductores.setCellWidget(tablerow, 4, btn_actualizar)
+            self.ui.tabla_conductores.setCellWidget(tablerow, 5, btn_eliminar)
+            
+            tablerow += 1
+    def copiar_conductor(self):
+        id_boton = self.sender().property("id")
+        conductor = self.db.buscar_conductor_por_id(id_boton)
+        num_unidad = str(conductor[0]).split("-")[-1]
+        self.ui.ledt_conductor_id.setText(str(conductor[0]))
+        self.ui.ledt_conductor_nombre.setText(str(conductor[1]))
+        self.ui.ledt_conductor_unidad.setText(num_unidad)
+        self.ui.ledt_conductor_numero.setText(str(conductor[2]))
+        self.ui.ledt_conductor_matricula.setText(str(conductor[4]))
+
+    def eliminar_conductor(self):
+        respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de eliminar el registro?")
+        if respuesta == QMessageBox.Yes:
+            id_boton = self.sender().property("id")
+            self.db.eliminar_conductor(id_boton)
+            self.mostrar_conductores()  
+    
+    
+    def guardar_empresa(self):
+        id = self.ui.ledt_empresa_id.text()
+        nombre = self.ui.ledt_empresa_nombre.text()
+        domicilio = self.ui.ledt_empresa_domicilio.text()
+        telefono = self.ui.ledt_empresa_telefono.text()
+        if id == "":
+            self.db.ingresar_empresa(nombre, domicilio, telefono)
+        else:
+            self.db.modificar_empresa(id, nombre, domicilio, telefono)
+        self.mostrar_empresas()
+        self.ui.ledt_empresa_nombre.clear()
+        self.ui.ledt_empresa_domicilio.clear()
+        self.ui.ledt_empresa_telefono.clear()
+        self.ui.ledt_empresa_id.clear()
+        
+    def copiar_empresa(self):
+        id_boton = self.sender().property("id")
+        empresa = self.db.mostrar_empresa_por_id(id_boton)
+        
+        self.ui.ledt_empresa_id.setText(str(empresa[0]))
+        self.ui.ledt_empresa_nombre.setText(str(empresa[1]))
+        self.ui.ledt_empresa_domicilio.setText(str(empresa[2]))
+        self.ui.ledt_empresa_telefono.setText(str(empresa[3]))
+        
+    def eliminar_empresa(self):
+        respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de eliminar el registro?")
+        if respuesta == QMessageBox.Yes:
+            id_boton = self.sender().property("id")
+            self.db.eliminar_empresa(id_boton)
+            self.mostrar_empresas()   
+        
+    def mostrar_empresas(self):
+        empresas = self.db.mostrar_empresas()
+        i = len(empresas)
+        
+        self.ui.tabla_empresa.setRowCount(i)
+        tablerow = 0
+        
+        for row in empresas:
+            btn_actualizar = QPushButton("Actualizar")
+            btn_eliminar = QPushButton("Eliminar")
+            btn_actualizar.setProperty("id", row[0])
+            btn_eliminar.setProperty("id", row[0])
+            
+            btn_actualizar.clicked.connect(self.copiar_empresa)
+            btn_eliminar.clicked.connect(self.eliminar_empresa)
+            
+            
+            self.ui.tabla_empresa.setItem(tablerow, 0, QtWidgets.QTableWidgetItem(str(row[0])))
+            self.ui.tabla_empresa.setItem(tablerow, 1, QtWidgets.QTableWidgetItem(str(row[1])))
+            self.ui.tabla_empresa.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(str(row[2])))
+            self.ui.tabla_empresa.setItem(tablerow, 3, QtWidgets.QTableWidgetItem(str(row[3])))
+            
+            self.ui.tabla_empresa.setCellWidget(tablerow, 4, btn_actualizar)
+            self.ui.tabla_empresa.setCellWidget(tablerow, 5, btn_eliminar)
+            
+            tablerow += 1
+
+    def copiar_viaje(self):
+        boton = self.sender().property("id")
+        print("El boton es: ", boton)
 
     def mostrar_historico_viajes(self):
         viajes = self.db.mostrar_historico()
@@ -326,11 +479,6 @@ class MainWindow(QMainWindow):
             
     def buscar_viaje(self):
         pass
-    def eliminar_viaje(self):
-        pass 
-        # Preguntar primero
-    def guardar_conductor(self):
-        pass
     def buscar_conductor(self):
         pass
     def buscar_conductor_pagos(self):
@@ -339,8 +487,7 @@ class MainWindow(QMainWindow):
         pass
     def generar_factura(self):
         pass
-    def abrir_subventana(self):
-        self.subventana.exec_()
+    
     def finalizar_viajes(self):
         respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de finalizar el registro?")
         # Verificar la respuesta del usuario

@@ -1889,7 +1889,7 @@ QPushButton:hover{
                           <enum>QFrame::Raised</enum>
                          </property>
                          <layout class="QGridLayout" name="gridLayout_24">
-                          <item row="0" column="0">
+                          <item row="2" column="0">
                            <widget class="QLabel" name="label_77">
                             <property name="font">
                              <font>
@@ -1901,7 +1901,7 @@ QPushButton:hover{
                             </property>
                            </widget>
                           </item>
-                          <item row="1" column="0">
+                          <item row="3" column="0">
                            <widget class="QLabel" name="label_79">
                             <property name="font">
                              <font>
@@ -1913,10 +1913,7 @@ QPushButton:hover{
                             </property>
                            </widget>
                           </item>
-                          <item row="0" column="1">
-                           <widget class="QLineEdit" name="ledt_viajes_conductor"/>
-                          </item>
-                          <item row="2" column="0">
+                          <item row="4" column="0">
                            <widget class="QLabel" name="label_80">
                             <property name="font">
                              <font>
@@ -1928,14 +1925,38 @@ QPushButton:hover{
                             </property>
                            </widget>
                           </item>
-                          <item row="3" column="1">
-                           <widget class="QComboBox" name="abx_viajes_empresa">
+                          <item row="0" column="1">
+                           <widget class="QLineEdit" name="ledt_viajes_id">
+                            <property name="enabled">
+                             <bool>false</bool>
+                            </property>
+                            <property name="font">
+                             <font>
+                              <kerning>false</kerning>
+                             </font>
+                            </property>
+                            <property name="mouseTracking">
+                             <bool>false</bool>
+                            </property>
+                            <property name="acceptDrops">
+                             <bool>false</bool>
+                            </property>
+                            <property name="styleSheet">
+                             <string notr="true">color: rgb(255, 255, 255);</string>
+                            </property>
+                            <property name="frame">
+                             <bool>false</bool>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="5" column="1">
+                           <widget class="QComboBox" name="cbx_viajes_empresa">
                             <property name="editable">
                              <bool>true</bool>
                             </property>
                            </widget>
                           </item>
-                          <item row="2" column="1">
+                          <item row="4" column="1">
                            <widget class="QTimeEdit" name="timeEdit_hora_fin">
                             <property name="alignment">
                              <set>Qt::AlignCenter</set>
@@ -1948,7 +1969,7 @@ QPushButton:hover{
                             </property>
                            </widget>
                           </item>
-                          <item row="1" column="1">
+                          <item row="3" column="1">
                            <widget class="QTimeEdit" name="timeEdit_hora_inicio">
                             <property name="alignment">
                              <set>Qt::AlignCenter</set>
@@ -1961,7 +1982,7 @@ QPushButton:hover{
                             </property>
                            </widget>
                           </item>
-                          <item row="3" column="0">
+                          <item row="5" column="0">
                            <widget class="QLabel" name="label_78">
                             <property name="font">
                              <font>
@@ -1972,6 +1993,9 @@ QPushButton:hover{
                              <string>Empresa:</string>
                             </property>
                            </widget>
+                          </item>
+                          <item row="2" column="1">
+                           <widget class="QComboBox" name="cbx_viajes_conductor"/>
                           </item>
                          </layout>
                         </widget>
@@ -3469,6 +3493,33 @@ border:none;</string>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_32">
                        <item>
+                        <widget class="QLineEdit" name="ledt_empresa_id">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <kerning>false</kerning>
+                          </font>
+                         </property>
+                         <property name="mouseTracking">
+                          <bool>false</bool>
+                         </property>
+                         <property name="acceptDrops">
+                          <bool>false</bool>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
                         <layout class="QHBoxLayout" name="horizontalLayout_29">
                          <item>
                           <widget class="QLabel" name="label_32">
@@ -3760,6 +3811,16 @@ QHeaderView::section{
                            <string>Telefono</string>
                           </property>
                          </column>
+                         <column>
+                          <property name="text">
+                           <string>Actualizar</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>Eliminar</string>
+                          </property>
+                         </column>
                         </widget>
                        </item>
                       </layout>
@@ -3864,7 +3925,7 @@ QHeaderView::section{
                         </spacer>
                        </item>
                        <item>
-                        <widget class="QPushButton" name="btn_buscar_conductor_2">
+                        <widget class="QPushButton" name="btn_buscar_empresa">
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -4252,6 +4313,30 @@ border:none;</string>
                        <enum>QFrame::Raised</enum>
                       </property>
                       <layout class="QVBoxLayout" name="verticalLayout_31">
+                       <item>
+                        <widget class="QLineEdit" name="ledt_conductor_id">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <kerning>false</kerning>
+                          </font>
+                         </property>
+                         <property name="mouseTracking">
+                          <bool>false</bool>
+                         </property>
+                         <property name="acceptDrops">
+                          <bool>false</bool>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">color: rgb(255, 255, 255);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
+                         </property>
+                        </widget>
+                       </item>
                        <item>
                         <layout class="QHBoxLayout" name="horizontalLayout_18">
                          <item>

@@ -17,7 +17,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
-        Form.resize(909, 647)
+        Form.resize(814, 605)
         self.verticalLayout = QVBoxLayout(Form)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.groupBox_3 = QGroupBox(Form)
@@ -200,22 +200,6 @@ class Ui_Form(object):
 "}")
 
         self.verticalLayout_39.addWidget(self.btn_agregar_pasajero)
-
-        self.btn_guardar_pasajeros = QPushButton(self.frame_40)
-        self.btn_guardar_pasajeros.setObjectName(u"btn_guardar_pasajeros")
-        self.btn_guardar_pasajeros.setMinimumSize(QSize(80, 25))
-        self.btn_guardar_pasajeros.setStyleSheet(u"QPushButton{\n"
-"	border-top-right-radius:10px;\n"
-"	border-bottom-left-radius:10px;\n"
-"	background-color: rgb(60, 115, 120);\n"
-"	\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(0, 85, 120);\n"
-"}")
-
-        self.verticalLayout_39.addWidget(self.btn_guardar_pasajeros)
 
 
         self.verticalLayout_40.addLayout(self.verticalLayout_39)
@@ -400,7 +384,6 @@ class Ui_Form(object):
         self.label_14.setText("")
         self.label_88.setText(QCoreApplication.translate("Form", u"Nombre:  ", None))
         self.btn_agregar_pasajero.setText(QCoreApplication.translate("Form", u"Agregar", None))
-        self.btn_guardar_pasajeros.setText(QCoreApplication.translate("Form", u"Guardar", None))
         self.groupBox_33.setTitle("")
         self.label_32.setText("")
         self.label_97.setText(QCoreApplication.translate("Form", u"Destino:  ", None))
