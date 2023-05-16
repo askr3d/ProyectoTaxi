@@ -115,7 +115,7 @@ class OperacionesDB():
     def mostrar_pasejeros_por_viaje(self, viajeId):
         cursor = self.conexion.cursor()
         query = '''
-                SELECT * Pasajeros WHERE viajeId = '{}'
+                SELECT * FROM Pasajeros WHERE viajeId = '{}'
                 '''.format(viajeId)
         cursor.execute(query)
         pasajeros = cursor.fetchall()
