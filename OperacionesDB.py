@@ -141,10 +141,11 @@ class OperacionesDB():
         cursor.close()
 
     #Viajes
+    
     def ingresar_viaje(self, fecha, unidadId, horaInicio, horaFin, empresaId, tipoServicioId, tipoKmId, desvioId, kilometros, costo):
         cursor = self.conexion.cursor()
         query = '''INSERT INTO Viajes(fecha, horaInicio, horaFin, kilometros, costo, conductorId, partidaId, empresaId, tipoKilometroId)
-                    VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}') RETURNING folio
+                    VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}') RETURNING folio
                 '''.format(fecha, horaInicio, horaFin, kilometros, costo, unidadId, tipoServicioId, empresaId, tipoKmId)
         cursor.execute(query)
         if(desvioId != 1 and desvioId < 4):
