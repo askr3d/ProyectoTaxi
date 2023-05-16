@@ -25,7 +25,7 @@ CREATE TABLE valoresGlobales(
 	porcentaje float
 );
 
-INSERT INTO valoresGlobales VALUES(10, 10, 10, 10);
+INSERT INTO valoresGlobales VALUES(10, 10, 10, 10, 0.8);
 
 CREATE TABLE Conductores(
 	Id varchar(15) not null,
