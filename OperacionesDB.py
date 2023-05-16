@@ -29,6 +29,13 @@ class OperacionesDB():
         empresas = cursor.fetchall()
         cursor.close()
         return empresas
+
+    def mostrar_empresa_por_id(self, id):
+        cursor = self.conexion.cursor()
+        cursor.execute('''SELECT * FROM Empresas WHERE id = '{}' '''.format(id))
+        empresa = cursor.fetchone()
+        cursor.close()
+        return empresa
     
     def modificar_empresa(self, id, nombre, domicilio, telefono):
         cursor = self.conexion.cursor()
