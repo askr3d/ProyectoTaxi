@@ -65,6 +65,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_pagos.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_pagos))
         self.ui.btn_factura.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_factura))
         self.ui.btn_ajustes.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_ajustes))
+        self.ui.btn_empresa.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_empresa))
         
         # Control de barra de titulos
         self.ui.btn_minimizar.clicked.connect(self.minimizar)
@@ -84,6 +85,7 @@ class MainWindow(QMainWindow):
         # Viaje
         self.ui.btn_guardar_viaje.clicked.connect(self.guardar_viaje)
         self.ui.btn_buscar_viaje.clicked.connect(self.buscar_viaje)
+        self.ui.btn_finalizar_viajes.clicked.connect(self.finalizar_viajes)
         
         # self.ui.btn_act.clicked.connect(self.copiar_viaje)
         # self.btn_pasajeros.clicked.connect(self.abrir_subventana)
@@ -107,6 +109,8 @@ class MainWindow(QMainWindow):
         self.ui.tabla_conductores.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.ui.tabla_historico.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
         self.ui.tabla_pagos.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) 
+        self.ui.tabla_empresa.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        
     # Funciones interfaz
     # -----------------------------------------------------------------------------------
     def salir(self):
@@ -146,9 +150,12 @@ class MainWindow(QMainWindow):
     def mover_ventana(self, event):
         if not self.isMaximized():
             if event.buttons() == Qt.LeftButton:
-                self.move(self.pos() + event.globalPos() - self.clickPosition)
-                self.clickPosition = event.globalPos()
-                event.accept()
+                try:
+                    self.move(self.pos() + event.globalPos() - self.clickPosition)
+                    self.clickPosition = event.globalPos()
+                    event.accept()
+                except AttributeError:
+                    pass
         
         if event.globalPos().y() <= 20:
             self.showMaximized()
@@ -251,16 +258,14 @@ class MainWindow(QMainWindow):
     def mostrar_viajes(self):
         # self.abrir_subventana()
         selected_date = self.ui.dateTimeEdit.date()
-        fecha = str(selected_date.toPython().strftime('%Y-%m-%d'))
-        cursor = self.conexion.cursor()
-        cursor.execute(
-            f"select * from Viajes WHERE Fecha BETWEEN date_trunc('week', '{fecha}'::date) AND date_trunc('week', '{fecha}'::date + INTERVAL '1 week' - INTERVAL '1 day');")
-        viajes = cursor.fetchall()
+        viajes = self.db.mostrar_viajes()
+
         i = len(viajes)
         self.ui.tabla_viajes.setRowCount(i)
         tablerow = 0
         self.ui.btn_act = QPushButton("Actualizar", self)
         self.ui.btn_act.clicked.connect(self.copiar_viaje)
+        
         for row in viajes:
             # self.btn_pasajeros.setProperty("id", row[0])
 
@@ -298,9 +303,7 @@ class MainWindow(QMainWindow):
     """
 
     def mostrar_historico_viajes(self):
-        cursor = self.conexion.cursor()
-        cursor.execute("SELECT * FROM viajes")
-        viajes = cursor.fetchall()
+        viajes = self.db.mostrar_historico()
         i = len(viajes)
         self.ui.tabla_historico.setRowCount(i)
         tablerow = 0
@@ -338,3 +341,12 @@ class MainWindow(QMainWindow):
         pass
     def abrir_subventana(self):
         self.subventana.exec_()
+    def finalizar_viajes(self):
+        respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de finalizar el registro?")
+        # Verificar la respuesta del usuario
+        if respuesta == QMessageBox.Yes:
+            # Lógica para eliminar el registro
+            print("Registro eliminado")
+        else:
+            # Cancelar la eliminación
+            print("Eliminación cancelada")
