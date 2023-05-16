@@ -251,7 +251,7 @@ class OperacionesDB():
     
     def obtener_costosViajes_por_conductor(self, conductorId):
         cursor = self.conexion.cursor()
-        query = '''SELECT SUM(costo) FROM viajes WHERE conductorId = '{}', status = 0 '''.format(conductorId)
+        query = '''SELECT SUM(costo) FROM viajes WHERE conductorId = '{}' and status = 0 '''.format(conductorId)
         cursor.execute(query)
         viajes = cursor.fetchone()
         cursor.close()
