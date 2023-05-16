@@ -265,7 +265,7 @@ class OperacionesDB():
                         INSERT INTO Pagos(conductorId, fechaPago, costoTotal)
                             VALUES('{}', CURRENT_DATE, '{}')
                         '''
-        conductores = self.mostrar_conductores
+        conductores = self.mostrar_conductores()
         for conductor in conductores:
             costo = self.obtener_costosViajes_por_conductor(conductor[0]) * 0.8
             if(costo > 0):
