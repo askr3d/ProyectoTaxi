@@ -2179,6 +2179,59 @@ QPushButton:hover{
                             </property>
                            </widget>
                           </item>
+                          <item row="3" column="0">
+                           <widget class="QLabel" name="label_28">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>No. Desvios</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="2" column="0">
+                           <widget class="QLabel" name="label_85">
+                            <property name="font">
+                             <font>
+                              <pointsize>10</pointsize>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>Tipo desvio</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item row="3" column="1">
+                           <widget class="QComboBox" name="cbx_viajes_numero_desvios">
+                            <item>
+                             <property name="text">
+                              <string>0</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>1</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>2</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>3</string>
+                             </property>
+                            </item>
+                            <item>
+                             <property name="text">
+                              <string>4</string>
+                             </property>
+                            </item>
+                           </widget>
+                          </item>
                           <item row="1" column="1">
                            <widget class="QComboBox" name="cbx_viajes_tipo_km">
                             <item>
@@ -2193,15 +2246,15 @@ QPushButton:hover{
                             </item>
                            </widget>
                           </item>
-                          <item row="2" column="0">
-                           <widget class="QLabel" name="label_85">
+                          <item row="4" column="0">
+                           <widget class="QLabel" name="label_84">
                             <property name="font">
                              <font>
                               <pointsize>10</pointsize>
                              </font>
                             </property>
                             <property name="text">
-                             <string>Tipo desvio</string>
+                             <string>Kilometros</string>
                             </property>
                            </widget>
                           </item>
@@ -2224,35 +2277,12 @@ QPushButton:hover{
                             </item>
                            </widget>
                           </item>
-                          <item row="3" column="0">
-                           <widget class="QLabel" name="label_84">
-                            <property name="font">
-                             <font>
-                              <pointsize>10</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Kilometros</string>
-                            </property>
-                           </widget>
-                          </item>
-                          <item row="3" column="1">
-                           <widget class="QLineEdit" name="ledt_viajes_kilometros"/>
-                          </item>
-                          <item row="4" column="0">
-                           <widget class="QLabel" name="label_82">
-                            <property name="font">
-                             <font>
-                              <pointsize>10</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Costo</string>
-                            </property>
-                           </widget>
-                          </item>
                           <item row="4" column="1">
-                           <widget class="QLineEdit" name="ledt_viajes_costo"/>
+                           <widget class="QLineEdit" name="ledt_viajes_kilometros">
+                            <property name="alignment">
+                             <set>Qt::AlignCenter</set>
+                            </property>
+                           </widget>
                           </item>
                          </layout>
                         </widget>
@@ -2438,7 +2468,9 @@ QHeaderView::section{
                        </size>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background-color: rgb(60, 100, 120);</string>
+                       <string notr="true">background-color: rgb(60, 100, 120);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
                       </property>
                       <property name="title">
                        <string/>
@@ -2452,39 +2484,13 @@ QHeaderView::section{
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color: rgb(255, 255, 255);</string>
+                          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
                          </property>
                          <property name="text">
                           <string>Buscar por:</string>
                          </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbx_buscar_viaje">
-                         <property name="minimumSize">
-                          <size>
-                           <width>180</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
-                         </property>
-                         <item>
-                          <property name="text">
-                           <string>Folio</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Conductor</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Empresa</string>
-                          </property>
-                         </item>
                         </widget>
                        </item>
                        <item>
@@ -2502,6 +2508,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QLineEdit" name="ledt_buscar_viaje">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -2509,7 +2518,13 @@ QHeaderView::section{
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
+                          <string notr="true">background-color: rgb(230, 230, 230);
+
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -2534,6 +2549,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QPushButton" name="btn_buscar_viaje">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -2549,18 +2567,18 @@ QHeaderView::section{
 	border-bottom-right-radius:10px;
 	
 	background-color: rgb(240, 240, 240);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 QPushButton:hover{
 	background-color: rgb(205, 205, 205);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 </string>
                          </property>
                          <property name="text">
                           <string>   Buscar</string>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>images/751381.png</normaloff>images/751381.png</iconset>
                          </property>
                         </widget>
                        </item>
@@ -2949,7 +2967,22 @@ QHeaderView::section{
                          </column>
                          <column>
                           <property name="text">
+                           <string>Kilometros</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>Costo</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
                            <string>Conductor</string>
+                          </property>
+                         </column>
+                         <column>
+                          <property name="text">
+                           <string>Tipo Servicio</string>
                           </property>
                          </column>
                          <column>
@@ -2964,22 +2997,7 @@ QHeaderView::section{
                          </column>
                          <column>
                           <property name="text">
-                           <string>Kilometros</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>Tipo Servicio</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
                            <string>Tipo desvio</string>
-                          </property>
-                         </column>
-                         <column>
-                          <property name="text">
-                           <string>Costo</string>
                           </property>
                          </column>
                         </widget>
@@ -3010,52 +3028,13 @@ QHeaderView::section{
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color: rgb(255, 255, 255);</string>
+                          <string notr="true">color: rgb(255, 255, 255);
+
+color: rgb(60, 100, 120);</string>
                          </property>
                          <property name="text">
                           <string>Buscar por:</string>
                          </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbx_buscar_historico">
-                         <property name="minimumSize">
-                          <size>
-                           <width>180</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
-                         </property>
-                         <property name="frame">
-                          <bool>false</bool>
-                         </property>
-                         <item>
-                          <property name="text">
-                           <string>Folio</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Fecha</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>No. Semana</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Conductor</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Empresa</string>
-                          </property>
-                         </item>
                         </widget>
                        </item>
                        <item>
@@ -3073,6 +3052,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QLineEdit" name="ledt_buscar_historico">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -3080,7 +3062,12 @@ QHeaderView::section{
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
+                          <string notr="true">background-color: rgb(230, 230, 230);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -3120,18 +3107,18 @@ QHeaderView::section{
 	border-bottom-right-radius:10px;
 	
 	background-color: rgb(240, 240, 240);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 QPushButton:hover{
 	background-color: rgb(205, 205, 205);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 </string>
                          </property>
                          <property name="text">
                           <string>   Buscar</string>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>images/751381.png</normaloff>images/751381.png</iconset>
                          </property>
                         </widget>
                        </item>
@@ -3849,34 +3836,12 @@ QHeaderView::section{
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color: rgb(255, 255, 255);</string>
+                          <string notr="true">color: rgb(255, 255, 255);
+color: rgb(60, 100, 120);</string>
                          </property>
                          <property name="text">
                           <string>Buscar por:</string>
                          </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbx_buscar_conductor_2">
-                         <property name="minimumSize">
-                          <size>
-                           <width>180</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
-                         </property>
-                         <item>
-                          <property name="text">
-                           <string>ID</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Nombre</string>
-                          </property>
-                         </item>
                         </widget>
                        </item>
                        <item>
@@ -3894,6 +3859,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QLineEdit" name="ledt_buscar_conductor_2">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -3901,7 +3869,12 @@ QHeaderView::section{
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
+                          <string notr="true">background-color: rgb(230, 230, 230);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -3926,6 +3899,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QPushButton" name="btn_buscar_empresa">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -3941,18 +3917,21 @@ QHeaderView::section{
 	border-bottom-right-radius:10px;
 	
 	background-color: rgb(240, 240, 240);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 QPushButton:hover{
 	background-color: rgb(205, 205, 205);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 </string>
                          </property>
                          <property name="text">
                           <string>   Buscar</string>
                          </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>images/751381.png</normaloff>images/751381.png</iconset>
+                         <property name="flat">
+                          <bool>false</bool>
                          </property>
                         </widget>
                        </item>
@@ -4711,39 +4690,13 @@ QHeaderView::section{
                           </font>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">color: rgb(255, 255, 255);</string>
+                          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
                          </property>
                          <property name="text">
                           <string>Buscar por:</string>
                          </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QComboBox" name="cbx_buscar_conductor">
-                         <property name="minimumSize">
-                          <size>
-                           <width>180</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
-                         </property>
-                         <item>
-                          <property name="text">
-                           <string>Unidad</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>ID</string>
-                          </property>
-                         </item>
-                         <item>
-                          <property name="text">
-                           <string>Nombre</string>
-                          </property>
-                         </item>
                         </widget>
                        </item>
                        <item>
@@ -4761,6 +4714,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QLineEdit" name="ledt_buscar_conductor">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -4768,7 +4724,12 @@ QHeaderView::section{
                           </size>
                          </property>
                          <property name="styleSheet">
-                          <string notr="true">background-color: rgb(230, 230, 230);</string>
+                          <string notr="true">background-color: rgb(230, 230, 230);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
+                         </property>
+                         <property name="frame">
+                          <bool>false</bool>
                          </property>
                          <property name="alignment">
                           <set>Qt::AlignCenter</set>
@@ -4793,6 +4754,9 @@ QHeaderView::section{
                        </item>
                        <item>
                         <widget class="QPushButton" name="btn_buscar_conductor">
+                         <property name="enabled">
+                          <bool>false</bool>
+                         </property>
                          <property name="minimumSize">
                           <size>
                            <width>180</width>
@@ -4808,18 +4772,18 @@ QHeaderView::section{
 	border-bottom-right-radius:10px;
 	
 	background-color: rgb(240, 240, 240);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 QPushButton:hover{
 	background-color: rgb(205, 205, 205);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);
 }
 </string>
                          </property>
                          <property name="text">
                           <string>   Buscar</string>
-                         </property>
-                         <property name="icon">
-                          <iconset>
-                           <normaloff>images/751381.png</normaloff>images/751381.png</iconset>
                          </property>
                         </widget>
                        </item>
@@ -5017,6 +4981,9 @@ color: rgb(0, 0, 0);</string>
               </item>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_28">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
                 <item>
                  <widget class="QGroupBox" name="groupBox_47">
                   <property name="font">
@@ -5088,12 +5055,12 @@ QHeaderView::section{
                         </property>
                         <column>
                          <property name="text">
-                          <string>ID</string>
+                          <string>Unidad</string>
                          </property>
                         </column>
                         <column>
                          <property name="text">
-                          <string>Unidad</string>
+                          <string>Fecha</string>
                          </property>
                         </column>
                         <column>
@@ -5149,34 +5116,12 @@ QHeaderView::section{
                          </font>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">color: rgb(255, 255, 255);</string>
+                         <string notr="true">color: rgb(255, 255, 255);
+color: rgb(60, 100, 120);</string>
                         </property>
                         <property name="text">
                          <string>Buscar por:</string>
                         </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <widget class="QComboBox" name="cbx_buscar_conductor_pagos">
-                        <property name="minimumSize">
-                         <size>
-                          <width>180</width>
-                          <height>0</height>
-                         </size>
-                        </property>
-                        <property name="styleSheet">
-                         <string notr="true">background-color: rgb(230, 230, 230);</string>
-                        </property>
-                        <item>
-                         <property name="text">
-                          <string>Unidad</string>
-                         </property>
-                        </item>
-                        <item>
-                         <property name="text">
-                          <string>ID</string>
-                         </property>
-                        </item>
                        </widget>
                       </item>
                       <item>
@@ -5194,6 +5139,9 @@ QHeaderView::section{
                       </item>
                       <item>
                        <widget class="QLineEdit" name="ledt_buscar_conductor_pagos">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
                         <property name="minimumSize">
                          <size>
                           <width>180</width>
@@ -5201,7 +5149,12 @@ QHeaderView::section{
                          </size>
                         </property>
                         <property name="styleSheet">
-                         <string notr="true">background-color: rgb(230, 230, 230);</string>
+                         <string notr="true">background-color: rgb(230, 230, 230);
+background-color: rgb(60, 100, 120);
+color: rgb(60, 100, 120);</string>
+                        </property>
+                        <property name="frame">
+                         <bool>false</bool>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignCenter</set>
@@ -5226,6 +5179,9 @@ QHeaderView::section{
                       </item>
                       <item>
                        <widget class="QPushButton" name="btn_buscar_conductor_pagos">
+                        <property name="enabled">
+                         <bool>false</bool>
+                        </property>
                         <property name="minimumSize">
                          <size>
                           <width>180</width>
@@ -5241,18 +5197,25 @@ QHeaderView::section{
 	border-bottom-right-radius:10px;
 	
 	background-color: rgb(240, 240, 240);
+	background-color: rgb(60, 100, 120);
+	color: rgb(60, 100, 120);
 }
 QPushButton:hover{
 	background-color: rgb(205, 205, 205);
+	background-color: rgb(60, 100, 120);
+	color: rgb(60, 100, 120);
 }
+
 </string>
                         </property>
                         <property name="text">
                          <string>   Buscar</string>
                         </property>
-                        <property name="icon">
-                         <iconset>
-                          <normaloff>images/751381.png</normaloff>images/751381.png</iconset>
+                        <property name="iconSize">
+                         <size>
+                          <width>0</width>
+                          <height>0</height>
+                         </size>
                         </property>
                        </widget>
                       </item>
@@ -5329,7 +5292,7 @@ border:none;</string>
                        <number>0</number>
                       </property>
                       <property name="bottomMargin">
-                       <number>6</number>
+                       <number>0</number>
                       </property>
                      </layout>
                     </widget>
@@ -5747,24 +5710,193 @@ border:none;</string>
                       <property name="frameShadow">
                        <enum>QFrame::Raised</enum>
                       </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_19">
+                      <layout class="QVBoxLayout" name="verticalLayout_42">
                        <item>
-                        <spacer name="verticalSpacer_4">
-                         <property name="orientation">
-                          <enum>Qt::Vertical</enum>
+                        <widget class="QFrame" name="frame_40">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
                          </property>
-                         <property name="sizeHint" stdset="0">
-                          <size>
-                           <width>20</width>
-                           <height>465</height>
-                          </size>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
                          </property>
-                        </spacer>
-                       </item>
-                       <item>
-                        <widget class="QPushButton" name="btn_generar_factura">
-                         <property name="styleSheet">
-                          <string notr="true">QPushButton{
+                         <layout class="QGridLayout" name="gridLayout_30">
+                          <item row="0" column="0">
+                           <widget class="QGroupBox" name="groupBox_33">
+                            <property name="title">
+                             <string/>
+                            </property>
+                            <layout class="QVBoxLayout" name="verticalLayout_45">
+                             <item>
+                              <layout class="QVBoxLayout" name="verticalLayout_43">
+                               <item>
+                                <spacer name="verticalSpacer_4">
+                                 <property name="orientation">
+                                  <enum>Qt::Vertical</enum>
+                                 </property>
+                                 <property name="sizeHint" stdset="0">
+                                  <size>
+                                   <width>20</width>
+                                   <height>18</height>
+                                  </size>
+                                 </property>
+                                </spacer>
+                               </item>
+                               <item>
+                                <layout class="QHBoxLayout" name="horizontalLayout_39">
+                                 <item>
+                                  <spacer name="horizontalSpacer_35">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                 <item>
+                                  <widget class="QGroupBox" name="groupBox_34">
+                                   <property name="title">
+                                    <string/>
+                                   </property>
+                                   <layout class="QGridLayout" name="gridLayout_31">
+                                    <item row="0" column="0">
+                                     <widget class="QLabel" name="label_55">
+                                      <property name="font">
+                                       <font>
+                                        <family>Georgia</family>
+                                        <pointsize>30</pointsize>
+                                       </font>
+                                      </property>
+                                      <property name="text">
+                                       <string>TRABEN GDL</string>
+                                      </property>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <spacer name="horizontalSpacer_36">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                </layout>
+                               </item>
+                               <item>
+                                <spacer name="verticalSpacer_20">
+                                 <property name="orientation">
+                                  <enum>Qt::Vertical</enum>
+                                 </property>
+                                 <property name="sizeHint" stdset="0">
+                                  <size>
+                                   <width>20</width>
+                                   <height>18</height>
+                                  </size>
+                                 </property>
+                                </spacer>
+                               </item>
+                              </layout>
+                             </item>
+                             <item>
+                              <layout class="QVBoxLayout" name="verticalLayout_44">
+                               <item>
+                                <layout class="QHBoxLayout" name="horizontalLayout_41">
+                                 <item>
+                                  <spacer name="horizontalSpacer_37">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                 <item>
+                                  <widget class="QLabel" name="label_56">
+                                   <property name="font">
+                                    <font>
+                                     <family>Georgia</family>
+                                     <pointsize>20</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>Total</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <spacer name="horizontalSpacer_38">
+                                   <property name="orientation">
+                                    <enum>Qt::Horizontal</enum>
+                                   </property>
+                                   <property name="sizeHint" stdset="0">
+                                    <size>
+                                     <width>40</width>
+                                     <height>20</height>
+                                    </size>
+                                   </property>
+                                  </spacer>
+                                 </item>
+                                </layout>
+                               </item>
+                               <item>
+                                <spacer name="verticalSpacer_21">
+                                 <property name="orientation">
+                                  <enum>Qt::Vertical</enum>
+                                 </property>
+                                 <property name="sizeHint" stdset="0">
+                                  <size>
+                                   <width>20</width>
+                                   <height>40</height>
+                                  </size>
+                                 </property>
+                                </spacer>
+                               </item>
+                               <item>
+                                <widget class="QLineEdit" name="lineEdit_7">
+                                 <property name="enabled">
+                                  <bool>false</bool>
+                                 </property>
+                                 <property name="font">
+                                  <font>
+                                   <family>Georgia</family>
+                                   <pointsize>35</pointsize>
+                                  </font>
+                                 </property>
+                                 <property name="styleSheet">
+                                  <string notr="true">background-color: rgb(249, 249, 249);</string>
+                                 </property>
+                                 <property name="alignment">
+                                  <set>Qt::AlignCenter</set>
+                                 </property>
+                                </widget>
+                               </item>
+                              </layout>
+                             </item>
+                             <item>
+                              <widget class="QPushButton" name="btn_generar_factura">
+                               <property name="minimumSize">
+                                <size>
+                                 <width>200</width>
+                                 <height>25</height>
+                                </size>
+                               </property>
+                               <property name="styleSheet">
+                                <string notr="true">QPushButton{
 	border-top-right-radius:10px;
 	border-bottom-left-radius:10px;
 	background-color: rgb(60, 115, 120);
@@ -5774,10 +5906,16 @@ border:none;</string>
 QPushButton:hover{
 	background-color: rgb(0, 85, 120);
 }</string>
-                         </property>
-                         <property name="text">
-                          <string>Generar</string>
-                         </property>
+                               </property>
+                               <property name="text">
+                                <string>Generar</string>
+                               </property>
+                              </widget>
+                             </item>
+                            </layout>
+                           </widget>
+                          </item>
+                         </layout>
                         </widget>
                        </item>
                       </layout>

@@ -980,6 +980,28 @@ class Ui_MainWindow(object):
 
         self.gridLayout_28.addWidget(self.label_83, 1, 0, 1, 1)
 
+        self.label_28 = QLabel(self.frame_37)
+        self.label_28.setObjectName(u"label_28")
+        self.label_28.setFont(font3)
+
+        self.gridLayout_28.addWidget(self.label_28, 3, 0, 1, 1)
+
+        self.label_85 = QLabel(self.frame_37)
+        self.label_85.setObjectName(u"label_85")
+        self.label_85.setFont(font3)
+
+        self.gridLayout_28.addWidget(self.label_85, 2, 0, 1, 1)
+
+        self.cbx_viajes_numero_desvios = QComboBox(self.frame_37)
+        self.cbx_viajes_numero_desvios.addItem("")
+        self.cbx_viajes_numero_desvios.addItem("")
+        self.cbx_viajes_numero_desvios.addItem("")
+        self.cbx_viajes_numero_desvios.addItem("")
+        self.cbx_viajes_numero_desvios.addItem("")
+        self.cbx_viajes_numero_desvios.setObjectName(u"cbx_viajes_numero_desvios")
+
+        self.gridLayout_28.addWidget(self.cbx_viajes_numero_desvios, 3, 1, 1, 1)
+
         self.cbx_viajes_tipo_km = QComboBox(self.frame_37)
         self.cbx_viajes_tipo_km.addItem("")
         self.cbx_viajes_tipo_km.addItem("")
@@ -987,11 +1009,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_28.addWidget(self.cbx_viajes_tipo_km, 1, 1, 1, 1)
 
-        self.label_85 = QLabel(self.frame_37)
-        self.label_85.setObjectName(u"label_85")
-        self.label_85.setFont(font3)
+        self.label_84 = QLabel(self.frame_37)
+        self.label_84.setObjectName(u"label_84")
+        self.label_84.setFont(font3)
 
-        self.gridLayout_28.addWidget(self.label_85, 2, 0, 1, 1)
+        self.gridLayout_28.addWidget(self.label_84, 4, 0, 1, 1)
 
         self.cbx_viajes_tipo_desvio = QComboBox(self.frame_37)
         self.cbx_viajes_tipo_desvio.addItem("")
@@ -1001,27 +1023,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_28.addWidget(self.cbx_viajes_tipo_desvio, 2, 1, 1, 1)
 
-        self.label_84 = QLabel(self.frame_37)
-        self.label_84.setObjectName(u"label_84")
-        self.label_84.setFont(font3)
-
-        self.gridLayout_28.addWidget(self.label_84, 3, 0, 1, 1)
-
         self.ledt_viajes_kilometros = QLineEdit(self.frame_37)
         self.ledt_viajes_kilometros.setObjectName(u"ledt_viajes_kilometros")
+        self.ledt_viajes_kilometros.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_28.addWidget(self.ledt_viajes_kilometros, 3, 1, 1, 1)
-
-        self.label_82 = QLabel(self.frame_37)
-        self.label_82.setObjectName(u"label_82")
-        self.label_82.setFont(font3)
-
-        self.gridLayout_28.addWidget(self.label_82, 4, 0, 1, 1)
-
-        self.ledt_viajes_costo = QLineEdit(self.frame_37)
-        self.ledt_viajes_costo.setObjectName(u"ledt_viajes_costo")
-
-        self.gridLayout_28.addWidget(self.ledt_viajes_costo, 4, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.ledt_viajes_kilometros, 4, 1, 1, 1)
 
 
         self.gridLayout_29.addWidget(self.frame_37, 0, 0, 1, 1)
@@ -1110,25 +1116,19 @@ class Ui_MainWindow(object):
         self.groupBox_4 = QGroupBox(self.groupBox_3)
         self.groupBox_4.setObjectName(u"groupBox_4")
         self.groupBox_4.setMinimumSize(QSize(0, 40))
-        self.groupBox_4.setStyleSheet(u"background-color: rgb(60, 100, 120);")
+        self.groupBox_4.setStyleSheet(u"background-color: rgb(60, 100, 120);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
         self.horizontalLayout_5 = QHBoxLayout(self.groupBox_4)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.label_14 = QLabel(self.groupBox_4)
         self.label_14.setObjectName(u"label_14")
         self.label_14.setFont(font3)
-        self.label_14.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_14.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
 
         self.horizontalLayout_5.addWidget(self.label_14)
-
-        self.cbx_buscar_viaje = QComboBox(self.groupBox_4)
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.addItem("")
-        self.cbx_buscar_viaje.setObjectName(u"cbx_buscar_viaje")
-        self.cbx_buscar_viaje.setMinimumSize(QSize(180, 0))
-        self.cbx_buscar_viaje.setStyleSheet(u"background-color: rgb(230, 230, 230);")
-
-        self.horizontalLayout_5.addWidget(self.cbx_buscar_viaje)
 
         self.horizontalSpacer_4 = QSpacerItem(119, 18, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1136,8 +1136,13 @@ class Ui_MainWindow(object):
 
         self.ledt_buscar_viaje = QLineEdit(self.groupBox_4)
         self.ledt_buscar_viaje.setObjectName(u"ledt_buscar_viaje")
+        self.ledt_buscar_viaje.setEnabled(False)
         self.ledt_buscar_viaje.setMinimumSize(QSize(180, 0))
-        self.ledt_buscar_viaje.setStyleSheet(u"background-color: rgb(230, 230, 230);")
+        self.ledt_buscar_viaje.setStyleSheet(u"background-color: rgb(230, 230, 230);\n"
+"\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
+        self.ledt_buscar_viaje.setFrame(False)
         self.ledt_buscar_viaje.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_5.addWidget(self.ledt_buscar_viaje)
@@ -1148,6 +1153,7 @@ class Ui_MainWindow(object):
 
         self.btn_buscar_viaje = QPushButton(self.groupBox_4)
         self.btn_buscar_viaje.setObjectName(u"btn_buscar_viaje")
+        self.btn_buscar_viaje.setEnabled(False)
         self.btn_buscar_viaje.setMinimumSize(QSize(180, 20))
         self.btn_buscar_viaje.setLayoutDirection(Qt.LeftToRight)
         self.btn_buscar_viaje.setStyleSheet(u"QPushButton{\n"
@@ -1155,14 +1161,15 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius:10px;\n"
 "	\n"
 "	background-color: rgb(240, 240, 240);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(205, 205, 205);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "")
-        icon13 = QIcon()
-        icon13.addFile(u"images/751381.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_buscar_viaje.setIcon(icon13)
 
         self.horizontalLayout_5.addWidget(self.btn_buscar_viaje)
 
@@ -1351,22 +1358,11 @@ class Ui_MainWindow(object):
         self.label_38 = QLabel(self.groupBox_12)
         self.label_38.setObjectName(u"label_38")
         self.label_38.setFont(font3)
-        self.label_38.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_38.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"\n"
+"color: rgb(60, 100, 120);")
 
         self.horizontalLayout_11.addWidget(self.label_38)
-
-        self.cbx_buscar_historico = QComboBox(self.groupBox_12)
-        self.cbx_buscar_historico.addItem("")
-        self.cbx_buscar_historico.addItem("")
-        self.cbx_buscar_historico.addItem("")
-        self.cbx_buscar_historico.addItem("")
-        self.cbx_buscar_historico.addItem("")
-        self.cbx_buscar_historico.setObjectName(u"cbx_buscar_historico")
-        self.cbx_buscar_historico.setMinimumSize(QSize(180, 0))
-        self.cbx_buscar_historico.setStyleSheet(u"background-color: rgb(230, 230, 230);")
-        self.cbx_buscar_historico.setFrame(False)
-
-        self.horizontalLayout_11.addWidget(self.cbx_buscar_historico)
 
         self.horizontalSpacer_14 = QSpacerItem(119, 18, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1374,8 +1370,12 @@ class Ui_MainWindow(object):
 
         self.ledt_buscar_historico = QLineEdit(self.groupBox_12)
         self.ledt_buscar_historico.setObjectName(u"ledt_buscar_historico")
+        self.ledt_buscar_historico.setEnabled(False)
         self.ledt_buscar_historico.setMinimumSize(QSize(180, 0))
-        self.ledt_buscar_historico.setStyleSheet(u"background-color: rgb(230, 230, 230);")
+        self.ledt_buscar_historico.setStyleSheet(u"background-color: rgb(230, 230, 230);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
+        self.ledt_buscar_historico.setFrame(False)
         self.ledt_buscar_historico.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_11.addWidget(self.ledt_buscar_historico)
@@ -1393,12 +1393,15 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius:10px;\n"
 "	\n"
 "	background-color: rgb(240, 240, 240);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(205, 205, 205);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "")
-        self.btn_buscar_historico.setIcon(icon13)
 
         self.horizontalLayout_11.addWidget(self.btn_buscar_historico)
 
@@ -1704,18 +1707,10 @@ class Ui_MainWindow(object):
         self.label_43 = QLabel(self.groupBox_30)
         self.label_43.setObjectName(u"label_43")
         self.label_43.setFont(font3)
-        self.label_43.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_43.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"color: rgb(60, 100, 120);")
 
         self.horizontalLayout_33.addWidget(self.label_43)
-
-        self.cbx_buscar_conductor_2 = QComboBox(self.groupBox_30)
-        self.cbx_buscar_conductor_2.addItem("")
-        self.cbx_buscar_conductor_2.addItem("")
-        self.cbx_buscar_conductor_2.setObjectName(u"cbx_buscar_conductor_2")
-        self.cbx_buscar_conductor_2.setMinimumSize(QSize(180, 0))
-        self.cbx_buscar_conductor_2.setStyleSheet(u"background-color: rgb(230, 230, 230);")
-
-        self.horizontalLayout_33.addWidget(self.cbx_buscar_conductor_2)
 
         self.horizontalSpacer_20 = QSpacerItem(119, 18, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -1723,8 +1718,12 @@ class Ui_MainWindow(object):
 
         self.ledt_buscar_conductor_2 = QLineEdit(self.groupBox_30)
         self.ledt_buscar_conductor_2.setObjectName(u"ledt_buscar_conductor_2")
+        self.ledt_buscar_conductor_2.setEnabled(False)
         self.ledt_buscar_conductor_2.setMinimumSize(QSize(180, 0))
-        self.ledt_buscar_conductor_2.setStyleSheet(u"background-color: rgb(230, 230, 230);")
+        self.ledt_buscar_conductor_2.setStyleSheet(u"background-color: rgb(230, 230, 230);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
+        self.ledt_buscar_conductor_2.setFrame(False)
         self.ledt_buscar_conductor_2.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_33.addWidget(self.ledt_buscar_conductor_2)
@@ -1735,6 +1734,7 @@ class Ui_MainWindow(object):
 
         self.btn_buscar_empresa = QPushButton(self.groupBox_30)
         self.btn_buscar_empresa.setObjectName(u"btn_buscar_empresa")
+        self.btn_buscar_empresa.setEnabled(False)
         self.btn_buscar_empresa.setMinimumSize(QSize(180, 20))
         self.btn_buscar_empresa.setLayoutDirection(Qt.LeftToRight)
         self.btn_buscar_empresa.setStyleSheet(u"QPushButton{\n"
@@ -1742,12 +1742,16 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius:10px;\n"
 "	\n"
 "	background-color: rgb(240, 240, 240);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(205, 205, 205);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "")
-        self.btn_buscar_empresa.setIcon(icon13)
+        self.btn_buscar_empresa.setFlat(False)
 
         self.horizontalLayout_33.addWidget(self.btn_buscar_empresa)
 
@@ -2073,19 +2077,11 @@ class Ui_MainWindow(object):
         self.label_37 = QLabel(self.groupBox_10)
         self.label_37.setObjectName(u"label_37")
         self.label_37.setFont(font3)
-        self.label_37.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_37.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
 
         self.horizontalLayout_10.addWidget(self.label_37)
-
-        self.cbx_buscar_conductor = QComboBox(self.groupBox_10)
-        self.cbx_buscar_conductor.addItem("")
-        self.cbx_buscar_conductor.addItem("")
-        self.cbx_buscar_conductor.addItem("")
-        self.cbx_buscar_conductor.setObjectName(u"cbx_buscar_conductor")
-        self.cbx_buscar_conductor.setMinimumSize(QSize(180, 0))
-        self.cbx_buscar_conductor.setStyleSheet(u"background-color: rgb(230, 230, 230);")
-
-        self.horizontalLayout_10.addWidget(self.cbx_buscar_conductor)
 
         self.horizontalSpacer_12 = QSpacerItem(119, 18, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -2093,8 +2089,12 @@ class Ui_MainWindow(object):
 
         self.ledt_buscar_conductor = QLineEdit(self.groupBox_10)
         self.ledt_buscar_conductor.setObjectName(u"ledt_buscar_conductor")
+        self.ledt_buscar_conductor.setEnabled(False)
         self.ledt_buscar_conductor.setMinimumSize(QSize(180, 0))
-        self.ledt_buscar_conductor.setStyleSheet(u"background-color: rgb(230, 230, 230);")
+        self.ledt_buscar_conductor.setStyleSheet(u"background-color: rgb(230, 230, 230);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
+        self.ledt_buscar_conductor.setFrame(False)
         self.ledt_buscar_conductor.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_10.addWidget(self.ledt_buscar_conductor)
@@ -2105,6 +2105,7 @@ class Ui_MainWindow(object):
 
         self.btn_buscar_conductor = QPushButton(self.groupBox_10)
         self.btn_buscar_conductor.setObjectName(u"btn_buscar_conductor")
+        self.btn_buscar_conductor.setEnabled(False)
         self.btn_buscar_conductor.setMinimumSize(QSize(180, 20))
         self.btn_buscar_conductor.setLayoutDirection(Qt.LeftToRight)
         self.btn_buscar_conductor.setStyleSheet(u"QPushButton{\n"
@@ -2112,12 +2113,15 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius:10px;\n"
 "	\n"
 "	background-color: rgb(240, 240, 240);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(205, 205, 205);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);\n"
 "}\n"
 "")
-        self.btn_buscar_conductor.setIcon(icon13)
 
         self.horizontalLayout_10.addWidget(self.btn_buscar_conductor)
 
@@ -2207,6 +2211,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_29.addWidget(self.frame_31)
 
         self.verticalLayout_28 = QVBoxLayout()
+        self.verticalLayout_28.setSpacing(0)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
         self.groupBox_47 = QGroupBox(self.pg_pagos)
         self.groupBox_47.setObjectName(u"groupBox_47")
@@ -2266,18 +2271,10 @@ class Ui_MainWindow(object):
         self.label_121 = QLabel(self.groupBox_48)
         self.label_121.setObjectName(u"label_121")
         self.label_121.setFont(font3)
-        self.label_121.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.label_121.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"color: rgb(60, 100, 120);")
 
         self.horizontalLayout_40.addWidget(self.label_121)
-
-        self.cbx_buscar_conductor_pagos = QComboBox(self.groupBox_48)
-        self.cbx_buscar_conductor_pagos.addItem("")
-        self.cbx_buscar_conductor_pagos.addItem("")
-        self.cbx_buscar_conductor_pagos.setObjectName(u"cbx_buscar_conductor_pagos")
-        self.cbx_buscar_conductor_pagos.setMinimumSize(QSize(180, 0))
-        self.cbx_buscar_conductor_pagos.setStyleSheet(u"background-color: rgb(230, 230, 230);")
-
-        self.horizontalLayout_40.addWidget(self.cbx_buscar_conductor_pagos)
 
         self.horizontalSpacer_53 = QSpacerItem(119, 18, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -2285,8 +2282,12 @@ class Ui_MainWindow(object):
 
         self.ledt_buscar_conductor_pagos = QLineEdit(self.groupBox_48)
         self.ledt_buscar_conductor_pagos.setObjectName(u"ledt_buscar_conductor_pagos")
+        self.ledt_buscar_conductor_pagos.setEnabled(False)
         self.ledt_buscar_conductor_pagos.setMinimumSize(QSize(180, 0))
-        self.ledt_buscar_conductor_pagos.setStyleSheet(u"background-color: rgb(230, 230, 230);")
+        self.ledt_buscar_conductor_pagos.setStyleSheet(u"background-color: rgb(230, 230, 230);\n"
+"background-color: rgb(60, 100, 120);\n"
+"color: rgb(60, 100, 120);")
+        self.ledt_buscar_conductor_pagos.setFrame(False)
         self.ledt_buscar_conductor_pagos.setAlignment(Qt.AlignCenter)
 
         self.horizontalLayout_40.addWidget(self.ledt_buscar_conductor_pagos)
@@ -2297,6 +2298,7 @@ class Ui_MainWindow(object):
 
         self.btn_buscar_conductor_pagos = QPushButton(self.groupBox_48)
         self.btn_buscar_conductor_pagos.setObjectName(u"btn_buscar_conductor_pagos")
+        self.btn_buscar_conductor_pagos.setEnabled(False)
         self.btn_buscar_conductor_pagos.setMinimumSize(QSize(180, 20))
         self.btn_buscar_conductor_pagos.setLayoutDirection(Qt.LeftToRight)
         self.btn_buscar_conductor_pagos.setStyleSheet(u"QPushButton{\n"
@@ -2304,12 +2306,17 @@ class Ui_MainWindow(object):
 "	border-bottom-right-radius:10px;\n"
 "	\n"
 "	background-color: rgb(240, 240, 240);\n"
+"	background-color: rgb(60, 100, 120);\n"
+"	color: rgb(60, 100, 120);\n"
 "}\n"
 "QPushButton:hover{\n"
 "	background-color: rgb(205, 205, 205);\n"
+"	background-color: rgb(60, 100, 120);\n"
+"	color: rgb(60, 100, 120);\n"
 "}\n"
+"\n"
 "")
-        self.btn_buscar_conductor_pagos.setIcon(icon13)
+        self.btn_buscar_conductor_pagos.setIconSize(QSize(0, 0))
 
         self.horizontalLayout_40.addWidget(self.btn_buscar_conductor_pagos)
 
@@ -2337,7 +2344,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_38 = QHBoxLayout(self.groupBox_45)
         self.horizontalLayout_38.setSpacing(0)
         self.horizontalLayout_38.setObjectName(u"horizontalLayout_38")
-        self.horizontalLayout_38.setContentsMargins(0, 0, 0, 6)
+        self.horizontalLayout_38.setContentsMargins(0, 0, 0, 0)
 
         self.verticalLayout_54.addWidget(self.groupBox_45)
 
@@ -2505,14 +2512,106 @@ class Ui_MainWindow(object):
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_19 = QVBoxLayout(self.frame_4)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.verticalSpacer_4 = QSpacerItem(20, 465, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.verticalLayout_42 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
+        self.frame_40 = QFrame(self.frame_4)
+        self.frame_40.setObjectName(u"frame_40")
+        self.frame_40.setFrameShape(QFrame.StyledPanel)
+        self.frame_40.setFrameShadow(QFrame.Raised)
+        self.gridLayout_30 = QGridLayout(self.frame_40)
+        self.gridLayout_30.setObjectName(u"gridLayout_30")
+        self.groupBox_33 = QGroupBox(self.frame_40)
+        self.groupBox_33.setObjectName(u"groupBox_33")
+        self.verticalLayout_45 = QVBoxLayout(self.groupBox_33)
+        self.verticalLayout_45.setObjectName(u"verticalLayout_45")
+        self.verticalLayout_43 = QVBoxLayout()
+        self.verticalLayout_43.setObjectName(u"verticalLayout_43")
+        self.verticalSpacer_4 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout_19.addItem(self.verticalSpacer_4)
+        self.verticalLayout_43.addItem(self.verticalSpacer_4)
 
-        self.btn_generar_factura = QPushButton(self.frame_4)
+        self.horizontalLayout_39 = QHBoxLayout()
+        self.horizontalLayout_39.setObjectName(u"horizontalLayout_39")
+        self.horizontalSpacer_35 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_39.addItem(self.horizontalSpacer_35)
+
+        self.groupBox_34 = QGroupBox(self.groupBox_33)
+        self.groupBox_34.setObjectName(u"groupBox_34")
+        self.gridLayout_31 = QGridLayout(self.groupBox_34)
+        self.gridLayout_31.setObjectName(u"gridLayout_31")
+        self.label_55 = QLabel(self.groupBox_34)
+        self.label_55.setObjectName(u"label_55")
+        font5 = QFont()
+        font5.setFamily(u"Georgia")
+        font5.setPointSize(30)
+        self.label_55.setFont(font5)
+
+        self.gridLayout_31.addWidget(self.label_55, 0, 0, 1, 1)
+
+
+        self.horizontalLayout_39.addWidget(self.groupBox_34)
+
+        self.horizontalSpacer_36 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_39.addItem(self.horizontalSpacer_36)
+
+
+        self.verticalLayout_43.addLayout(self.horizontalLayout_39)
+
+        self.verticalSpacer_20 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_43.addItem(self.verticalSpacer_20)
+
+
+        self.verticalLayout_45.addLayout(self.verticalLayout_43)
+
+        self.verticalLayout_44 = QVBoxLayout()
+        self.verticalLayout_44.setObjectName(u"verticalLayout_44")
+        self.horizontalLayout_41 = QHBoxLayout()
+        self.horizontalLayout_41.setObjectName(u"horizontalLayout_41")
+        self.horizontalSpacer_37 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_41.addItem(self.horizontalSpacer_37)
+
+        self.label_56 = QLabel(self.groupBox_33)
+        self.label_56.setObjectName(u"label_56")
+        font6 = QFont()
+        font6.setFamily(u"Georgia")
+        font6.setPointSize(20)
+        self.label_56.setFont(font6)
+
+        self.horizontalLayout_41.addWidget(self.label_56)
+
+        self.horizontalSpacer_38 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_41.addItem(self.horizontalSpacer_38)
+
+
+        self.verticalLayout_44.addLayout(self.horizontalLayout_41)
+
+        self.verticalSpacer_21 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout_44.addItem(self.verticalSpacer_21)
+
+        self.lineEdit_7 = QLineEdit(self.groupBox_33)
+        self.lineEdit_7.setObjectName(u"lineEdit_7")
+        self.lineEdit_7.setEnabled(False)
+        font7 = QFont()
+        font7.setFamily(u"Georgia")
+        font7.setPointSize(35)
+        self.lineEdit_7.setFont(font7)
+        self.lineEdit_7.setStyleSheet(u"background-color: rgb(249, 249, 249);")
+        self.lineEdit_7.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_44.addWidget(self.lineEdit_7)
+
+
+        self.verticalLayout_45.addLayout(self.verticalLayout_44)
+
+        self.btn_generar_factura = QPushButton(self.groupBox_33)
         self.btn_generar_factura.setObjectName(u"btn_generar_factura")
+        self.btn_generar_factura.setMinimumSize(QSize(200, 25))
         self.btn_generar_factura.setStyleSheet(u"QPushButton{\n"
 "	border-top-right-radius:10px;\n"
 "	border-bottom-left-radius:10px;\n"
@@ -2524,7 +2623,13 @@ class Ui_MainWindow(object):
 "	background-color: rgb(0, 85, 120);\n"
 "}")
 
-        self.verticalLayout_19.addWidget(self.btn_generar_factura)
+        self.verticalLayout_45.addWidget(self.btn_generar_factura)
+
+
+        self.gridLayout_30.addWidget(self.groupBox_33, 0, 0, 1, 1)
+
+
+        self.verticalLayout_42.addWidget(self.frame_40)
 
 
         self.verticalLayout_14.addWidget(self.frame_4)
@@ -3035,16 +3140,22 @@ class Ui_MainWindow(object):
         self.cbx_viajes_tipo_servicio.setItemText(1, QCoreApplication.translate("MainWindow", u"Salida", None))
 
         self.label_83.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"No. Desvios", None))
+        self.label_85.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None))
+        self.cbx_viajes_numero_desvios.setItemText(0, QCoreApplication.translate("MainWindow", u"0", None))
+        self.cbx_viajes_numero_desvios.setItemText(1, QCoreApplication.translate("MainWindow", u"1", None))
+        self.cbx_viajes_numero_desvios.setItemText(2, QCoreApplication.translate("MainWindow", u"2", None))
+        self.cbx_viajes_numero_desvios.setItemText(3, QCoreApplication.translate("MainWindow", u"3", None))
+        self.cbx_viajes_numero_desvios.setItemText(4, QCoreApplication.translate("MainWindow", u"4", None))
+
         self.cbx_viajes_tipo_km.setItemText(0, QCoreApplication.translate("MainWindow", u"Diurno", None))
         self.cbx_viajes_tipo_km.setItemText(1, QCoreApplication.translate("MainWindow", u"Nocturno", None))
 
-        self.label_85.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None))
+        self.label_84.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None))
         self.cbx_viajes_tipo_desvio.setItemText(0, QCoreApplication.translate("MainWindow", u"N/A", None))
         self.cbx_viajes_tipo_desvio.setItemText(1, QCoreApplication.translate("MainWindow", u"Diurno", None))
         self.cbx_viajes_tipo_desvio.setItemText(2, QCoreApplication.translate("MainWindow", u"Nocturno", None))
 
-        self.label_84.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None))
-        self.label_82.setText(QCoreApplication.translate("MainWindow", u"Costo", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
         ___qtablewidgetitem = self.tabla_viajes.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Folio", None));
@@ -3076,10 +3187,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem13.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
         self.groupBox_4.setTitle("")
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
-        self.cbx_buscar_viaje.setItemText(0, QCoreApplication.translate("MainWindow", u"Folio", None))
-        self.cbx_buscar_viaje.setItemText(1, QCoreApplication.translate("MainWindow", u"Conductor", None))
-        self.cbx_buscar_viaje.setItemText(2, QCoreApplication.translate("MainWindow", u"Empresa", None))
-
         self.ledt_buscar_viaje.setPlaceholderText(QCoreApplication.translate("MainWindow", u"000000000", None))
         self.btn_buscar_viaje.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
         self.groupBox_13.setTitle("")
@@ -3098,27 +3205,21 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem17 = self.tabla_historico.horizontalHeaderItem(3)
         ___qtablewidgetitem17.setText(QCoreApplication.translate("MainWindow", u"Hora fin", None));
         ___qtablewidgetitem18 = self.tabla_historico.horizontalHeaderItem(4)
-        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
+        ___qtablewidgetitem18.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None));
         ___qtablewidgetitem19 = self.tabla_historico.horizontalHeaderItem(5)
-        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
+        ___qtablewidgetitem19.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         ___qtablewidgetitem20 = self.tabla_historico.horizontalHeaderItem(6)
-        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None));
+        ___qtablewidgetitem20.setText(QCoreApplication.translate("MainWindow", u"Conductor", None));
         ___qtablewidgetitem21 = self.tabla_historico.horizontalHeaderItem(7)
-        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Kilometros", None));
+        ___qtablewidgetitem21.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
         ___qtablewidgetitem22 = self.tabla_historico.horizontalHeaderItem(8)
-        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Tipo Servicio", None));
+        ___qtablewidgetitem22.setText(QCoreApplication.translate("MainWindow", u"Empresa", None));
         ___qtablewidgetitem23 = self.tabla_historico.horizontalHeaderItem(9)
-        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None));
+        ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Tipo Km", None));
         ___qtablewidgetitem24 = self.tabla_historico.horizontalHeaderItem(10)
-        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
+        ___qtablewidgetitem24.setText(QCoreApplication.translate("MainWindow", u"Tipo desvio", None));
         self.groupBox_12.setTitle("")
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
-        self.cbx_buscar_historico.setItemText(0, QCoreApplication.translate("MainWindow", u"Folio", None))
-        self.cbx_buscar_historico.setItemText(1, QCoreApplication.translate("MainWindow", u"Fecha", None))
-        self.cbx_buscar_historico.setItemText(2, QCoreApplication.translate("MainWindow", u"No. Semana", None))
-        self.cbx_buscar_historico.setItemText(3, QCoreApplication.translate("MainWindow", u"Conductor", None))
-        self.cbx_buscar_historico.setItemText(4, QCoreApplication.translate("MainWindow", u"Empresa", None))
-
         self.ledt_buscar_historico.setPlaceholderText(QCoreApplication.translate("MainWindow", u"00/00/0000", None))
         self.btn_buscar_historico.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
         self.groupBox_31.setTitle("")
@@ -3148,9 +3249,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem30.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
         self.groupBox_30.setTitle("")
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
-        self.cbx_buscar_conductor_2.setItemText(0, QCoreApplication.translate("MainWindow", u"ID", None))
-        self.cbx_buscar_conductor_2.setItemText(1, QCoreApplication.translate("MainWindow", u"Nombre", None))
-
         self.ledt_buscar_conductor_2.setPlaceholderText(QCoreApplication.translate("MainWindow", u"T-00", None))
         self.btn_buscar_empresa.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
         self.groupBox_7.setTitle("")
@@ -3180,10 +3278,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem36.setText(QCoreApplication.translate("MainWindow", u"Eliminar", None));
         self.groupBox_10.setTitle("")
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
-        self.cbx_buscar_conductor.setItemText(0, QCoreApplication.translate("MainWindow", u"Unidad", None))
-        self.cbx_buscar_conductor.setItemText(1, QCoreApplication.translate("MainWindow", u"ID", None))
-        self.cbx_buscar_conductor.setItemText(2, QCoreApplication.translate("MainWindow", u"Nombre", None))
-
         self.ledt_buscar_conductor.setPlaceholderText(QCoreApplication.translate("MainWindow", u"T-00", None))
         self.btn_buscar_conductor.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
         self.groupBox_44.setTitle("")
@@ -3193,9 +3287,9 @@ class Ui_MainWindow(object):
         self.label_112.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Consulta a todos los conductores asi como todos los viajes que han realizado y el dinero que han generado.</p></body></html>", None))
         self.groupBox_47.setTitle(QCoreApplication.translate("MainWindow", u"Consulta", None))
         ___qtablewidgetitem37 = self.tabla_pagos.horizontalHeaderItem(0)
-        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"ID", None));
+        ___qtablewidgetitem37.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
         ___qtablewidgetitem38 = self.tabla_pagos.horizontalHeaderItem(1)
-        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Unidad", None));
+        ___qtablewidgetitem38.setText(QCoreApplication.translate("MainWindow", u"Fecha", None));
         ___qtablewidgetitem39 = self.tabla_pagos.horizontalHeaderItem(2)
         ___qtablewidgetitem39.setText(QCoreApplication.translate("MainWindow", u"KM diurno", None));
         ___qtablewidgetitem40 = self.tabla_pagos.horizontalHeaderItem(3)
@@ -3208,9 +3302,6 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem43.setText(QCoreApplication.translate("MainWindow", u"Costo", None));
         self.groupBox_48.setTitle("")
         self.label_121.setText(QCoreApplication.translate("MainWindow", u"Buscar por:", None))
-        self.cbx_buscar_conductor_pagos.setItemText(0, QCoreApplication.translate("MainWindow", u"Unidad", None))
-        self.cbx_buscar_conductor_pagos.setItemText(1, QCoreApplication.translate("MainWindow", u"ID", None))
-
         self.ledt_buscar_conductor_pagos.setPlaceholderText(QCoreApplication.translate("MainWindow", u"T-00", None))
         self.btn_buscar_conductor_pagos.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
         self.groupBox_45.setTitle("")
@@ -3222,6 +3313,10 @@ class Ui_MainWindow(object):
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">En esta secci\u00f3n, usted puede revisar el registro hist\u00f3rico de viajes.<br/>Se pueden buscar viajes espec\u00edficos en el apartado &quot;Buscar por&quot;.<br/>En este apartado solo se puede visualizar la informaci\u00f3n.</p></body></html>", None))
         self.groupBox_17.setTitle("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Factura a d\u00eda de: ", None))
+        self.groupBox_33.setTitle("")
+        self.groupBox_34.setTitle("")
+        self.label_55.setText(QCoreApplication.translate("MainWindow", u"TRABEN GDL", None))
+        self.label_56.setText(QCoreApplication.translate("MainWindow", u"Total", None))
         self.btn_generar_factura.setText(QCoreApplication.translate("MainWindow", u"Generar", None))
         self.groupBox_19.setTitle("")
         self.label_64.setText("")

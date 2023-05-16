@@ -277,25 +277,25 @@ class Ui_Form(object):
 
         self.verticalLayout_42.addLayout(self.horizontalLayout_32)
 
-        self.lineEdit_2 = QLineEdit(self.groupBox_33)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setEnabled(False)
-        self.lineEdit_2.setFont(font1)
-        self.lineEdit_2.setMouseTracking(False)
-        self.lineEdit_2.setAcceptDrops(False)
+        self.ledt_pasajeros_id_viaje = QLineEdit(self.groupBox_33)
+        self.ledt_pasajeros_id_viaje.setObjectName(u"ledt_pasajeros_id_viaje")
+        self.ledt_pasajeros_id_viaje.setEnabled(False)
+        self.ledt_pasajeros_id_viaje.setFont(font1)
+        self.ledt_pasajeros_id_viaje.setMouseTracking(False)
+        self.ledt_pasajeros_id_viaje.setAcceptDrops(False)
 #if QT_CONFIG(tooltip)
-        self.lineEdit_2.setToolTip(u"")
+        self.ledt_pasajeros_id_viaje.setToolTip(u"")
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
-        self.lineEdit_2.setWhatsThis(u"")
+        self.ledt_pasajeros_id_viaje.setWhatsThis(u"")
 #endif // QT_CONFIG(whatsthis)
 #if QT_CONFIG(accessibility)
-        self.lineEdit_2.setAccessibleDescription(u"")
+        self.ledt_pasajeros_id_viaje.setAccessibleDescription(u"")
 #endif // QT_CONFIG(accessibility)
-        self.lineEdit_2.setStyleSheet(u"color: rgb(255, 255, 255);")
-        self.lineEdit_2.setFrame(False)
+        self.ledt_pasajeros_id_viaje.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.ledt_pasajeros_id_viaje.setFrame(False)
 
-        self.verticalLayout_42.addWidget(self.lineEdit_2)
+        self.verticalLayout_42.addWidget(self.ledt_pasajeros_id_viaje)
 
         self.horizontalLayout_30 = QHBoxLayout()
         self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
@@ -365,12 +365,16 @@ class Ui_Form(object):
         self.gridLayout_3 = QGridLayout(self.frame_6)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.tabla_pasajeros = QTableWidget(self.frame_6)
-        if (self.tabla_pasajeros.columnCount() < 2):
-            self.tabla_pasajeros.setColumnCount(2)
+        if (self.tabla_pasajeros.columnCount() < 4):
+            self.tabla_pasajeros.setColumnCount(4)
         __qtablewidgetitem = QTableWidgetItem()
         self.tabla_pasajeros.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tabla_pasajeros.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.tabla_pasajeros.setHorizontalHeaderItem(2, __qtablewidgetitem2)
+        __qtablewidgetitem3 = QTableWidgetItem()
+        self.tabla_pasajeros.setHorizontalHeaderItem(3, __qtablewidgetitem3)
         self.tabla_pasajeros.setObjectName(u"tabla_pasajeros")
         self.tabla_pasajeros.setMinimumSize(QSize(0, 239))
         self.tabla_pasajeros.setStyleSheet(u"QTableWidget{\n"
@@ -426,16 +430,20 @@ class Ui_Form(object):
         self.groupBox_32.setTitle("")
         self.label_14.setText("")
         self.label_88.setText(QCoreApplication.translate("Form", u"Nombre:  ", None))
-        self.btn_agregar_pasajero.setText(QCoreApplication.translate("Form", u"Agregar", None))
+        self.btn_agregar_pasajero.setText(QCoreApplication.translate("Form", u"Guardar", None))
         self.groupBox_33.setTitle("")
         self.label_32.setText("")
-        self.lineEdit_2.setPlaceholderText("")
+        self.ledt_pasajeros_id_viaje.setPlaceholderText("")
         self.label_97.setText(QCoreApplication.translate("Form", u"Destino:  ", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("Form", u"Consulta", None))
         ___qtablewidgetitem = self.tabla_pasajeros.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("Form", u"Nombre", None));
         ___qtablewidgetitem1 = self.tabla_pasajeros.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("Form", u"Destino", None));
+        ___qtablewidgetitem2 = self.tabla_pasajeros.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("Form", u"Actualizar", None));
+        ___qtablewidgetitem3 = self.tabla_pasajeros.horizontalHeaderItem(3)
+        ___qtablewidgetitem3.setText(QCoreApplication.translate("Form", u"Eliminar", None));
         self.groupBox_30.setTitle("")
     # retranslateUi
 

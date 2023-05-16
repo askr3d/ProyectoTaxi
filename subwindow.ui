@@ -451,7 +451,7 @@ QPushButton:hover{
 }</string>
                    </property>
                    <property name="text">
-                    <string>Agregar</string>
+                    <string>Guardar</string>
                    </property>
                   </widget>
                  </item>
@@ -576,7 +576,7 @@ QPushButton:hover{
                         </layout>
                        </item>
                        <item>
-                        <widget class="QLineEdit" name="lineEdit_2">
+                        <widget class="QLineEdit" name="ledt_pasajeros_id_viaje">
                          <property name="enabled">
                           <bool>false</bool>
                          </property>
@@ -777,6 +777,16 @@ QHeaderView::section{
                  <column>
                   <property name="text">
                    <string>Destino</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Actualizar</string>
+                  </property>
+                 </column>
+                 <column>
+                  <property name="text">
+                   <string>Eliminar</string>
                   </property>
                  </column>
                 </widget>
