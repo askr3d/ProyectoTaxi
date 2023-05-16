@@ -230,6 +230,24 @@ class MainWindow(QMainWindow):
         
         self.db.ingresar_viaje(fecha, conductor, hora_inicio, hora_fin, empresa, tipo_servicio, tipo_km, tipo_desvio, kilometros, costo)
         
+    def guardar_viaje(self):
+        # Convertir fecha de la interfaz a formato de postgre
+        selected_date_time = self.ui.dateTimeEdit.dateTime()
+        timestamp = selected_date_time.toSecsSinceEpoch()
+        date_time = datetime.datetime.fromtimestamp(timestamp)
+        fecha = date_time.date()
+        hora_inicio = self.ui.timeEdit_hora_inicio.time().toString("HH:mm")
+        hora_fin = self.ui.timeEdit_hora_fin.time().toString("HH:mm")
+        conductor = self.ui.ledt_viajes_conductor.text()
+        empresa = self.ui.abx_viajes_empresa.currentIndex()
+        tipo_servicio = self.ui.cbx_viajes_tipo_servicio.currentIndex()
+        tipo_km = self.ui.cbx_viajes_tipo_km.currentIndex()
+        tipo_desvio = self.ui.cbx_viajes_tipo_desvio.currentIndex()
+        kilometros = self.ui.ledt_viajes_kilometros.text()
+        costo = self.ui.ledt_viajes_costo.text()
+        
+        self.db.ingresar_viaje(fecha, conductor, hora_inicio, hora_fin, empresa, tipo_servicio, tipo_km, tipo_desvio, kilometros, costo)
+        
     def mostrar_viajes(self):
         # self.abrir_subventana()
         selected_date = self.ui.dateTimeEdit.date()
