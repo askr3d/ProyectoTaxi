@@ -225,7 +225,7 @@ BEGIN
 	
 	SELECT SUM(kilometros) INTO kmDiurno
 	FROM viajes
-	WHERE EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
+	WHERE status = 1 and EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
 			and ConductorId = unidad and TipoKilometroId = 1;
 	
     RETURN kmDiurno;
@@ -244,7 +244,7 @@ BEGIN
 	
 	SELECT SUM(kilometros) INTO kmNocturno
 	FROM viajes
-	WHERE EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
+	WHERE status = 1 and EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
 			and ConductorId = unidad and TipoKilometroId = 2;
 	
     RETURN kmNocturno;
@@ -265,7 +265,7 @@ BEGIN
 	FROM viajes
 	INNER JOIN desvios
 	ON viajes.folio = desvios.viajeId
-	WHERE EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
+	WHERE status = 1 and EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
 			and ConductorId = unidad and desvios.tipoDesvioId = 1;
 	
     RETURN desvioDiurno;
@@ -286,7 +286,7 @@ BEGIN
 	FROM viajes
 	INNER JOIN desvios
 	ON viajes.folio = desvios.viajeId
-	WHERE EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
+	WHERE status = 1 and EXTRACT(WEEK from viajes.Fecha) = fechaRangoInferior
 			and ConductorId = unidad and desvios.tipoDesvioId = 2;
 	
     RETURN desvioNocturno;
