@@ -17,14 +17,20 @@ CREATE DATABASE "ProyectoTaxis"
 drop view detalles_viajes, detalle_pagos;
 drop table autos, conductores, desvios, empresas, pagos, partidas, pasajeros, tipodesvio, tipokilometro, viajes;
 
+select * from detalles_viajes;
+
 CREATE TABLE valoresGlobales(
 	kmDiurno float,
 	kmNocturno float,
 	desvioDiurno float,
-	desvioNocturno float
+	desvioNocturno float,
+	porcentaje float
 );
 
-INSERT INTO valoresGlobales VALUES(10, 10, 10, 10);
+drop table valoresGlobales;
+delete from valoresGlobales;
+
+INSERT INTO valoresGlobales VALUES(10, 10, 10, 10, 0.8);
 
 CREATE TABLE Conductores(
 	Id varchar(15) not null,
@@ -124,6 +130,27 @@ CREATE TABLE Pasajeros(
 	primary key(Id, ViajeId)
 );
 
+CREATE TABLE conductores_historial(
+	unidad varchar(15),
+	nombre varchar(35),
+	numero varchar(15),
+	placa varchar(15),
+	fechaIngresado timestamp
+);
+
+SELECT * FROM conductores_historial;
+SELECT * FROM conductores;
+/*
+ALTER TABLE conductores_historial ENABLE TRIGGER ingresarConductor_trigger;
+INSERT INTO conductores_historial VALUES
+('TB-7', 'juan', '122312', 'abc2121', current_timestamp),
+('TB-20', 'carmen', '33112191', 'asd123', current_timestamp),
+('TB-19', 'ellis', '3312121', 'qwerty12', current_timestamp);
+DELETE FROM conductores_historial;
+SELECT conductores.*, autos.placas FROM conductores INNER JOIN autos ON autos.conductorid = conductores.id;
+DELETE FROM autos WHERE conductorId = 'TB-10';
+DELETE FROM conductores WHERE id = 'TB-10';*/
+
 --SELECT * FROM detalles_viajes WHERE status = 0;
 
 CREATE OR REPLACE VIEW detalles_viajes AS
@@ -145,73 +172,61 @@ ON viajes.folio = desvios.viajeId
 LEFT JOIN tipoDesvio
 ON desvios.tipoDesvioId = tipoDesvio.Id;
 
-CREATE OR REPLACE PROCEDURE ingresarConductor(nombreConductor varchar(35), unidadNumero int, numeroConductor varchar(15), placa varchar(15))
-LANGUAGE plpgsql
-AS $$
-DECLARE
-	Unidad varchar(15) := 'TB';
-BEGIN
-	Unidad := CONCAT(Unidad, unidadNumero);
-	INSERT INTO Conductores(id, nombre, numero, activo) VALUES(Unidad, nombreConductor, numeroConductor, default);
-	INSERT INTO Autos VALUES(Unidad, placa);
-	
-END;
-$$
+delete from autos;
+delete from conductores;
 
-CREATE OR REPLACE PROCEDURE modificarConductor(idConductor varchar(15), nombreConductor varchar(35), unidadNumero int, numeroConductor varchar(15), placaConductor varchar(15))
-LANGUAGE plpgsql
-AS $$
+
+CREATE OR REPLACE FUNCTION ingresarConductor()
+RETURNS TRIGGER AS $$
 DECLARE
 	Unidad varchar(15) := 'TB-';
 BEGIN
-	Unidad := CONCAT(Unidad, unidadNumero);
-	UPDATE Autos
-	SET Placas = placaConductor
-	WHERE conductorId = idConductor;
+	Unidad := CONCAT(Unidad, NEW.unidad);	
+	NEW.unidad := Unidad;
+	NEW.fechaIngresado := current_timestamp;
+	INSERT INTO Conductores(id, nombre, numero, activo) VALUES(Unidad, NEW.nombre, NEW.numero, default);
+	INSERT INTO Autos VALUES (Unidad, NEW.placa);
 	
-	UPDATE Conductores
-	SET Nombre = nombreConductor, numero = numeroConductor, id = Unidad
-	WHERE id = idConductor;
-	
+	RETURN NEW;
 END;
-$$
+$$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE PROCEDURE eliminarViajes(folioId int)
-LANGUAGE plpgsql
-AS $$
+CREATE OR REPLACE TRIGGER ingresarConductor_trigger
+BEFORE INSERT ON conductores_historial
+FOR EACH ROW
+EXECUTE FUNCTION ingresarConductor();
+
+drop procedure ingresarConductor
+
+
+CREATE OR REPLACE FUNCTION modificarConductor()
+RETURNS TRIGGER AS $$
+DECLARE
+	Unidad varchar(15) := 'TB-';
 BEGIN
-	DELETE FROM Viajes
-	WHERE folio = folioId;
-
-	DELETE FROM Desvios
-	WHERE ViajeId = folioId;
-
-	DELETE FROM Pasajeros
-	WHERE ViajeId = folioId;
+	Unidad := CONCAT(Unidad, NEW.unidad);
+	
+	UPDATE Autos 
+	SET placas = NEW.placa 
+	WHERE conductorId = OLD.unidad;
+	
+	UPDATE Conductores 
+	SET nombre = NEW.nombre, numero = NEW.numero, id = Unidad
+	WHERE Id = OLD.unidad;
+	
+	NEW.unidad := Unidad;
+	
+	RETURN NEW;
 END;
-$$
+$$ LANGUAGE plpgsql;
+
+CREATE OR REPLACE TRIGGER modificarConducgor_trigger
+BEFORE UPDATE ON conductores_historial
+FOR EACH ROW
+EXECUTE FUNCTION modificarConductor();
 
 -- DROP PROCEDURE mostrarPagos
 
-CREATE OR REPLACE PROCEDURE mostrarPagos()
-LANGUAGE plpgsql
-AS $$
-DECLARE
-	resultado
-BEGIN
-	SELECT pagos.Unidad, pagos.FechaPago, funcionKmDiurno(conductores.Id, pagos.FechaPago),
-	funcionKmNocturno(conductores.Id, pagos.fechaPago),
-	pagos.Costo
-	INTO resultado
-	FROM viajes
-	INNER JOIN conductores
-	ON conductores.Id = viajes.conductorId
-	INNER JOIN pagos
-	ON conductores.Id = pagos.conductorId
-	GROUP BY pagos.fechaPago;
-	
-END;
-$$
 
 SELECT * FROM detalle_Pagos
 

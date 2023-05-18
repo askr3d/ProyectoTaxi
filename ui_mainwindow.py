@@ -261,7 +261,7 @@ class Ui_MainWindow(object):
         self.btn_pagos.setMaximumSize(QSize(16777215, 40))
         self.btn_pagos.setStyleSheet(u"color: rgb(255, 255, 255);")
         icon10 = QIcon()
-        icon10.addFile(u"../../SSPBD/Proyecto/Programa/images/dollar_1.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon10.addFile(u"images/888392.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_pagos.setIcon(icon10)
         self.btn_pagos.setIconSize(QSize(30, 30))
         self.btn_pagos.setCheckable(False)

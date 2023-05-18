@@ -58,7 +58,11 @@ class OperacionesDB():
     #Conductores
     def ingresar_conductor(self, nombre, unidad, numero, placa):
         cursor = self.conexion.cursor()
-        cursor.execute("CALL ingresarConductor(%s, %s, %s, %s)", (nombre, unidad, numero, placa))
+        query = '''
+                INSERT INTO conductores_historial(unidad, nombre, numero, placa)
+                VALUES ('{}', '{}', '{}', '{}');
+                '''.format(unidad, nombre, numero, placa)
+        cursor.execute(query)
         self.conexion.commit()
         cursor.close()
 
@@ -77,7 +81,12 @@ class OperacionesDB():
 
     def modificar_conductor(self, id, nombre, unidad, numero, placa):
         cursor = self.conexion.cursor()
-        cursor.execute("CALL modificarConductor(%s, %s, %s, %s, %s)", (id, nombre, unidad, numero, placa))
+        query = '''
+                UPDATE conductores_historial
+                SET unidad = '{}', nombre = '{}', numero = '{}', placa = '{}'
+                WHERE unidad = '{}'
+                '''.format(unidad, nombre, numero, placa, id)
+        cursor.execute(query)
         self.conexion.commit()
         cursor.close()
         
@@ -89,6 +98,7 @@ class OperacionesDB():
                     INNER JOIN autos
                     ON autos.conductorId = conductores.Id
                     WHERE activo = 1
+                    ORDER BY conductores.id
                     '''
         cursor.execute(query)
         conductores = cursor.fetchall()
