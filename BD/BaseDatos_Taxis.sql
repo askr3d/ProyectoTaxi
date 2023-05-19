@@ -73,12 +73,23 @@ CREATE TABLE Empresas(
 	primary key(Id)
 );
 
-/*
+SELECT * FROM Viajes WHERE Status = 0;
+
+SELECT * FROM Empresas;
+SELECT * FROM Empresas WHERE Status = 1 ORDER BY Id;
+SELECT conductores.*, Autos.Placas
+                    FROM conductores
+                    INNER JOIN autos
+                    ON autos.conductorId = conductores.Id
+                    WHERE activo = 1
+                    ORDER BY conductores.id;
+
 INSERT INTO Empresas(Nombre, Domicilio, Telefono)
-VALUES('Mercado Libre', 'El Salto', '332921292'),
-('Flex Norte', 'EL Salto', '33391912'),
-('Flex Sur', 'El Salto', '331313112')
-*/
+VALUES('IBM', 'El Verde', '338442123');
+INSERT INTO Empresas(Nombre, Domicilio, Telefono)
+VALUES ('BenchMark', 'Las Pintas', '422123431');
+
+
 
 
 CREATE TABLE TipoKilometro(
@@ -140,6 +151,7 @@ CREATE TABLE conductores_historial(
 
 SELECT * FROM conductores_historial;
 SELECT * FROM conductores;
+SELECT * FROM autos;
 /*
 ALTER TABLE conductores_historial ENABLE TRIGGER ingresarConductor_trigger;
 INSERT INTO conductores_historial VALUES
@@ -220,7 +232,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE TRIGGER modificarConducgor_trigger
+CREATE OR REPLACE TRIGGER modificarConductor_trigger
 BEFORE UPDATE ON conductores_historial
 FOR EACH ROW
 EXECUTE FUNCTION modificarConductor();

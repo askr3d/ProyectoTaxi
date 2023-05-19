@@ -228,7 +228,7 @@ class OperacionesDB():
 
     def mostrar_viajes(self):
         cursor = self.conexion.cursor()
-        query = "SELECT * FROM detalles_viajes WHERE status = 0"
+        query = "SELECT * FROM detalles_viajes WHERE status = 0 ORDER BY fecha desc"
         cursor.execute(query)
         viajes = cursor.fetchall()
         cursor.close()
