@@ -6,7 +6,7 @@ class OperacionesDB():
             self.conexion = psycopg2.connect(
                 host = 'localhost',
                 user = 'postgres',
-                password = '0123',
+                password = 'password',
                 database = 'ProyectoTaxis'
             )
         except:

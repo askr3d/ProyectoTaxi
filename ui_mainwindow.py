@@ -261,7 +261,7 @@ class Ui_MainWindow(object):
         self.btn_pagos.setMaximumSize(QSize(16777215, 40))
         self.btn_pagos.setStyleSheet(u"color: rgb(255, 255, 255);")
         icon10 = QIcon()
-        icon10.addFile(u"images/888392.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon10.addFile(u"../../SSPBD/Proyecto/Programa/images/dollar_1.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_pagos.setIcon(icon10)
         self.btn_pagos.setIconSize(QSize(30, 30))
         self.btn_pagos.setCheckable(False)
@@ -269,28 +269,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.btn_pagos)
 
-        self.btn_factura = QPushButton(self.frame_menu)
-        self.btn_factura.setObjectName(u"btn_factura")
-        self.btn_factura.setMinimumSize(QSize(0, 40))
-        self.btn_factura.setMaximumSize(QSize(16777215, 40))
-        self.btn_factura.setStyleSheet(u"color: rgb(255, 255, 255);")
-        icon11 = QIcon()
-        icon11.addFile(u"images/679769 (1).png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_factura.setIcon(icon11)
-        self.btn_factura.setIconSize(QSize(30, 30))
-        self.btn_factura.setCheckable(False)
-        self.btn_factura.setAutoExclusive(False)
-
-        self.verticalLayout_3.addWidget(self.btn_factura)
-
         self.btn_ajustes = QPushButton(self.frame_menu)
         self.btn_ajustes.setObjectName(u"btn_ajustes")
         self.btn_ajustes.setMinimumSize(QSize(0, 40))
         self.btn_ajustes.setMaximumSize(QSize(16777215, 40))
         self.btn_ajustes.setStyleSheet(u"color: rgb(255, 255, 255);")
-        icon12 = QIcon()
-        icon12.addFile(u"images/1077198.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.btn_ajustes.setIcon(icon12)
+        icon11 = QIcon()
+        icon11.addFile(u"images/1077198.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.btn_ajustes.setIcon(icon11)
         self.btn_ajustes.setIconSize(QSize(30, 30))
         self.btn_ajustes.setCheckable(False)
         self.btn_ajustes.setAutoExclusive(False)
@@ -1097,7 +1083,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem13 = QTableWidgetItem()
         self.tabla_viajes.setHorizontalHeaderItem(13, __qtablewidgetitem13)
         self.tabla_viajes.setObjectName(u"tabla_viajes")
-        self.tabla_viajes.setMinimumSize(QSize(0, 100))
+        self.tabla_viajes.setMinimumSize(QSize(0, 239))
         self.tabla_viajes.setStyleSheet(u"QTableWidget{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	color: rgb(0, 0, 0);\n"
@@ -2355,292 +2341,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_29.addLayout(self.verticalLayout_28)
 
         self.stackedWidget.addWidget(self.pg_pagos)
-        self.pg_factura = QWidget()
-        self.pg_factura.setObjectName(u"pg_factura")
-        self.verticalLayout_15 = QVBoxLayout(self.pg_factura)
-        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.frame_17 = QFrame(self.pg_factura)
-        self.frame_17.setObjectName(u"frame_17")
-        self.frame_17.setMinimumSize(QSize(0, 156))
-        self.frame_17.setMaximumSize(QSize(16777215, 156))
-        self.frame_17.setFrameShape(QFrame.StyledPanel)
-        self.frame_17.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_13 = QVBoxLayout(self.frame_17)
-        self.verticalLayout_13.setSpacing(0)
-        self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.verticalLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.groupBox_15 = QGroupBox(self.frame_17)
-        self.groupBox_15.setObjectName(u"groupBox_15")
-        self.groupBox_15.setMaximumSize(QSize(16777215, 156))
-        self.groupBox_15.setFont(font1)
-        self.groupBox_15.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(240, 240, 240, 255), stop:1 rgba(60, 115, 150, 255));\n"
-"border-top-left-radius:30px;\n"
-" border-bottom-right-radius:30px;\n"
-"")
-        self.horizontalLayout_14 = QHBoxLayout(self.groupBox_15)
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.label_51 = QLabel(self.groupBox_15)
-        self.label_51.setObjectName(u"label_51")
-        self.label_51.setMinimumSize(QSize(100, 100))
-        self.label_51.setMaximumSize(QSize(100, 100))
-        self.label_51.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);")
-        self.label_51.setPixmap(QPixmap(u"images/7385193.png"))
-        self.label_51.setScaledContents(True)
-
-        self.horizontalLayout_14.addWidget(self.label_51)
-
-        self.label_6 = QLabel(self.groupBox_15)
-        self.label_6.setObjectName(u"label_6")
-        self.label_6.setMinimumSize(QSize(150, 0))
-        self.label_6.setMaximumSize(QSize(81, 31))
-        self.label_6.setFont(font2)
-        self.label_6.setAutoFillBackground(False)
-        self.label_6.setStyleSheet(u"background-color: rgba(0, 0, 0, 0);\n"
-"color: rgb(0, 0, 0);")
-        self.label_6.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_14.addWidget(self.label_6)
-
-        self.horizontalSpacer_19 = QSpacerItem(607, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_14.addItem(self.horizontalSpacer_19)
-
-        self.label_52 = QLabel(self.groupBox_15)
-        self.label_52.setObjectName(u"label_52")
-        sizePolicy.setHeightForWidth(self.label_52.sizePolicy().hasHeightForWidth())
-        self.label_52.setSizePolicy(sizePolicy)
-        self.label_52.setMinimumSize(QSize(90, 90))
-        self.label_52.setMaximumSize(QSize(90, 90))
-        self.label_52.setStyleSheet(u"background-color: rgba(0, 0, 0,0);")
-        self.label_52.setPixmap(QPixmap(u"images/3997635.png"))
-        self.label_52.setScaledContents(True)
-        self.label_52.setAlignment(Qt.AlignCenter)
-
-        self.horizontalLayout_14.addWidget(self.label_52)
-
-
-        self.verticalLayout_13.addWidget(self.groupBox_15)
-
-
-        self.verticalLayout_15.addWidget(self.frame_17)
-
-        self.frame_29 = QFrame(self.pg_factura)
-        self.frame_29.setObjectName(u"frame_29")
-        self.frame_29.setMaximumSize(QSize(16777215, 90))
-        self.frame_29.setFrameShape(QFrame.StyledPanel)
-        self.frame_29.setFrameShadow(QFrame.Raised)
-        self.gridLayout_8 = QGridLayout(self.frame_29)
-        self.gridLayout_8.setSpacing(0)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.gridLayout_8.setContentsMargins(0, 0, 0, 0)
-        self.groupBox_25 = QGroupBox(self.frame_29)
-        self.groupBox_25.setObjectName(u"groupBox_25")
-        self.groupBox_25.setMinimumSize(QSize(0, 0))
-        self.groupBox_25.setMaximumSize(QSize(16777215, 90))
-        self.groupBox_25.setFont(font3)
-        self.groupBox_25.setStyleSheet(u"background-color: rgb(250, 250, 250);\n"
-"border:none;")
-        self.horizontalLayout_23 = QHBoxLayout(self.groupBox_25)
-        self.horizontalLayout_23.setSpacing(0)
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.horizontalLayout_23.setContentsMargins(0, 0, 0, 6)
-        self.label_42 = QLabel(self.groupBox_25)
-        self.label_42.setObjectName(u"label_42")
-        self.label_42.setMinimumSize(QSize(0, 0))
-        self.label_42.setMaximumSize(QSize(900, 90))
-        self.label_42.setStyleSheet(u"border-bottom-left-radius:50px;\n"
-" border-top-right-radius:50px;\n"
-"")
-
-        self.horizontalLayout_23.addWidget(self.label_42)
-
-
-        self.gridLayout_8.addWidget(self.groupBox_25, 0, 0, 1, 1)
-
-
-        self.verticalLayout_15.addWidget(self.frame_29)
-
-        self.frame_20 = QFrame(self.pg_factura)
-        self.frame_20.setObjectName(u"frame_20")
-        self.frame_20.setFrameShape(QFrame.StyledPanel)
-        self.frame_20.setFrameShadow(QFrame.Raised)
-        self.gridLayout_17 = QGridLayout(self.frame_20)
-        self.gridLayout_17.setObjectName(u"gridLayout_17")
-        self.gridLayout_17.setHorizontalSpacing(0)
-        self.gridLayout_17.setContentsMargins(0, 0, 0, -1)
-        self.groupBox_17 = QGroupBox(self.frame_20)
-        self.groupBox_17.setObjectName(u"groupBox_17")
-        self.groupBox_17.setFont(font3)
-        self.verticalLayout_14 = QVBoxLayout(self.groupBox_17)
-        self.verticalLayout_14.setObjectName(u"verticalLayout_14")
-        self.frame_3 = QFrame(self.groupBox_17)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMaximumSize(QSize(16777215, 43))
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_4 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.horizontalSpacer_6 = QSpacerItem(293, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_6)
-
-        self.label_2 = QLabel(self.frame_3)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setFont(font3)
-
-        self.horizontalLayout_4.addWidget(self.label_2)
-
-        self.dateEdit_2 = QDateEdit(self.frame_3)
-        self.dateEdit_2.setObjectName(u"dateEdit_2")
-        self.dateEdit_2.setFont(font3)
-        self.dateEdit_2.setWrapping(False)
-        self.dateEdit_2.setFrame(False)
-        self.dateEdit_2.setAlignment(Qt.AlignCenter)
-        self.dateEdit_2.setReadOnly(True)
-        self.dateEdit_2.setButtonSymbols(QAbstractSpinBox.NoButtons)
-
-        self.horizontalLayout_4.addWidget(self.dateEdit_2)
-
-        self.horizontalSpacer_3 = QSpacerItem(293, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_4.addItem(self.horizontalSpacer_3)
-
-
-        self.verticalLayout_14.addWidget(self.frame_3)
-
-        self.frame_4 = QFrame(self.groupBox_17)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_42 = QVBoxLayout(self.frame_4)
-        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
-        self.frame_40 = QFrame(self.frame_4)
-        self.frame_40.setObjectName(u"frame_40")
-        self.frame_40.setFrameShape(QFrame.StyledPanel)
-        self.frame_40.setFrameShadow(QFrame.Raised)
-        self.gridLayout_30 = QGridLayout(self.frame_40)
-        self.gridLayout_30.setObjectName(u"gridLayout_30")
-        self.groupBox_33 = QGroupBox(self.frame_40)
-        self.groupBox_33.setObjectName(u"groupBox_33")
-        self.verticalLayout_45 = QVBoxLayout(self.groupBox_33)
-        self.verticalLayout_45.setObjectName(u"verticalLayout_45")
-        self.verticalLayout_43 = QVBoxLayout()
-        self.verticalLayout_43.setObjectName(u"verticalLayout_43")
-        self.verticalSpacer_4 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_43.addItem(self.verticalSpacer_4)
-
-        self.horizontalLayout_39 = QHBoxLayout()
-        self.horizontalLayout_39.setObjectName(u"horizontalLayout_39")
-        self.horizontalSpacer_35 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_39.addItem(self.horizontalSpacer_35)
-
-        self.groupBox_34 = QGroupBox(self.groupBox_33)
-        self.groupBox_34.setObjectName(u"groupBox_34")
-        self.gridLayout_31 = QGridLayout(self.groupBox_34)
-        self.gridLayout_31.setObjectName(u"gridLayout_31")
-        self.label_55 = QLabel(self.groupBox_34)
-        self.label_55.setObjectName(u"label_55")
-        font5 = QFont()
-        font5.setFamily(u"Georgia")
-        font5.setPointSize(30)
-        self.label_55.setFont(font5)
-
-        self.gridLayout_31.addWidget(self.label_55, 0, 0, 1, 1)
-
-
-        self.horizontalLayout_39.addWidget(self.groupBox_34)
-
-        self.horizontalSpacer_36 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_39.addItem(self.horizontalSpacer_36)
-
-
-        self.verticalLayout_43.addLayout(self.horizontalLayout_39)
-
-        self.verticalSpacer_20 = QSpacerItem(20, 18, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_43.addItem(self.verticalSpacer_20)
-
-
-        self.verticalLayout_45.addLayout(self.verticalLayout_43)
-
-        self.verticalLayout_44 = QVBoxLayout()
-        self.verticalLayout_44.setObjectName(u"verticalLayout_44")
-        self.horizontalLayout_41 = QHBoxLayout()
-        self.horizontalLayout_41.setObjectName(u"horizontalLayout_41")
-        self.horizontalSpacer_37 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_41.addItem(self.horizontalSpacer_37)
-
-        self.label_56 = QLabel(self.groupBox_33)
-        self.label_56.setObjectName(u"label_56")
-        font6 = QFont()
-        font6.setFamily(u"Georgia")
-        font6.setPointSize(20)
-        self.label_56.setFont(font6)
-
-        self.horizontalLayout_41.addWidget(self.label_56)
-
-        self.horizontalSpacer_38 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout_41.addItem(self.horizontalSpacer_38)
-
-
-        self.verticalLayout_44.addLayout(self.horizontalLayout_41)
-
-        self.verticalSpacer_21 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout_44.addItem(self.verticalSpacer_21)
-
-        self.lineEdit_7 = QLineEdit(self.groupBox_33)
-        self.lineEdit_7.setObjectName(u"lineEdit_7")
-        self.lineEdit_7.setEnabled(False)
-        font7 = QFont()
-        font7.setFamily(u"Georgia")
-        font7.setPointSize(35)
-        self.lineEdit_7.setFont(font7)
-        self.lineEdit_7.setStyleSheet(u"background-color: rgb(249, 249, 249);")
-        self.lineEdit_7.setAlignment(Qt.AlignCenter)
-
-        self.verticalLayout_44.addWidget(self.lineEdit_7)
-
-
-        self.verticalLayout_45.addLayout(self.verticalLayout_44)
-
-        self.btn_generar_factura = QPushButton(self.groupBox_33)
-        self.btn_generar_factura.setObjectName(u"btn_generar_factura")
-        self.btn_generar_factura.setMinimumSize(QSize(200, 25))
-        self.btn_generar_factura.setStyleSheet(u"QPushButton{\n"
-"	border-top-right-radius:10px;\n"
-"	border-bottom-left-radius:10px;\n"
-"	background-color: rgb(60, 115, 120);\n"
-"	\n"
-"	color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover{\n"
-"	background-color: rgb(0, 85, 120);\n"
-"}")
-
-        self.verticalLayout_45.addWidget(self.btn_generar_factura)
-
-
-        self.gridLayout_30.addWidget(self.groupBox_33, 0, 0, 1, 1)
-
-
-        self.verticalLayout_42.addWidget(self.frame_40)
-
-
-        self.verticalLayout_14.addWidget(self.frame_4)
-
-
-        self.gridLayout_17.addWidget(self.groupBox_17, 0, 0, 1, 1)
-
-
-        self.verticalLayout_15.addWidget(self.frame_20)
-
-        self.stackedWidget.addWidget(self.pg_factura)
         self.pg_ajustes = QWidget()
         self.pg_ajustes.setObjectName(u"pg_ajustes")
         self.verticalLayout_18 = QVBoxLayout(self.pg_ajustes)
@@ -3096,7 +2796,6 @@ class Ui_MainWindow(object):
         self.btn_empresa.setText(QCoreApplication.translate("MainWindow", u"Empresa", None))
         self.btn_conductor.setText(QCoreApplication.translate("MainWindow", u"  Conductor", None))
         self.btn_pagos.setText(QCoreApplication.translate("MainWindow", u"  Pagos", None))
-        self.btn_factura.setText(QCoreApplication.translate("MainWindow", u"  Factura", None))
         self.btn_ajustes.setText(QCoreApplication.translate("MainWindow", u"  Ajustes", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Universidad de Guadalajara", None))
         self.groupBox_5.setTitle("")
@@ -3305,19 +3004,6 @@ class Ui_MainWindow(object):
         self.ledt_buscar_conductor_pagos.setPlaceholderText(QCoreApplication.translate("MainWindow", u"T-00", None))
         self.btn_buscar_conductor_pagos.setText(QCoreApplication.translate("MainWindow", u"   Buscar", None))
         self.groupBox_45.setTitle("")
-        self.groupBox_15.setTitle("")
-        self.label_51.setText("")
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"FACTURA", None))
-        self.label_52.setText("")
-        self.groupBox_25.setTitle("")
-        self.label_42.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">En esta secci\u00f3n, usted puede revisar el registro hist\u00f3rico de viajes.<br/>Se pueden buscar viajes espec\u00edficos en el apartado &quot;Buscar por&quot;.<br/>En este apartado solo se puede visualizar la informaci\u00f3n.</p></body></html>", None))
-        self.groupBox_17.setTitle("")
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Factura a d\u00eda de: ", None))
-        self.groupBox_33.setTitle("")
-        self.groupBox_34.setTitle("")
-        self.label_55.setText(QCoreApplication.translate("MainWindow", u"TRABEN GDL", None))
-        self.label_56.setText(QCoreApplication.translate("MainWindow", u"Total", None))
-        self.btn_generar_factura.setText(QCoreApplication.translate("MainWindow", u"Generar", None))
         self.groupBox_19.setTitle("")
         self.label_64.setText("")
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"AJUSTES", None))

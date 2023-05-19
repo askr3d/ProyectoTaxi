@@ -46,7 +46,6 @@ class MainWindow(QMainWindow):
         self.ui.btn_historico.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_historico), self.mostrar_historico_viajes()])
         self.ui.btn_conductor.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_conductor),self.mostrar_conductores()])
         self.ui.btn_pagos.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_pagos), self.mostrar_pagos()])
-        self.ui.btn_factura.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.pg_factura))
         self.ui.btn_ajustes.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_ajustes), self.mostrar_globales()])
         self.ui.btn_empresa.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_empresa), self.mostrar_empresas()])
         
@@ -81,8 +80,6 @@ class MainWindow(QMainWindow):
         # Pagos
         # Historico
  
-        # Factura
-        self.ui.btn_generar_factura.clicked.connect(self.generar_factura)
         # Ajustes
         self.ui.btn_actualizar_fecha.clicked.connect(self.actualizar_fecha)
         
@@ -173,7 +170,6 @@ class MainWindow(QMainWindow):
         self.ui.ledt_numero_semana.setText(str(numero_semana))
         self.ui.lineEdit_5.setText(self.ui.ledt_numero_semana.text())
         self.ui.lineEdit_6.setText(str(int(self.ui.ledt_numero_semana.text()) - 1))
-        self.ui.dateEdit_2.setDate(self.ui.ajustes_fecha_TimeEdit.date())
     
     def fecha_manual(self):
         if self.ui.checkBox.isChecked():
