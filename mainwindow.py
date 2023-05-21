@@ -1,7 +1,6 @@
 import os
 from ui_mainwindow import *
 from ui_subwindow import Ui_Form
-import psycopg2
 from PySide2 import QtCore, QtGui, QtWidgets
 from PySide2.QtCore import QPropertyAnimation
 
@@ -265,7 +264,7 @@ class MainWindow(QMainWindow):
         if (self.ui.cbx_viajes_numero_desvios.currentText() == "0" and self.ui.cbx_viajes_tipo_desvio.currentIndex() == 0) or \
         (self.ui.cbx_viajes_numero_desvios.currentText() != "0" and self.ui.cbx_viajes_tipo_desvio.currentIndex() != 0):
 
-            if kilometros != "":
+            if kilometros != "" and conductor != "" and empresa != "":
                 if id == "":
                     self.db.ingresar_viaje(fecha, conductor, hora_inicio, hora_fin, empresa, tipo_servicio, tipo_km, tipo_desvio, kilometros, costo)
                 else:
