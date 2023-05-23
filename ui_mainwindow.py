@@ -1097,7 +1097,7 @@ class Ui_MainWindow(object):
         __qtablewidgetitem13 = QTableWidgetItem()
         self.tabla_viajes.setHorizontalHeaderItem(13, __qtablewidgetitem13)
         self.tabla_viajes.setObjectName(u"tabla_viajes")
-        self.tabla_viajes.setMinimumSize(QSize(0, 239))
+        self.tabla_viajes.setMinimumSize(QSize(0, 100))
         self.tabla_viajes.setStyleSheet(u"QTableWidget{\n"
 "	background-color: rgb(255, 255, 255);\n"
 "	color: rgb(0, 0, 0);\n"

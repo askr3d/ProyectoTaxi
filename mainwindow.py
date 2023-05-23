@@ -17,6 +17,7 @@ class MainWindow(QMainWindow):
         self.costo_kilometro = 0
         self.db = OperacionesDB()
         self.actualizar_inicio()
+        
         # Crear una instancia de la subventana
         self.subventana = QDialog(self)
         self.subventana_ui = Ui_Form()
@@ -41,7 +42,7 @@ class MainWindow(QMainWindow):
         
         # Acceder a las paginas
         self.ui.btn_inicio.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_inicio), self.actualizar_inicio()])
-        self.ui.btn_viajes.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_viaje), self.mostrar_viajes(), self.llenar_datos_viajes()])
+        self.ui.btn_viajes.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_viaje), self.mostrar_globales(), self.mostrar_viajes(), self.llenar_datos_viajes()])
         self.ui.btn_historico.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_historico), self.mostrar_historico_viajes()])
         self.ui.btn_conductor.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_conductor),self.mostrar_conductores()])
         self.ui.btn_pagos.clicked.connect(lambda: [self.ui.stackedWidget.setCurrentWidget(self.ui.pg_pagos), self.mostrar_pagos()])
@@ -234,7 +235,7 @@ class MainWindow(QMainWindow):
         respuesta = QMessageBox.question(None, "Confirmación", "¿Estás seguro de finalizar el registro? \n esta acción no se puede revertir!")
         # Verificar la respuesta del usuario
         if respuesta == QMessageBox.Yes:
-            self.db.ingresarPago(float(int(self.ui.ledt_costo_conductores.text()) / 100))
+            self.db.ingresarPago()
             self.mostrar_viajes()
             
     def guardar_viaje(self):
@@ -308,6 +309,7 @@ class MainWindow(QMainWindow):
         i = len(viajes)
         
         self.ui.tabla_viajes.setRowCount(i)
+        self.ui.tabla_viajes.setVerticalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         tablerow = 0
         
         for row in viajes:
@@ -387,15 +389,16 @@ class MainWindow(QMainWindow):
         
         
     def actualizar_inicio(self):
-        semana_actual = int(self.ui.lineEdit_5.text()) + 1
-        semana_previa = int(self.ui.lineEdit_6.text()) + 1
+        semana_actual = int(self.ui.lineEdit_5.text())
+        semana_previa = int(self.ui.lineEdit_6.text())
         costo_conductores = self.db.costo_pagos_por_semana(str(semana_actual))
         costo_viajes = self.db.costo_viajes_por_semana(str(semana_previa))
         
-        self.ui.lineEdit_3.setText(str(costo_conductores[0]))
-        self.ui.lineEdit_2.setText(str(costo_viajes[0]))
-        total = float(str(costo_viajes[0])) - float(str(costo_conductores[0])) 
-        self.ui.lineEdit_4.setText(str(total))
+        if costo_conductores is not None and costo_viajes is not None:
+            self.ui.lineEdit_3.setText(str(costo_conductores[0]))
+            self.ui.lineEdit_2.setText(str(costo_viajes[0]))
+            total = float(str(costo_viajes[0])) - float(str(costo_conductores[0])) 
+            self.ui.lineEdit_4.setText(str(total))
             
     def guardar_pasajeros(self):
         id_viaje =  self.subventana_ui.ledt_pasajeros_id_viaje.text()
